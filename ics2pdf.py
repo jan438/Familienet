@@ -227,19 +227,17 @@ def processheader(textpar):
             mask = textpar[4:closingtagpos]
             processed = Paragraph(mask, style = matrixsumheadingStyle)
     elif dtheaeventpos > 0:
-        prm1 = "<font name=TrebuchetBold size=10>"
-        prm2 = "<font name=TrebuchetBold size=12>"
-        mask = splicedheader(textpar, prm1, prm2, dtheaeventpos)
+        mask = splicedheader(textpar, dtheaeventpos)
         processed = Paragraph(mask, style = matrixsumStyle)
     else:
         processed = Paragraph(textpar, style = matrixsumStyle)
     return processed
     
-def splicedheader(textpar, prm1, prm2, index):
+def splicedheader(textpar, index):
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
-    processed = prm1 + part1 + "</font>" + prm2 + part2 + "</font>"
+    processed = "<font name=TrebuchetBold size=10>" + part1 + "</font>" + "<font name=TrebuchetBold size=12>" + part2 + "</font>"
     return processed
 
 def fillWeekReports(first_week, countdays):
