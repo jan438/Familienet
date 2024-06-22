@@ -203,7 +203,7 @@ def lookupimage(imgcode):
     return I
     
 def combinecolumns(prm1, prm2):
-    processed = prm1 + "   " + prm2
+    processed = "<font name=TrebuchetBold textColor=red>" + prm1 + "</font>" + "   " + "<font name=TrebuchetBold textColor=blue>" + prm2 + "</font>"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
