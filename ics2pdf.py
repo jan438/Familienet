@@ -408,13 +408,10 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location)    
         matrixdaypar[matrixdayparindex].append(Paragraph(paragraph, matrixtimlocStyle))
-        
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        matrixdaypar[matrixdayparindex].append(Paragraph("   ", matrixdesStyle))
         if calimage is not None:
             matrixdaypar[matrixdayparindex].append(calimage)        
     matrixreps[indexreports].h[row][col].append(matrixdayhea[matrixdayheaindex])
