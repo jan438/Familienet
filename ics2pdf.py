@@ -36,8 +36,8 @@ linelocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialI
 linedesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Arial", fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
 linetimStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Arial", fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
 matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "TrebuchetBold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, leading = 8)
-matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "TrebuchetBold", fontSize = 10, spaceBefore = 0, spaceAfter = 0, textColor = green, leading = 8)
-matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Trebuchet", fontSize = 8, spaceBefore = 1, spaceAfter = 0, textColor = purple, leading = 8)
+matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "TrebuchetBold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, leading = 8)
+matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Trebuchet", fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, leading = 8)
 matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Trebuchet", fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, leading = 8)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
