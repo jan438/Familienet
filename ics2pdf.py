@@ -14,7 +14,7 @@ from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, pur
 from reportlab.pdfbase import pdfmetrics  
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT
 
@@ -414,6 +414,7 @@ def fillMatrixReports(countdays):
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
+            matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
             matrixdaypar[matrixdayparindex].append(calimage)        
     matrixreps[indexreports].h[row][col].append(matrixdayhea[matrixdayheaindex])
     matrixreps[indexreports].p[row][col].append(matrixdaypar[matrixdayparindex])
