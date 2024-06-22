@@ -197,9 +197,10 @@ def lookupimage(imgcode):
     newcalendar[190] = "keukenhof-lisse-molen.jpg"
     img = newcalendar[int(imgcode)]
     I = Image(img)
-    I.drawHeight = 0.75*inch
-    I.drawWidth = 0.75*inch
-    I.hAlign = 'CENTER'       
+    I.drawHeight = 0.95*inch
+    I.drawWidth = 0.95*inch
+    I.hAlign = 'CENTER'
+    I.topMargin = 5  
     return I
     
 def combinecolumns(prm1, prm2):
