@@ -203,7 +203,9 @@ def lookupimage(imgcode):
     return I
     
 def combinecolumns(prm1, prm2):
-    return(prm1 + "   " + prm2)
+    processed = prm1 + "   " + prm2
+    paragraph = Paragraph(processed, matrixtimlocStyle )
+    return paragraph
     
 def processdescription(textpar):
     calimage = None
@@ -409,7 +411,7 @@ def fillMatrixReports(countdays):
         paragraph = processheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location)    
-        matrixdaypar[matrixdayparindex].append(Paragraph(paragraph, matrixtimlocStyle))
+        matrixdaypar[matrixdayparindex].append(paragraph)
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
