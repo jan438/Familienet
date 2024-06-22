@@ -200,7 +200,7 @@ def lookupimage(imgcode):
     I.drawHeight = 0.95*inch
     I.drawWidth = 0.95*inch
     I.hAlign = 'CENTER'
-    I.topMargin = 5  
+    #I.topMargin = 5  
     return I
     
 def combinecolumns(prm1, prm2):
