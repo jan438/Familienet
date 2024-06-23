@@ -272,15 +272,9 @@ def fillMatrixReports(countdays):
                 if row == rowsmatrixreport:
                     row = 0
                     hcol0 = []
-                    hcol0.append(matrixreps[indexreports].h[0][0])
-                    hcol0.append(matrixreps[indexreports].p[0][0])
-                    hcol0.append(matrixreps[indexreports].h[1][0])
-                    hcol0.append(matrixreps[indexreports].p[1][0])
-                    hcol0.append(matrixreps[indexreports].h[2][0])
-                    hcol0.append(matrixreps[indexreports].p[2][0])
-                    hcol0.append(matrixreps[indexreports].h[3][0])
-                    hcol0.append(matrixreps[indexreports].p[3][0])
-
+                    for i in range(rowsmatrixreport):
+                        hcol0.append(matrixreps[indexreports].h[i][0])
+                        hcol0.append(matrixreps[indexreports].p[i][0])
                                        
                     
                     hcol1 = []
