@@ -21,9 +21,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 datecal = datetime.now()
 calfont = "Georgia"
 weekreps = []
-columslinereport = 3
 columsmatrixreport = 3
-rowslinereport = 3
 rowsmatrixreport = 4
 styles = getSampleStyleSheet()
 #styles.list()
@@ -32,10 +30,6 @@ weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "ArialB
 weeklocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialItalic", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Arial", fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
 weektimStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Arial", fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
-linesumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "ArialBold", fontSize = 12, textColor = green, leading = 8)
-linelocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialItalic", fontSize = 9, textColor = blue, leading = 8)
-linedesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Arial", fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
-linetimStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Arial", fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
 matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
 matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, alignment=TA_CENTER, leading = 8)
 matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
@@ -43,15 +37,6 @@ matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = ca
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
-('GRID',(1,1),(0,-1),3,green),
-('BOX',(0,0),(1,-1),5,red),
-('LINEABOVE',(1,2),(-2,2),1,blue),
-('LINEBEFORE',(2,1),(2,-2),1,pink),
-('FONTSIZE', (0, 1), (-1, 1), 10),
-('VALIGN',(0,0),(3,0),'BOTTOM'),
-('ALIGN',(0,0),(3,1),'CENTER')
-]
-lineStyle = [
 ('GRID',(1,1),(0,-1),3,green),
 ('BOX',(0,0),(1,-1),5,red),
 ('LINEABOVE',(1,2),(-2,2),1,blue),
@@ -91,47 +76,6 @@ class WeekReport:
                 self.h[i].pop()
             while len(self.p[i]) > 0:
                 self.p[i].pop()
-                
-class LineReport:
-    h0 =  [[] for col in range(columslinereport)]
-    p0 =  [[] for col in range(columslinereport)]
-    h1 =  [[] for col in range(columslinereport)]
-    p1 =  [[] for col in range(columslinereport)]
-    h2 =  [[] for col in range(columslinereport)]
-    p2 =  [[] for col in range(columslinereport)]
-
-    def append_Paragraph(self, col, row, paragraph, style):
-        textpar = Paragraph(paragraph, style)
-        if row == 0:
-            self.p0[col].append(textpar)
-        if row == 1:
-            self.p1[col].append(textpar)
-        if row == 2:
-            self.p2[col].append(textpar)
-
-    def append_Header(self, col, row, header, style):
-        headerpar = Paragraph(header, style)
-        if row == 0:
-            self.h0[col].append(headerpar)
-        if row == 1:
-            self.h1[col].append(headerpar)
-        if row == 2:
-            self.h2[col].append(headerpar)
-
-    def clear(self):
-        for i in range(columslinereport):
-            while len(self.h0[i]) > 0:
-                self.h0[i].pop()
-            while len(self.p0[i]) > 0:
-                self.p0[i].pop()
-            while len(self.h1[i]) > 0:
-                self.h1[i].pop()
-            while len(self.p1[i]) > 0:
-                self.p1[i].pop()
-            while len(self.h2[i]) > 0:
-                self.h2[i].pop()
-            while len(self.p2[i]) > 0:
-                self.p2[i].pop()
 
 class MatrixReport:
     h = [[0 for i in range(columsmatrixreport)] for j in range(rowsmatrixreport)] 
@@ -289,64 +233,6 @@ def fillWeekReports(first_week, countdays):
         weekreps[i].clear()
     return
     
-def fillLineReports(first_week, countdays):
-    linereps = []
-    countLineReports = math.ceil(countdays / columslinereport)
-    for i in range(countLineReports):
-        linereps.append(LineReport())
-    indexreports = 0
-    col = 0
-    row = 0
-    eventday = -1
-    headerplaced = False
-    linereportname = "Familienet" + str(indexreports) + ".pdf"
-    doc = SimpleDocTemplate(linereportname, pagesize=landscape(A4))
-    storypdf=[]
-    for indexevents in range(len(monthevents)):
-        if eventday == -1:
-             eventday = monthevents[indexevents].dayyear
-        if eventday != monthevents[indexevents].dayyear:
-            col += 1
-            eventday = monthevents[indexevents].dayyear
-            headerplaced = False
-            if col == columslinereport:
-                col = 0
-                row += 1
-                if row == rowslinereport:
-                    row = 0
-                    tbl_data = [
-[linereps[indexreports].h0[0], linereps[indexreports].h0[1], linereps[indexreports].h0[2]], [linereps[indexreports].p0[0], linereps[indexreports].p0[1], linereps[indexreports].p0[2]],
-[linereps[indexreports].h1[0], linereps[indexreports].h1[1], linereps[indexreports].h1[2]], [linereps[indexreports].p1[0], linereps[indexreports].p1[1], linereps[indexreports].p1[2]],
-[linereps[indexreports].h2[0], linereps[indexreports].h2[1], linereps[indexreports].h2[2]], [linereps[indexreports].p2[0], linereps[indexreports].p2[1], linereps[indexreports].p2[2]]
-                    ]
-                    tbl = Table(tbl_data, repeatRows=0, colWidths=[3.45*inch])
-                    tbl.setStyle(lineStyle)
-                    storypdf.append(tbl)
-                    doc.build(storypdf)
-                    linereps[indexreports].clear()
-                    indexreports += 1
-                    linereportname = "Familienet" + str(indexreports) + ".pdf"
-                    doc = SimpleDocTemplate(linereportname, pagesize=landscape(A4))
-                    storypdf=[]
-        if not headerplaced:
-            linereps[indexreports].append_Header(col, row, weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
-            headerplaced = True
-        linereps[indexreports].append_Paragraph(col, row, monthevents[indexevents].summary, linesumStyle)
-        linereps[indexreports].append_Paragraph(col, row, monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime, linetimStyle)
-        linereps[indexreports].append_Paragraph(col, row, monthevents[indexevents].location, linelocStyle)
-        linereps[indexreports].append_Paragraph(col, row, monthevents[indexevents].description, linedesStyle)
-    tbl_data = [
-    [linereps[indexreports].h0[0], linereps[indexreports].h0[1], linereps[indexreports].h0[2]], [linereps[indexreports].p0[0], linereps[indexreports].p0[1], linereps[indexreports].p0[2]],
-    [linereps[indexreports].h1[0], linereps[indexreports].h1[1], linereps[indexreports].h1[2]], [linereps[indexreports].p1[0], linereps[indexreports].p1[1], linereps[indexreports].p1[2]],
-    [linereps[indexreports].h2[0], linereps[indexreports].h2[1], linereps[indexreports].h2[2]], [linereps[indexreports].p2[0], linereps[indexreports].p2[1], linereps[indexreports].p2[2]],   
-    ]
-    tbl = Table(tbl_data, repeatRows=0, colWidths=[3.45*inch])
-    tbl.setStyle(lineStyle)
-    storypdf.append(tbl)
-    doc.build(storypdf)
-    linereps[indexreports].clear()
-    return
-
 def fillMatrixReports(countdays):
     matrixreps = []
     countmatrixReports = math.ceil(countdays / (rowsmatrixreport * columsmatrixreport))
@@ -539,7 +425,6 @@ pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
 #fillWeekReports(first_week, countdays)
-#fillLineReports(first_week, countdays)
 fillMatrixReports(countdays)
 merger = PdfWriter()
 for i in range(10):
