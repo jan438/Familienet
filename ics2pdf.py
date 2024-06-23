@@ -19,6 +19,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 datecal = datetime.now()
+calfont = "Georgia"
 weekreps = []
 columslinereport = 3
 columsmatrixreport = 3
@@ -35,10 +36,10 @@ linesumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "ArialB
 linelocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialItalic", fontSize = 9, textColor = blue, leading = 8)
 linedesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Arial", fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
 linetimStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Arial", fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
-matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "GeorgiaBold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
-matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "GeorgiaBold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, alignment=TA_CENTER, leading = 8)
-matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = "Georgia", fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
-matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = "Georgia", fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
+matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
+matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, alignment=TA_CENTER, leading = 8)
+matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
+matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -204,7 +205,7 @@ def lookupimage(imgcode):
     return I
     
 def combinecolumns(prm1, prm2):
-    processed = "<font name=GeorgiaBold textColor=red>" + prm1 + "</font>" + "   " + "<font name=GeorgiaBold textColor=blue>" + prm2 + "</font>"
+    processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
@@ -238,7 +239,7 @@ def splicedheader(textpar, index):
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
-    processed = "<font name=GeorgiaBold size=10>" + part1 + "</font>" + "<font name=GeorgiaBold size=12>" + part2 + "</font>"
+    processed = "<font name=GeorgiaBold size=10>" + part1 + "</font>" + "<font name=" + calfont + "Bold size=12>" + part2 + "</font>"
     return processed
 
 def fillWeekReports(first_week, countdays):
