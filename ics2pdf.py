@@ -276,32 +276,15 @@ def fillMatrixReports(countdays):
                         hcol0.append(matrixreps[indexreports].h[i][0])
                         hcol0.append(matrixreps[indexreports].p[i][0])
                                        
-                    
                     hcol1 = []
-                    hcol1.append(matrixreps[indexreports].h[0][1])
-                    hcol1.append(matrixreps[indexreports].p[0][1])
-                    hcol1.append(matrixreps[indexreports].h[1][1])
-                    hcol1.append(matrixreps[indexreports].p[1][1])
-                    hcol1.append(matrixreps[indexreports].h[2][1])
-                    hcol1.append(matrixreps[indexreports].p[2][1])
-                    hcol1.append(matrixreps[indexreports].h[3][1])
-                    hcol1.append(matrixreps[indexreports].p[3][1])
-
-
-                    
-                                        
+                    for i in range(rowsmatrixreport):                    
+                        hcol1.append(matrixreps[indexreports].h[i][1])
+                        hcol1.append(matrixreps[indexreports].p[i][1])
+               
                     hcol2 = []
-                    hcol2.append(matrixreps[indexreports].h[0][2])
-                    hcol2.append(matrixreps[indexreports].p[0][2])
-                    hcol2.append(matrixreps[indexreports].h[1][2])
-                    hcol2.append(matrixreps[indexreports].p[1][2])
-                    hcol2.append(matrixreps[indexreports].h[2][2])
-                    hcol2.append(matrixreps[indexreports].p[2][2])
-                    hcol2.append(matrixreps[indexreports].h[3][2])
-                    hcol2.append(matrixreps[indexreports].p[3][2])
-
-
-
+                    for i in range(rowsmatrixreport):                    
+                        hcol2.append(matrixreps[indexreports].h[i][2])
+                        hcol2.append(matrixreps[indexreports].p[i][2])
 
                     tbl_data = [
                      [hcol0, hcol1, hcol2]
