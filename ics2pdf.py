@@ -271,6 +271,8 @@ def fillMatrixReports(countdays):
                 row += 1
                 if row == rowsmatrixreport:
                     row = 0
+                    # hrow
+                    # prow
                     tbl_data = [
                      [matrixreps[indexreports].h[0][0], matrixreps[indexreports].h[0][1], matrixreps[indexreports].h[0][2]],
                      [matrixreps[indexreports].p[0][0], matrixreps[indexreports].p[0][1], matrixreps[indexreports].p[0][2]],
