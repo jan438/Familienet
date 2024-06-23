@@ -271,17 +271,46 @@ def fillMatrixReports(countdays):
                 row += 1
                 if row == rowsmatrixreport:
                     row = 0
-                    # hrow
-                    # prow
+                    hcol0 = []
+                    hcol0.append(matrixreps[indexreports].h[0][0])
+                    hcol0.append(matrixreps[indexreports].p[0][0])
+                    hcol0.append(matrixreps[indexreports].h[1][0])
+                    hcol0.append(matrixreps[indexreports].p[1][0])
+                    hcol0.append(matrixreps[indexreports].h[2][0])
+                    hcol0.append(matrixreps[indexreports].p[2][0])
+                    hcol0.append(matrixreps[indexreports].h[3][0])
+                    hcol0.append(matrixreps[indexreports].p[3][0])
+
+                                       
+                    
+                    hcol1 = []
+                    hcol1.append(matrixreps[indexreports].h[0][1])
+                    hcol1.append(matrixreps[indexreports].p[0][1])
+                    hcol1.append(matrixreps[indexreports].h[1][1])
+                    hcol1.append(matrixreps[indexreports].p[1][1])
+                    hcol1.append(matrixreps[indexreports].h[2][1])
+                    hcol1.append(matrixreps[indexreports].p[2][1])
+                    hcol1.append(matrixreps[indexreports].h[3][1])
+                    hcol1.append(matrixreps[indexreports].p[3][1])
+
+
+                    
+                                        
+                    hcol2 = []
+                    hcol2.append(matrixreps[indexreports].h[0][2])
+                    hcol2.append(matrixreps[indexreports].p[0][2])
+                    hcol2.append(matrixreps[indexreports].h[1][2])
+                    hcol2.append(matrixreps[indexreports].p[1][2])
+                    hcol2.append(matrixreps[indexreports].h[2][2])
+                    hcol2.append(matrixreps[indexreports].p[2][2])
+                    hcol2.append(matrixreps[indexreports].h[3][2])
+                    hcol2.append(matrixreps[indexreports].p[3][2])
+
+
+
+
                     tbl_data = [
-                     [matrixreps[indexreports].h[0][0], matrixreps[indexreports].h[0][1], matrixreps[indexreports].h[0][2]],
-                     [matrixreps[indexreports].p[0][0], matrixreps[indexreports].p[0][1], matrixreps[indexreports].p[0][2]],
-                     [matrixreps[indexreports].h[1][0], matrixreps[indexreports].h[1][1], matrixreps[indexreports].h[1][2]],
-                     [matrixreps[indexreports].p[1][0], matrixreps[indexreports].p[1][1], matrixreps[indexreports].p[1][2]],
-                     [matrixreps[indexreports].h[2][0], matrixreps[indexreports].h[2][1], matrixreps[indexreports].h[2][2]],    
-                     [matrixreps[indexreports].p[2][0], matrixreps[indexreports].p[2][1], matrixreps[indexreports].p[2][2]],
-                     [matrixreps[indexreports].h[3][0], matrixreps[indexreports].h[3][1], matrixreps[indexreports].h[3][2]],    
-                     [matrixreps[indexreports].p[3][0], matrixreps[indexreports].p[3][1], matrixreps[indexreports].p[3][2]]
+                     [hcol0, hcol1, hcol2]
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
                     tbl.setStyle(matrixStyle)
