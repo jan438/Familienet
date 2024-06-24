@@ -24,8 +24,8 @@ def process_alarms(line, pos):
     processed = line
     print("count alarms", len(pos))
     for i in range(len(pos), 0, -1):
-        print(i, "Process alarm", processed, "i", i, "start", pos[i-1])
-        endpos = processed.find( BEGINVALARM, pos[i-1])
+        endpos = processed.find(ENDVALARM, pos[i-1])
+        print(i, "Process alarm", processed, "i", i, "start", pos[i-1], "end", endpos)
         processed = process_alarm(processed, pos[i-1], endpos)
     return processed
             
