@@ -16,9 +16,9 @@ def find_all_occurrences(line, sub, f, t):
             current_index += len(sub)
             
 def process_alarm(line, pos, endpos):
-    print(pos, endpos, line[pos:endpos])
+    print("Alarm", pos, endpos, line[pos:endpos])
     processed = line
-    #processed = line[:pos] + line[endpos:]
+    #processed = line[:pos] + line[endpos+11:]
     return processed
 
 def process_alarms(line, pos):
