@@ -15,6 +15,16 @@ def find_all_occurrences(line, sub, f, t):
             index_of_occurrences.append(current_index)
             current_index += len(sub)
             
+def process_alarm(line, pos):
+    processed = line[:pos] + line[pos+36:]
+    return processed
+
+def process_alarms(line, pos):
+    processed = line
+    for i in range(len(pos), 0, -1):
+        processed = process_alarm(processed, pos[i-1])
+    return processed
+            
 def process_organizer(line, pos):
     processed = line[:pos] + line[pos+36:]
     return processed
@@ -56,7 +66,8 @@ inpfile = open(bup, 'rb')
 outfile = open(cleaned, 'wb')
 line = inpfile.read()
 BEGINVEVENT = "BEGIN:VEVENT".encode()
-BEGINALARM = "BEGIN:VALARM".encode()
+BEGINVALARM = "BEGIN:VALARM".encode()
+ENDVALARM = "END:VALARM".encode()
 SUMMARY = "SUMMARY".encode()
 DESCRIPTION = "DESCRIPTION".encode()
 LOCATION = "LOCATION".encode()
@@ -67,7 +78,7 @@ linebreak = '\r\n '.encode()
 backslash = "\\".encode()
 ORGANIZER = "ORGANIZER:mailto:local@newcalendar".encode()
 print("============", line, len(line))
-alarms = find_all_occurrences(line, BEGINALARM, 0, len(line))
+alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
 print("Alarms", alarms)
 organizers = find_all_occurrences(line, ORGANIZER, 0, len(line))
 line = process_organizers(line, organizers)
