@@ -22,6 +22,7 @@ def process_alarm(line, pos):
 def process_alarms(line, pos):
     processed = line
     for i in range(len(pos), 0, -1):
+        print(i, "Process alarm", line)
         processed = process_alarm(processed, pos[i-1])
     return processed
             
@@ -79,6 +80,7 @@ backslash = "\\".encode()
 ORGANIZER = "ORGANIZER:mailto:local@newcalendar".encode()
 print("============", line, len(line))
 alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
+line = process_alarms(line, alarms)
 print("Alarms", alarms)
 organizers = find_all_occurrences(line, ORGANIZER, 0, len(line))
 line = process_organizers(line, organizers)
