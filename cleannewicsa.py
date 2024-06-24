@@ -18,16 +18,13 @@ def find_all_occurrences(line, sub, f, t):
 def process_alarm(line, pos, endpos):
     print("Alarm", pos, endpos, line[pos:endpos+10])
     processed = line
-    #processed = line[:pos] + line[endpos+11:]
     return processed
 
 def process_alarms(line, pos):
     processed = line
     print("count alarms", len(pos))
-    for i in range(len(pos)):
-        alarmendpos = processed.find(ENDVALARM, pos[i])
-        print(i, "Process alarm", line, "i", i, "start", pos[i], "end", alarmendpos)
-        processed = process_alarm(processed, pos[i], alarmendpos)
+    for i in range(len(pos), 0, -1):
+        print(i, "Process alarm", line, "i", i, "start", pos[i-1])
     return processed
             
 def process_organizer(line, pos):
