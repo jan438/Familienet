@@ -47,6 +47,7 @@ if sys.platform[0] == 'w':
     outpath = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
 os.chdir(inppath)
 src = "NewCalendar.ics"
+src = "FamilienetAlarm.ics"
 #src = "KOrganizer.ics"
 bup = "Familienet.bup"
 cleaned = "Familienet.ics"
