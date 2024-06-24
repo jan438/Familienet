@@ -46,10 +46,7 @@ weekStyle = [
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
 matrixStyle = [
-('GRID',(1,1),(0,-1),3,green),
-('GRID',(2,1),(0,-1),3,green),
 ('BOX',(0,0),(-1,-1),3,red),
-('LINEBEFORE',(2,1),(2,-2),1,pink),
 ('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
