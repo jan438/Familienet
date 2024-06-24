@@ -15,8 +15,10 @@ def find_all_occurrences(line, sub, f, t):
             index_of_occurrences.append(current_index)
             current_index += len(sub)
             
-def process_alarm(line, pos):
-    processed = line[:pos] + line[pos+36:]
+def process_alarm(line, pos, endpos):
+    print(pos, endpos, line[pos:endpos])
+    processed = line
+    #processed = line[:pos] + line[endpos:]
     return processed
 
 def process_alarms(line, pos):
@@ -25,7 +27,7 @@ def process_alarms(line, pos):
     for i in range(len(pos)):
         alarmendpos = processed.find(ENDVALARM, pos[i])
         print(i, "Process alarm", line, "i", i, "start", pos[i], "end", alarmendpos)
-        #processed = process_alarm(processed, pos[i-1])
+        processed = process_alarm(processed, pos[i], alarmendpos)
     return processed
             
 def process_organizer(line, pos):
@@ -83,7 +85,6 @@ ORGANIZER = "ORGANIZER:mailto:local@newcalendar".encode()
 print("============", line, len(line))
 alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
 line = process_alarms(line, alarms)
-print("Alarms", alarms)
 organizers = find_all_occurrences(line, ORGANIZER, 0, len(line))
 line = process_organizers(line, organizers)
 neweventpos = line.find(BEGINVEVENT)
