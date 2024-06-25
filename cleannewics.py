@@ -16,7 +16,7 @@ def find_all_occurrences(line, sub, f, t):
             current_index += len(sub)
             
 def process_alarm(line, pos, endpos):
-    processed = line[:pos] + line[endpos+12:]
+    processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
 
 def process_alarms(line, pos):
