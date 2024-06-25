@@ -332,7 +332,9 @@ count = 0
 lastpos = 0
 alleventslines = []
 for line in in_file:
-    alarmpos = line.find("A[123]\t\n")
+    alarmpos = line.find("A[")
+    if alarmpos == 0:
+        print(alarmpos)
     newlinepos = line.find("\t\n")
     lastsubstring = line[lastpos:newlinepos]
     alleventslines.append(lastsubstring)
@@ -355,7 +357,7 @@ for i in range(countlines):
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
     endeventpos = alleventslines[i].find("END:VEVENT")
-    print("i", i, alleventslines[i])
+    #print("i", i, alleventslines[i])
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
