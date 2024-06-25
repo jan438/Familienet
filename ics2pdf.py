@@ -334,7 +334,7 @@ alleventslines = []
 for line in in_file:
     alarmpos = line.find("A[123]")
     if alarmpos == 0:
-        print(alarmpos, ord(line[6]) )
+        print(alarmpos, ord(line[6]), len(line))
     newlinepos = line.find("\t\n")
     lastsubstring = line[lastpos:newlinepos]
     alleventslines.append(lastsubstring)
