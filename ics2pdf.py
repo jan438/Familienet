@@ -94,7 +94,7 @@ class MatrixReport:
                     print(c)
     
 class FamilienetEvent:
-    def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month):
+    def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month, alarm):
         self.description = description
         self.summary = summary
         self.weekday = weekday
@@ -105,6 +105,7 @@ class FamilienetEvent:
         self.endtime = endtime
         self.dayyear = dayyear
         self.month = month
+        self.alarm = alarm
         
 def leapMonth(year, month):
     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
@@ -344,6 +345,7 @@ splitfirstw = False
 splitlastw = False
 countdays = 0
 last_day = -1
+alarm = False
 for i in range(countlines):
     neweventpos = alleventslines[i].find("BEGIN:VEVENT")
     summaryeventpos = alleventslines[i].find("SUMMARY")
@@ -353,7 +355,9 @@ for i in range(countlines):
     dtendeventpos = alleventslines[i].find("DTEND")
     dtalarmpos = alleventslines[i].find("[123]")
     if dtalarmpos > 0:
-        print("alarmpos", dtalarmpos)
+        alarm = True
+    else:
+        alarm = False
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
@@ -405,7 +409,7 @@ for i in range(countlines):
         eventlocation = alleventslines[i][9:]
         found += 1
         if found == 5:
-            monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month))
+            monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialItalic', 'Arial_Italic.ttf'))
