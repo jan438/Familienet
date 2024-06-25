@@ -353,11 +353,12 @@ for i in range(countlines):
     locationeventpos = alleventslines[i].find("LOCATION")
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
-    dtalarmpos = alleventslines[i].find("[123]")
-    if dtalarmpos > 0:
-        alarm = True
-    else:
-        alarm = False
+    endeventpos = alleventslines[i].find("END:VEVENT")
+#    dtalarmpos = alleventslines[i].find("[123]")
+#    if dtalarmpos > 0:
+#        alarm = True
+#    else:
+#        alarm = False
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
@@ -408,6 +409,8 @@ for i in range(countlines):
     if locationeventpos == 0:
         eventlocation = alleventslines[i][9:]
         found += 1
+    if endeventpos == 0:
+        print("END")
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
 print("Count events", len(monthevents))
