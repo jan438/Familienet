@@ -332,6 +332,7 @@ count = 0
 lastpos = 0
 alleventslines = []
 for line in in_file:
+    print(line)
     alarmpos = line.find("A[123]\n")
     if alarmpos == 0:
         print(alarmpos, ord(line[6]), len(line))
