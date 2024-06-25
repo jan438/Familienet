@@ -351,6 +351,9 @@ for i in range(countlines):
     locationeventpos = alleventslines[i].find("LOCATION")
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
+    dtalarmpos = alleventslines[i].find("[123]")
+    if dtalarmpos > 0:
+        print("alarmpos", dtalarmpos)
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
