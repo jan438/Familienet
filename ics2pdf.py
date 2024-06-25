@@ -334,7 +334,7 @@ alleventslines = []
 for line in in_file:
     alarmpos = line.find("A[123]")
     if alarmpos == 0:
-        print(alarmpos, line[5], line[6])
+        print(alarmpos, ord(line[6]), b'\xc2\xb5'.decode('utf-8'))
     newlinepos = line.find("\t\n")
     lastsubstring = line[lastpos:newlinepos]
     alleventslines.append(lastsubstring)
