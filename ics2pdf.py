@@ -354,6 +354,7 @@ for i in range(countlines):
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
     endeventpos = alleventslines[i].find("END:VEVENT")
+    print("i", i, alleventslines[i])
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
@@ -405,7 +406,6 @@ for i in range(countlines):
         eventlocation = alleventslines[i][9:]
         found += 1
     if endeventpos == 0:
-        print("END")
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
 print("Count events", len(monthevents))
