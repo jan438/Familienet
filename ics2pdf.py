@@ -151,7 +151,8 @@ def lookupimage(imgcode):
 def combinecolumns(prm1, prm2, alarm):
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
-        processed = processed + "A"
+        # alarm.gif
+        processed = processed + "   A60m"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
