@@ -332,10 +332,6 @@ count = 0
 lastpos = 0
 alleventslines = []
 for line in in_file:
-    print(line)
-    alarmpos = line.find("A[123]\n")
-    if alarmpos == 0:
-        print(alarmpos, ord(line[6]), len(line))
     newlinepos = line.find("\t\n")
     lastsubstring = line[lastpos:newlinepos]
     alleventslines.append(lastsubstring)
@@ -358,7 +354,7 @@ for i in range(countlines):
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
     endeventpos = alleventslines[i].find("END:VEVENT")
-    alampos = alleventslines[i].find("A[123]")
+    alarmpos = alleventslines[i].find("A[123]")
     #print("i", i, alleventslines[i])
     datevaluepos = -1
     if neweventpos == 0:
@@ -409,10 +405,15 @@ for i in range(countlines):
         found += 1
     if locationeventpos == 0:
         eventlocation = alleventslines[i][9:]
+        alarm = False
         found += 1
+    if alarmpos == 0:
+        alarm = True
+        print("found alarm")
     if endeventpos == 0:
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
+        alarm = False
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialItalic', 'Arial_Italic.ttf'))
