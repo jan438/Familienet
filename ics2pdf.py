@@ -148,11 +148,20 @@ def lookupimage(imgcode):
     #I.topMargin = 5  
     return I
     
+def lookupalarm(alarmtime):
+    img = "alarmgif"
+    I = Image(img)
+    I.drawHeight = 0.3*inch
+    I.drawWidth = 0.3*inch
+    I.hAlign = 'CENTER'
+    #I.topMargin = 5  
+    return I
+    
 def combinecolumns(prm1, prm2, alarm):
     alarmimage = None
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
-        # alarm.gif
+        alarmimage = lookupalarm("time")
         processed = processed + "   \x4160m"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return (paragraph, alarmimage)
