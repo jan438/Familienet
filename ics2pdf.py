@@ -358,6 +358,7 @@ for i in range(countlines):
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
     endeventpos = alleventslines[i].find("END:VEVENT")
+    alampos = alleventslines[i].find("A[123]")
     #print("i", i, alleventslines[i])
     datevaluepos = -1
     if neweventpos == 0:
