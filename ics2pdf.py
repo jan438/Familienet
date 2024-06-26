@@ -149,7 +149,10 @@ def lookupimage(imgcode):
     return I
     
 def lookupalarm(alarmtime):
-    img = "alarm.gif"
+    if alarmtime == "60":
+        img = "alarm.gif"
+    else:
+        img = "alarm.gif"
     I = Image(img)
     I.drawHeight = 0.3*inch
     I.drawWidth = 0.3*inch
@@ -161,7 +164,7 @@ def combinecolumns(prm1, prm2, alarm):
     alarmimage = None
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
-        alarmimage = lookupalarm("time")
+        alarmimage = lookupalarm("60")
         processed = processed + "   \x4160m"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return (paragraph, alarmimage)
@@ -313,8 +316,6 @@ def fillMatrixReports(countdays):
         matrixdaypar[matrixdayparindex].append(paragraph)
         if alarmimage is not None:
             matrixdaypar[matrixdayparindex].append(alarmimage)        
-        else:
-            print("no image")
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
