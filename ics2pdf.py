@@ -149,7 +149,7 @@ def lookupimage(imgcode):
     return I
     
 def lookupalarm(alarmtime):
-    img = "alarmgif"
+    img = "alarm.gif"
     I = Image(img)
     I.drawHeight = 0.3*inch
     I.drawWidth = 0.3*inch
@@ -312,7 +312,7 @@ def fillMatrixReports(countdays):
         (paragraph, alarmimage) = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)    
         matrixdaypar[matrixdayparindex].append(paragraph)
         if alarmimage is not None:
-            print("to place image")
+            matrixdaypar[matrixdayparindex].append(alarmimage)        
         else:
             print("no image")
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
