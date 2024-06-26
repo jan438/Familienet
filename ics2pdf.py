@@ -289,6 +289,7 @@ def fillMatrixReports(countdays):
                     matrixreportname = "Familienet" + str(indexreports) + ".pdf"
                     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4))
                     storypdf=[]
+        print(monthevents[indexevents].alarm)
         if not headerplaced:
             headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
@@ -409,7 +410,6 @@ for i in range(countlines):
         found += 1
     if alarmpos == 0:
         alarm = True
-        print("found alarm")
     if endeventpos == 0:
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
