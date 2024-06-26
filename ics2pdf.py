@@ -147,7 +147,9 @@ def lookupimage(imgcode):
     #I.topMargin = 5  
     return I
     
-def combinecolumns(prm1, prm2):
+def combinecolumns(prm1, prm2, alarm):
+    if alarm:
+        print("Alarm")
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
@@ -295,9 +297,7 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        if monthevents[indexevents].alarm:
-            print(monthevents[indexevents].summary)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location)    
+        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)    
         matrixdaypar[matrixdayparindex].append(paragraph)
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
