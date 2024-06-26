@@ -149,12 +149,13 @@ def lookupimage(imgcode):
     return I
     
 def combinecolumns(prm1, prm2, alarm):
+    alarmimage = None
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
         # alarm.gif
         processed = processed + "   \x4160m"
     paragraph = Paragraph(processed, matrixtimlocStyle )
-    return paragraph
+    return (paragraph, alarmimage)
     
 def processdescription(textpar):
     calimage = None
@@ -299,8 +300,12 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)    
+        (paragraph, alarmimage) = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)    
         matrixdaypar[matrixdayparindex].append(paragraph)
+        if alarmimage is not None:
+            print("to place image")
+        else:
+            print("no image")
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
