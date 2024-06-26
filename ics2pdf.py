@@ -3,6 +3,7 @@ import os
 import sys
 import re
 import math
+import unicodedata
 from pathlib import Path
 from datetime import datetime, date, timedelta
 from ics import Calendar, Event
