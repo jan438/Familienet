@@ -18,7 +18,7 @@ def find_all_occurrences(line, sub, f, t):
 def process_alarm(line, pos, endpos):
     alarmtext = line[pos:] + line[:endpos]
     decodedtext = alarmtext.decode("utf-8")
-    print("Trigger", len(alarmtext), decodedtext[0], decodedtext[1], decodedtext[2])
+    print("Trigger", len(alarmtext), decodedtext[25], decodedtext[26], decodedtext[27])
     processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
 
