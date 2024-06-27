@@ -161,7 +161,7 @@ def lookupalarm(alarmtime):
     return I
     
 def combinecolumns(prm1, prm2, alarm):
-    inlineimg = "<img src='alarm.gif' width='14' height='14' valign='-7'/>"
+    inlineimg = "<img src='n60.png' width='14' height='14' valign='-7'/>"
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
         processed = processed + inlineimg
