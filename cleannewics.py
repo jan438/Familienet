@@ -16,6 +16,8 @@ def find_all_occurrences(line, sub, f, t):
             current_index += len(sub)
             
 def process_alarm(line, pos, endpos):
+    alarmtext = line[:pos] + line[endpos:]
+    print("Trigger", alarmtext)
     processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
 
@@ -77,6 +79,7 @@ crlf = '\r\n'.encode()
 linebreak = '\r\n '.encode()
 backslash = "\\".encode()
 ORGANIZER = "ORGANIZER:mailto:local@newcalendar".encode()
+TRIGGER = "TRIGGER".encode()
 print("============", line, len(line))
 alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
 line = process_alarms(line, alarms)
