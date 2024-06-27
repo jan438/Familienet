@@ -161,13 +161,12 @@ def lookupalarm(alarmtime):
     return I
     
 def combinecolumns(prm1, prm2, alarm):
-    alarmimage = None
+    inlineimg = "<img src='alarm.gif' valign='+4'/>"
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
-        alarmimage = lookupalarm("60")
-        processed = processed + "   \x4160m"
+        processed = processed + inlineimg
     paragraph = Paragraph(processed, matrixtimlocStyle )
-    return (paragraph, alarmimage)
+    return paragraph
     
 def processdescription(textpar):
     calimage = None
@@ -312,11 +311,8 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        (paragraph, alarmimage) = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
-        f = Frame(inch, inch, inch, inch, showBoundary=1)    
+        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        if alarmimage is not None:
-            matrixdaypar[matrixdayparindex].append(alarmimage)        
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
