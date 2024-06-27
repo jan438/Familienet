@@ -19,7 +19,7 @@ def process_alarm(line, pos, endpos):
     alarmtext = line[pos:] + line[:endpos]
     decodedtext = alarmtext.decode("utf-8")
     alarmtime = decodedtext[25:28]
-    print("Trigger", len(alarmtext), alarmtime)
+    print("Trigger", alarmtime)
     processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
 
