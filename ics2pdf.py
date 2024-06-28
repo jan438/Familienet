@@ -424,9 +424,13 @@ for i in range(countlines):
     if alarmApos == 0:
         alarm = "A[123]"
     if alarmMpos == 0:
-        alarm = "M[123]"
+        if len(alarm) > 0:
+            alarm = alarm + "M[123]"
+        else:
+            alarm = "M[123]"
     if endeventpos == 0:
         if found == 5:
+            print(alarm, eventsummary)
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
         alarm = ""
 print("Count events", len(monthevents))
