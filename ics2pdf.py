@@ -148,15 +148,15 @@ def lookupimage(imgcode):
     #I.topMargin = 5  
     return I
     
-def lookupalarm(alarmtime):
-    if alarmtime == "60":
+def lookupalarm(alarm):
+    if alarm == "A[123]":
         img = "notification.png"
     else:
         img = "notification.png"
     return img
     
 def combinecolumns(prm1, prm2, alarm):
-    alarmimg = lookupalarm(60)
+    alarmimg = lookupalarm(alarm)
     inlineimg = "<img src=" + alarmimg + " width='10' height='10' valign='-2'/>"
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
@@ -357,7 +357,7 @@ splitfirstw = False
 splitlastw = False
 countdays = 0
 last_day = -1
-alarm = False
+alarm = ""
 for i in range(countlines):
     neweventpos = alleventslines[i].find("BEGIN:VEVENT")
     summaryeventpos = alleventslines[i].find("SUMMARY")
@@ -366,7 +366,8 @@ for i in range(countlines):
     dtstarteventpos = alleventslines[i].find("DTSTART")
     dtendeventpos = alleventslines[i].find("DTEND")
     endeventpos = alleventslines[i].find("END:VEVENT")
-    alarmpos = alleventslines[i].find("A[123]")
+    alarmApos = alleventslines[i].find("A[123]")
+    alarmMpos = alleventslines[i].find("M[123]")
     datevaluepos = -1
     if neweventpos == 0:
         found = 0
@@ -418,12 +419,14 @@ for i in range(countlines):
         eventlocation = alleventslines[i][9:]
         alarm = False
         found += 1
-    if alarmpos == 0:
-        alarm = True
+    if alarmApos == 0:
+        alarm = "A[123]"
+    if alarmMpos == 0:
+        alarm = "M[123]"
     if endeventpos == 0:
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
-        alarm = False
+        alarm = ""
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialItalic', 'Arial_Italic.ttf'))
