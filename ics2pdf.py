@@ -149,7 +149,6 @@ def lookupimage(imgcode):
     return I
     
 def lookupalarm(alarm):
-    print(alarm)
     if alarm == "A[123]":
         img = "bell.png"
     elif alarm == "M[123]":
