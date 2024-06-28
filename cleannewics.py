@@ -22,7 +22,8 @@ def process_alarm(line, pos, endpos):
     if alarmtime == "60M":
         processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     elif decodedtext[25] == 'S':
-        processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
+        print("Mail alert")
+        processed = line[:pos] + "M[123]".encode() + crlf + line[endpos+12:]
     else:
         processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
