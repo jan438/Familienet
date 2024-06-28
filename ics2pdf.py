@@ -150,14 +150,14 @@ def lookupimage(imgcode):
     
 def lookupalarm(alarmtime):
     if alarmtime == "60":
-        img = "bell.png"
+        img = "notification.png"
     else:
-        img = "bell.png"
+        img = "notification.png"
     return img
     
 def combinecolumns(prm1, prm2, alarm):
     alarmimg = lookupalarm(60)
-    inlineimg = "<img src=" + alarmimg + " width='10' height='10' valign='-4'/>"
+    inlineimg = "<img src=" + alarmimg + " width='10' height='10' valign='-2'/>"
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if alarm:
         processed = processed + "   " + inlineimg
