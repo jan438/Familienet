@@ -19,7 +19,6 @@ def process_alarm(line, pos, endpos):
     alarmtext = line[pos:] + line[:endpos]
     decodedtext = alarmtext.decode("utf-8")
     alarmtime = decodedtext[25:27]
-    print(alarmtime)
     if alarmtime == "60":
         processed = line[:pos] + "A[60]".encode() + crlf + line[endpos+12:]
     elif alarmtime == "15":
