@@ -18,12 +18,10 @@ def find_all_occurrences(line, sub, f, t):
 def process_alarm(line, pos, endpos):
     alarmtext = line[pos:] + line[:endpos]
     decodedtext = alarmtext.decode("utf-8")
-    alarmtime = decodedtext[25:28]
-    if alarmtime == "60M":
-        processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
-    elif decodedtext[25] == 'S':
-        print("Mail alert")
-        processed = line[:pos] + "M[123]".encode() + crlf + line[endpos+12:]
+    alarmtime = decodedtext[25:27]
+    print(alarmtime)
+    if alarmtime == "60":
+        processed = line[:pos] + "A[60]".encode() + crlf + line[endpos+12:]
     else:
         processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
     return processed
