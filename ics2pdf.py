@@ -149,23 +149,25 @@ def lookupimage(imgcode):
     return I
     
 def lookupalarm(alarm):
-    if alarm == "A[123]":
-        img = "bell.png"
-    elif alarm == "M[123]":
-        img = "notification.png"
-    else:
-        img = "notification.png"  
-    return img
+    img1 = None
+    img2 = None
+    img1 = "bell.png"
+    img2 = "notification.png"
+    return (img1, img2)
     
 def combinecolumns(prm1, prm2, alarm):
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
-        print(alarm)
-        if len(alarm) > 5:
-            print("combi", alarm)
-        alarmimg = lookupalarm(alarm)
-        inlineimg = "<img src=" + alarmimg + " width='10' height='10' valign='-2'/>"
-        processed = processed + "   " + inlineimg
+        (alarmimg1, alarmimg2) = lookupalarm(alarm)
+        if alarmimg1 is not None:
+            inlineimg1 = "<img src=" + alarmimg1 + " width='10' height='10' valign='-2'/>"
+        else:
+            inlineimg1 = ""
+        if alarmimg2 is not None:
+            inlineimg2 = "<img src=" + alarmimg2 + " width='10' height='10' valign='-2'/>"
+        else:
+            inlineimg2 = ""
+        processed = processed + "   " + inlineimg1 + inlineimg2
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
