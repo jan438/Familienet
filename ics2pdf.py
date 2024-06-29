@@ -161,6 +161,8 @@ def combinecolumns(prm1, prm2, alarm):
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
         print(alarm)
+        if len(alarm) > 5:
+            print("combi", alarm)
         alarmimg = lookupalarm(alarm)
         inlineimg = "<img src=" + alarmimg + " width='10' height='10' valign='-2'/>"
         processed = processed + "   " + inlineimg
