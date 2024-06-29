@@ -151,8 +151,12 @@ def lookupimage(imgcode):
 def lookupalarm(alarm):
     img1 = None
     img2 = None
-    img1 = "bell.png"
-    img2 = "notification.png"
+    if alarm[0] == 'A':
+        img1 = "bell.png"
+    elif alarm[0] == 'M':
+        img1 = "notification.png"
+    if len(alarm) > 5 and alarm[5] == 'M':
+        img2 = "notification.png"
     return (img1, img2)
     
 def combinecolumns(prm1, prm2, alarm):
