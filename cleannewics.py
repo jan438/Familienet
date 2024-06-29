@@ -22,8 +22,14 @@ def process_alarm(line, pos, endpos):
     print(alarmtime)
     if alarmtime == "60":
         processed = line[:pos] + "A[60]".encode() + crlf + line[endpos+12:]
+    elif alarmtime == "15":
+        processed = line[:pos] + "A[15]".encode() + crlf + line[endpos+12:]
+    elif alarmtime == "14":
+        processed = line[:pos] + "M[14]".encode() + crlf + line[endpos+12:]
+    elif alarmtime == "10":
+        processed = line[:pos] + "M[10]".encode() + crlf + line[endpos+12:]
     else:
-        processed = line[:pos] + "A[123]".encode() + crlf + line[endpos+12:]
+        processed = line[:pos] + "A[60]".encode() + crlf + line[endpos+12:]
     return processed
 
 def process_alarms(line, pos):
