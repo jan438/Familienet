@@ -427,7 +427,6 @@ for i in range(countlines):
     if alarmA1pos == 0:
         alarm = "A[15]"
     if alarmA2pos == 0:
-        print("A60 found")
         alarm = "A[60]"
     if alarmM1pos == 0:
         if len(alarm) > 0:
@@ -439,8 +438,6 @@ for i in range(countlines):
             alarm = alarm + "M[10]"
         else:
             alarm = "M[10]"
-    if len(alarm) > 0:
-        print(alarm)
     if endeventpos == 0:
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
