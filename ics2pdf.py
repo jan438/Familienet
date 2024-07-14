@@ -48,7 +48,6 @@ weekStyle = [
 ]
 matrixStyle = [
 ('BOX',(0,0),(-1,-1),3,red),
-('LINEABOVE',(1,2),(-2,2),1,blue),
 ('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
