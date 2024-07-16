@@ -218,27 +218,10 @@ def fillWeekReports(first_week, countdays):
         weekreportname = "Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
         storypdf=[]
-        weekreps[i].append_Header(0, weekdaynames[0] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(1, weekdaynames[1] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(2, weekdaynames[2] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(3, weekdaynames[3] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(4, weekdaynames[4] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(5, weekdaynames[5] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
-        weekreps[i].append_Header(6, weekdaynames[6] + " " + cal_day, headerStyle)
-        datecal += timedelta(days=1)
-        cal_day = str(int(str(datecal)[8:10]))
+        for j in range(7):
+            weekreps[i].append_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+            datecal += timedelta(days=1)
+            cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
             if i == monthevents[j].weeknr:
                 weekreps[monthevents[j].weeknr].append_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
@@ -462,8 +445,8 @@ pdfmetrics.registerFont(TTFont('TimesNewRomanBold', 'Times_New_Roman_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
-#fillWeekReports(first_week, countdays)
-fillMatrixReports(countdays)
+fillWeekReports(first_week, countdays)
+#fillMatrixReports(countdays)
 merger = PdfWriter()
 for i in range(10):
     if os.path.isfile("Familienet" + str(i) + ".pdf"):
