@@ -57,23 +57,23 @@ styles["Normal"].textColor = green
 styles["Normal"].fontSize = 8
     
 class WeekReport:
-    h =  [[] for _ in range(7)]
-    p =  [[] for _ in range(7)]
+    h0 =  [[] for _ in range(7)]
+    p0 =  [[] for _ in range(7)]
 
-    def append_Paragraph(self, wkd, paragraph, style):
+    def append0_Paragraph(self, wkd, paragraph, style):
         textpar = Paragraph(paragraph, style)
-        self.p[wkd].append(textpar)
+        self.p0[wkd].append(textpar)
     
-    def append_Header(self, wkd, header, style):
+    def append0_Header(self, wkd, header, style):
         headerpar = Paragraph(header, style)
-        self.h[wkd].append(headerpar)
+        self.h0[wkd].append(headerpar)
         
     def clear(self):
         for i in range(7):
-            while len(self.h[i]) > 0:
-                self.h[i].pop()
-            while len(self.p[i]) > 0:
-                self.p[i].pop()
+            while len(self.h0[i]) > 0:
+                self.h0[i].pop()
+            while len(self.p0[i]) > 0:
+                self.p0[i].pop()
 
 class MatrixReport:
     h = [[0 for i in range(columsmatrixreport)] for j in range(rowsmatrixreport)] 
@@ -219,17 +219,16 @@ def fillWeekReports(first_week, countdays):
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
         storypdf=[]
         for j in range(7):
-            weekreps[i].append_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+            weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
             if i == monthevents[j].weeknr:
-                weekreps[monthevents[j].weeknr].append_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
-                weekreps[monthevents[j].weeknr].append_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
-                weekreps[monthevents[j].weeknr].append_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
-                weekreps[monthevents[j].weeknr].append_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
-        tbl_data = [[weekreps[i].h[0], weekreps[i].h[1], weekreps[i].h[2], weekreps[i].h[3], weekreps[i].h[4], weekreps[i].h[5], weekreps[i].h[6]], [weekreps[i].p[0], weekreps[i].p[1], weekreps[i].p[2], weekreps[i].p[3], weekreps[i].p[4], weekreps[i].p[5], weekreps[i].p[6]]]
-        # BOX 1:leftabove 2:? 3:thickness 4:color GRID 1:leftabove 2:(hor, ver) 3:thickness 4:color
+                weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
+                weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
+                weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
+                weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
+        tbl_data = [[weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]], [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]]]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
         storypdf.append(tbl)
