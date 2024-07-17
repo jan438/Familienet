@@ -59,6 +59,8 @@ styles["Normal"].fontSize = 8
 class WeekReport:
     h0 =  [[] for _ in range(7)]
     p0 =  [[] for _ in range(7)]
+    h1 =  [[] for _ in range(7)]
+    p1 =  [[] for _ in range(7)]
 
     def append0_Paragraph(self, wkd, paragraph, style):
         textpar = Paragraph(paragraph, style)
@@ -68,12 +70,24 @@ class WeekReport:
         headerpar = Paragraph(header, style)
         self.h0[wkd].append(headerpar)
         
+    def append1_Paragraph(self, wkd, paragraph, style):
+        textpar = Paragraph(paragraph, style)
+        self.p1[wkd].append(textpar)
+    
+    def append1_Header(self, wkd, header, style):
+        headerpar = Paragraph(header, style)
+        self.h1[wkd].append(headerpar)
+
     def clear(self):
         for i in range(7):
             while len(self.h0[i]) > 0:
                 self.h0[i].pop()
             while len(self.p0[i]) > 0:
                 self.p0[i].pop()
+            while len(self.h1[i]) > 0:
+                self.h1[i].pop()
+            while len(self.p1[i]) > 0:
+                self.p1[i].pop()
 
 class MatrixReport:
     h = [[0 for i in range(columsmatrixreport)] for j in range(rowsmatrixreport)] 
