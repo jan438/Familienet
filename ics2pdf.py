@@ -223,9 +223,10 @@ def splicedheader(textpar, index):
 
 def fillWeekReports(first_week, countdays):
     weekreps = []
-    for i in range(last_week - first_week + 1):
+    countweekreps = math.ceil((last_week - first_week + 1) / 2)
+    for i in range(countweekreps):
         weekreps.append(WeekReport())
-    print("First", first_week, "last", last_week, len(weekreps))
+    print("First", first_week, "last", last_week, len(weekreps), countweekreps)
     d = str(year) + "-W" + str(first_week)
     datecal = datetime.strptime(d + '-1', '%G-W%V-%u')
     cal_day = str(int(str(datecal)[8:10]))
