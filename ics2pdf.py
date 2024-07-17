@@ -230,7 +230,7 @@ def fillWeekReports(first_week, countdays):
     d = str(year) + "-W" + str(first_week)
     datecal = datetime.strptime(d + '-1', '%G-W%V-%u')
     cal_day = str(int(str(datecal)[8:10]))
-    for i in range(last_week - first_week + 1):
+    for i in range(countweekreps):
         weekreportname = "Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
         storypdf=[]
