@@ -251,7 +251,7 @@ def fillWeekReports(first_week, countdays):
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
-            if i+1 == monthevents[j].weeknr:
+            if i == monthevents[j].weeknr:
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
@@ -267,7 +267,6 @@ def fillWeekReports(first_week, countdays):
         storypdf.append(tbl)
         doc.build(storypdf)
         weekreps[i].clear()
-        return
     return
     
 def fillMatrixReports(countdays):
