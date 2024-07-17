@@ -243,11 +243,15 @@ def fillWeekReports(first_week, countdays):
                 weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[monthevents[j].weeknr].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
-        # 2e week        
+        # 2e week
+        for j in range(7):
+            weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+            datecal += timedelta(days=1)
+            cal_day = str(int(str(datecal)[8:10]))
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
-        [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
+        [weekreps[i].h1[0], weekreps[i].h1[1], weekreps[i].h1[2], weekreps[i].h1[3], weekreps[i].h1[4], weekreps[i].h1[5], weekreps[i].h1[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]]
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
