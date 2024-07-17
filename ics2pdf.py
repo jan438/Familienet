@@ -225,6 +225,7 @@ def fillWeekReports(first_week, countdays):
     weekreps = []
     for i in range(last_week - first_week + 1):
         weekreps.append(WeekReport())
+    print("First", first_week, "last", last_week, len(weekreps))
     d = str(year) + "-W" + str(first_week)
     datecal = datetime.strptime(d + '-1', '%G-W%V-%u')
     cal_day = str(int(str(datecal)[8:10]))
@@ -248,11 +249,17 @@ def fillWeekReports(first_week, countdays):
             weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
+        for j in range(len(monthevents)):
+            if i+1 == monthevents[j].weeknr+1:
+                weekreps[monthevents[j].weeknr+1].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
+                weekreps[monthevents[j].weeknr+1].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
+                weekreps[monthevents[j].weeknr+1].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
+                weekreps[monthevents[j].weeknr+1].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
         [weekreps[i].h1[0], weekreps[i].h1[1], weekreps[i].h1[2], weekreps[i].h1[3], weekreps[i].h1[4], weekreps[i].h1[5], weekreps[i].h1[6]],
-        [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]]
+        [weekreps[i].p1[0], weekreps[i].p1[1], weekreps[i].p1[2], weekreps[i].p1[3], weekreps[i].p1[4], weekreps[i].p1[5], weekreps[i].p1[6]]
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
