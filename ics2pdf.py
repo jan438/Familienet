@@ -27,6 +27,7 @@ columsmatrixreport = 3
 rowsmatrixreport = 4
 styles = getSampleStyleSheet()
 #styles.list()
+titleStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "ArialBold", fontSize = 12, textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialItalic", fontSize = 9, textColor = blue, leading = 8)
@@ -265,7 +266,7 @@ def fillWeekReports(first_week, countdays):
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
-        title = Paragraph("Juli 2024", headerStyle)
+        title = Paragraph("Juli 2024", titleStyle)
         storypdf.append(title)
         storypdf.append(tbl)
         doc.build(storypdf)
