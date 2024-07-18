@@ -235,7 +235,6 @@ def fillWeekReports(first_week, countdays):
         weekreportname = "Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
         storypdf=[]
-        # 1e week
         for j in range(7):
             weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
             datecal += timedelta(days=1)
@@ -246,7 +245,6 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
-        # 2e week
         wk += 1
         if wk < last_week - first_week + 1:
             for j in range(7):
