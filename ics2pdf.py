@@ -37,6 +37,7 @@ matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName 
 matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, alignment=TA_CENTER, leading = 8)
 matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
 matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
+title = Paragraph("Juli 2024", titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -266,7 +267,6 @@ def fillWeekReports(first_week, countdays):
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
-        title = Paragraph("Juli 2024", titleStyle)
         storypdf.append(title)
         storypdf.append(tbl)
         doc.build(storypdf)
