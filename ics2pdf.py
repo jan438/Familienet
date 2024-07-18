@@ -19,6 +19,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image, Space
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
+startdate = date(1990,1,1)
 datecal = datetime.now()
 calfont = "Georgia"
 weekreps = []
