@@ -230,6 +230,7 @@ def fillWeekReports(first_week, countdays):
     d = str(year) + "-W" + str(first_week)
     datecal = datetime.strptime(d + '-1', '%G-W%V-%u')
     cal_day = str(int(str(datecal)[8:10]))
+    wk = 0
     for i in range(countweekreps):
         weekreportname = "Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
@@ -240,18 +241,19 @@ def fillWeekReports(first_week, countdays):
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
-            if i == monthevents[j].weeknr:
+            if wk == monthevents[j].weeknr:
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
         # 2e week
+        wk += 1
         for j in range(7):
             weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
-            if i == monthevents[j].weeknr:
+            if wk == monthevents[j].weeknr:
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
@@ -267,6 +269,7 @@ def fillWeekReports(first_week, countdays):
         storypdf.append(tbl)
         doc.build(storypdf)
         weekreps[i].clear()
+        wk += 1
     return
     
 def fillMatrixReports(countdays):
