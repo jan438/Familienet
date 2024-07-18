@@ -265,6 +265,8 @@ def fillWeekReports(first_week, countdays):
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
+        title = Paragraph("Juli 2024", headerStyle)
+        storypdf.append(title)
         storypdf.append(tbl)
         doc.build(storypdf)
         weekreps[i].clear()
