@@ -248,16 +248,17 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
         # 2e week
         wk += 1
-        for j in range(7):
-            weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
-            datecal += timedelta(days=1)
-            cal_day = str(int(str(datecal)[8:10]))
-        for j in range(len(monthevents)):
-            if wk == monthevents[j].weeknr:
-                weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
-                weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
-                weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
-                weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
+        if wk < last_week - first_week + 1:
+            for j in range(7):
+                weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+                datecal += timedelta(days=1)
+                cal_day = str(int(str(datecal)[8:10]))
+            for j in range(len(monthevents)):
+                if wk == monthevents[j].weeknr:
+                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
+                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
+                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
+                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
