@@ -187,6 +187,9 @@ def combinecolumns(prm1, prm2, alarm):
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
+def processwdescription(textpar):
+    print(textpar)
+    
 def processdescription(textpar):
     calimage = None
     dtimgeventpos = textpar.find("n[i")
@@ -239,6 +242,7 @@ def fillWeekReports(first_week, countdays):
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
             if wk == monthevents[j].weeknr:
+                processwdescription(monthevents[j].description)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
@@ -251,6 +255,7 @@ def fillWeekReports(first_week, countdays):
                 cal_day = str(int(str(datecal)[8:10]))
             for j in range(len(monthevents)):
                 if wk == monthevents[j].weeknr:
+                    processwdescription(monthevents[j].description)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
