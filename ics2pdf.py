@@ -41,12 +41,8 @@ title = Paragraph("Juni 2024", titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
-('GRID',(1,1),(0,-1),3,green),
-('BOX',(0,0),(1,-1),5,red),
-('LINEABOVE',(1,2),(-2,2),1,blue),
-('LINEBEFORE',(2,1),(2,-2),1,pink),
 ('FONTSIZE', (0, 1), (-1, 1), 10),
-('VALIGN',(0,0),(3,0),'BOTTOM'),
+('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
 matrixStyle = [
