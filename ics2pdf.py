@@ -40,6 +40,7 @@ matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = ca
 title = Paragraph("Juni 2024", titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
+calwimage = None
 weekStyle = [
 ('FONTSIZE', (0, 1), (-1, 1), 10),
 ('VALIGN',(0,0),(-1,-1),'TOP'),
@@ -188,7 +189,10 @@ def combinecolumns(prm1, prm2, alarm):
     return paragraph
     
 def processwdescription(textpar):
-    print(textpar)
+    dtimgeventpos = textpar.find("n[i")
+    if dtimgeventpos >= 0:
+        imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
+        print(textpar, imgcode)
     
 def processdescription(textpar):
     calimage = None
