@@ -265,6 +265,7 @@ def fillWeekReports(first_week, countdays):
                 countevents[monthevents[j].weekday] += 1
         (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
+            weekreps[0].p0[0].append(calwimage)
             print("image found", imgcode)
         key = input()
         wk += 1
@@ -284,6 +285,7 @@ def fillWeekReports(first_week, countdays):
                     countevents[monthevents[j].weekday] += 1
             (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
+                weekreps[0].p1[0].append(calwimage)
                 print("image found", imgcode)
             key = input()
         tbl_data = [
