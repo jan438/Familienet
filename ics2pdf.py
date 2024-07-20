@@ -198,8 +198,7 @@ def processwdescription(textpar):
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
         processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
-        calimage = lookupimage(imgcode)
-        calwimage = calimage
+        calwimage = lookupimage(imgcode)
         print(textpar, imgcode)
     
 def processdescription(textpar):
