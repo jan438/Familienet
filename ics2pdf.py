@@ -199,7 +199,7 @@ def processwdescription(textpar):
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
-        print(textpar, imgcode)
+        print("Process desc", textpar, imgcode)
         return imgcode
     
 def processdescription(textpar):
