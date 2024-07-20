@@ -246,6 +246,7 @@ def fillWeekReports(first_week, countdays):
         weekreportname = "Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
         storypdf=[]
+        imgcode = ""
         countevents = [0,0,0,0,0,0,0]
         for j in range(7):
             weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
@@ -253,7 +254,7 @@ def fillWeekReports(first_week, countdays):
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
             if wk == monthevents[j].weeknr:
-                imgode = processwdescription(monthevents[j].description)
+                imgcode = processwdescription(monthevents[j].description)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
@@ -272,7 +273,7 @@ def fillWeekReports(first_week, countdays):
                 cal_day = str(int(str(datecal)[8:10]))
             for j in range(len(monthevents)):
                 if wk == monthevents[j].weeknr:
-                    imgode = processwdescription(monthevents[j].description)
+                    imgcode = processwdescription(monthevents[j].description)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
