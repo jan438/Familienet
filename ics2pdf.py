@@ -190,7 +190,11 @@ def combinecolumns(prm1, prm2, alarm):
 def processimage(countevents, imgcode):
     index = 0
     calwimage = None
-    if len(imgcode) > 0 :
+    if len(imgcode) > 0:
+        minevents = 100
+        for d in range(7):
+            if countevents[d] < minevents:
+                index = d 
         calwimage = lookupimage(imgcode)
         print("ProcessImage", countevents, index, imgcode)
     return (index, calwimage)
@@ -265,7 +269,7 @@ def fillWeekReports(first_week, countdays):
                 countevents[monthevents[j].weekday] += 1
         (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
-            weekreps[i].p0[0].append(calwimage)
+            weekreps[i].p0[index].append(calwimage)
             print("image found", imgcode)
         key = input()
         wk += 1
@@ -285,7 +289,7 @@ def fillWeekReports(first_week, countdays):
                     countevents[monthevents[j].weekday] += 1
             (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
-                weekreps[i].p1[0].append(calwimage)
+                weekreps[i].p1[index].append(calwimage)
                 print("image found", imgcode)
             key = input()
         tbl_data = [
