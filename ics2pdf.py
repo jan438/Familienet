@@ -190,7 +190,8 @@ def combinecolumns(prm1, prm2, alarm):
     
 def processimage(countevents):
     print("ProcessImage", countevents)
-    return
+    index = 0
+    return (index, calwimage)
     
 def processwdescription(textpar):
     dtimgeventpos = textpar.find("n[i")
@@ -260,9 +261,9 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
-        processimage(countevents)
+        (index, calwimage) = processimage(countevents)
         if calwimage is not None:
-             weekreps[0].append(calwimage)
+             weekreps[index].append(calwimage)
         key = input()
         wk += 1
         if wk < last_week - first_week + 1:
@@ -279,9 +280,9 @@ def fillWeekReports(first_week, countdays):
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                     countevents[monthevents[j].weekday] += 1
-            processimage(countevents)
+            (index, calwimage) = processimage(countevents)
             if calwimage is not None:
-                weekreps[0].append(calwimage)
+                weekreps[index].append(calwimage)
             key = input()
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
