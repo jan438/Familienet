@@ -40,7 +40,6 @@ matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = ca
 title = Paragraph("Juni 2024", titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
-calwimage = None
 weekStyle = [
 ('FONTSIZE', (0, 1), (-1, 1), 10),
 ('VALIGN',(0,0),(-1,-1),'TOP'),
@@ -188,9 +187,10 @@ def combinecolumns(prm1, prm2, alarm):
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
-def processimage(countevents):
+def processimage(countevents, imgcode):
     index = 0
-    print("ProcessImage", countevents, index, calwimage)
+    calwimage = None
+    print("ProcessImage", countevents, index, imgcode)
     return (index, calwimage)
     
 def processwdescription(textpar):
@@ -260,7 +260,7 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
-        (index, calwimage) = processimage(countevents)
+        (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
              weekreps[index].append(calwimage)
         key = input()
@@ -279,7 +279,7 @@ def fillWeekReports(first_week, countdays):
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                     countevents[monthevents[j].weekday] += 1
-            (index, calwimage) = processimage(countevents)
+            (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
                 weekreps[index].append(calwimage)
             key = input()
