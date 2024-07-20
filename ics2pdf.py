@@ -261,6 +261,8 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
         placeimage(countevents)
+        if calwimage is not None:
+             weekreps[0].append(calwimage)
         key = input()
         wk += 1
         if wk < last_week - first_week + 1:
