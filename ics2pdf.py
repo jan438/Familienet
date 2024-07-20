@@ -190,17 +190,18 @@ def combinecolumns(prm1, prm2, alarm):
 def processimage(countevents, imgcode):
     index = 0
     calwimage = None
-    if imgcode is not None:
+    if len(imgcode) > 0 :
         calwimage = lookupimage(imgcode)
         print("ProcessImage", countevents, index, imgcode)
     return (index, calwimage)
     
 def processwdescription(textpar):
+    imgcode = ""
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
         print("Process desc", textpar, imgcode)
-        return imgcode
+    return imgcode
     
 def processdescription(textpar):
     calimage = None
