@@ -194,6 +194,7 @@ def processimage(countevents, imgcode):
         minevents = 100
         for d in range(7):
             if countevents[d] < minevents:
+                minevents = countevents[d]
                 index = d 
         calwimage = lookupimage(imgcode)
         print("ProcessImage", countevents, index, imgcode)
