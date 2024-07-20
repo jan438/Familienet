@@ -264,6 +264,8 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
         (index, calwimage) = processimage(countevents, imgcode)
+        if calwimage is not None:
+            print("image found", imgcode)
         key = input()
         wk += 1
         if wk < last_week - first_week + 1:
@@ -281,6 +283,8 @@ def fillWeekReports(first_week, countdays):
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                     countevents[monthevents[j].weekday] += 1
             (index, calwimage) = processimage(countevents, imgcode)
+            if calwimage is not None:
+                print("image found", imgcode)
             key = input()
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
