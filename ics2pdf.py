@@ -189,8 +189,8 @@ def combinecolumns(prm1, prm2, alarm):
     return paragraph
     
 def processimage(countevents):
-    print("ProcessImage", countevents)
     index = 0
+    print("ProcessImage", countevents, index, calwimage)
     return (index, calwimage)
     
 def processwdescription(textpar):
