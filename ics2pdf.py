@@ -188,8 +188,8 @@ def combinecolumns(prm1, prm2, alarm):
     paragraph = Paragraph(processed, matrixtimlocStyle )
     return paragraph
     
-def placeimage(countevents):
-    print("PlaceImage", countevents)
+def processimage(countevents):
+    print("ProcessImage", countevents)
     return
     
 def processwdescription(textpar):
@@ -260,7 +260,7 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
-        placeimage(countevents)
+        processimage(countevents)
         if calwimage is not None:
              weekreps[0].append(calwimage)
         key = input()
@@ -279,7 +279,7 @@ def fillWeekReports(first_week, countdays):
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                     countevents[monthevents[j].weekday] += 1
-            placeimage(countevents)
+            processimage(countevents)
             if calwimage is not None:
                 weekreps[0].append(calwimage)
             key = input()
