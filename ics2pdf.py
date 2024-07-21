@@ -197,7 +197,6 @@ def processimage(countevents, imgcode):
                 minevents = countevents[d]
                 index = d 
         calwimage = lookupimage(imgcode)
-        print("ProcessImage", countevents, index, imgcode)
     return (index, calwimage)
     
 def processwdescription(textpar):
@@ -205,7 +204,6 @@ def processwdescription(textpar):
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
-        print("Process desc", textpar, imgcode)
     return imgcode
     
 def processdescription(textpar):
@@ -262,7 +260,8 @@ def fillWeekReports(first_week, countdays):
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
             if wk == monthevents[j].weeknr:
-                imgcode = processwdescription(monthevents[j].description)
+                if imgcode == "":
+                    imgcode = processwdescription(monthevents[j].description)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
@@ -275,6 +274,7 @@ def fillWeekReports(first_week, countdays):
         key = input()
         wk += 1
         if wk < last_week - first_week + 1:
+            imgcode = ""
             countevents = [0,0,0,0,0,0,0]
             for j in range(7):
                 weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
@@ -282,7 +282,8 @@ def fillWeekReports(first_week, countdays):
                 cal_day = str(int(str(datecal)[8:10]))
             for j in range(len(monthevents)):
                 if wk == monthevents[j].weeknr:
-                    imgcode = processwdescription(monthevents[j].description)
+                    if imgcode == "":
+                        imgcode = processwdescription(monthevents[j].description)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].starttime + "-" + monthevents[j].endtime, weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
