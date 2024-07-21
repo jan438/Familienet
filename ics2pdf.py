@@ -199,7 +199,7 @@ def processimage(countevents, imgcode):
         calwimage = lookupimage(imgcode)
     return (index, calwimage)
     
-def processwtime(textpar):
+def processwtime(textpar, alarm):
     processed = textpar
     return processed
     
@@ -267,7 +267,7 @@ def fillWeekReports(first_week, countdays):
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime), weektimStyle)
+                weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                 countevents[monthevents[j].weekday] += 1
@@ -287,7 +287,7 @@ def fillWeekReports(first_week, countdays):
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
-                    weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime), weektimStyle)
+                    weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
                     countevents[monthevents[j].weekday] += 1
