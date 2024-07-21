@@ -232,7 +232,18 @@ def processdescription(textpar):
     else:
         paragraph = Paragraph(textpar, matrixdesStyle )
     return (paragraph, calimage)
-  
+
+def processwheader(textpar):
+    processed = textpar
+    dtheaeventpos = textpar.find("<h")
+    if dtheaeventpos == 0:
+        closingtagpos = textpar.find("</h")
+        if textpar[dtheaeventpos+2] == '3':
+            processed = textpar[4:closingtagpos]
+    elif dtheaeventpos > 0:
+        processed = splicedheader(textpar, dtheaeventpos)
+    return processed
+
 def processheader(textpar):
     dtheaeventpos = textpar.find("<h")
     if dtheaeventpos == 0:
@@ -277,7 +288,8 @@ def fillWeekReports(first_week, countdays):
             if wk == monthevents[j].weeknr:
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].summary, weeksumStyle)
+                processed = processwheader(monthevents[j].summary)
+                weekreps[i].append0_Paragraph(monthevents[j].weekday, processed, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
