@@ -242,6 +242,7 @@ def processwheader(textpar):
             processed = textpar[4:closingtagpos]
     elif dtheaeventpos > 0:
         processed = splicedheader(textpar, dtheaeventpos)
+    processed = Paragraph(processed, style = weeksumStyle)
     return processed
 
 def processheader(textpar):
@@ -289,8 +290,8 @@ def fillWeekReports(first_week, countdays):
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
                 index = monthevents[j].weekday
-                processed = processwheader(monthevents[j].summary)
-                weekreps[i].append0_Paragraph(index, processed, weeksumStyle)
+                paragraph = processwheader(monthevents[j].summary)
+                weekreps[i].p0[index].append(paragraph)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
@@ -311,8 +312,8 @@ def fillWeekReports(first_week, countdays):
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
                     index = monthevents[j].weekday
-                    processed = processwheader(monthevents[j].summary)
-                    weekreps[i].append1_Paragraph(index, processed, weeksumStyle)
+                    paragraph = processwheader(monthevents[j].summary)
+                    weekreps[i].p1[index].append(paragraph)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
