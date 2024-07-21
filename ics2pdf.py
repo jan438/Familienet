@@ -288,8 +288,9 @@ def fillWeekReports(first_week, countdays):
             if wk == monthevents[j].weeknr:
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
+                index = monthevents[j].weekday
                 processed = processwheader(monthevents[j].summary)
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, processed, weeksumStyle)
+                weekreps[i].append0_Paragraph(index, processed, weeksumStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
@@ -309,8 +310,9 @@ def fillWeekReports(first_week, countdays):
                 if wk == monthevents[j].weeknr:
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
+                    index = monthevents[j].weekday
                     processed = processwheader(monthevents[j].summary)
-                    weekreps[i].append1_Paragraph(monthevents[j].weekday, processed, weeksumStyle)
+                    weekreps[i].append1_Paragraph(index, processed, weeksumStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
