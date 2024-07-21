@@ -201,6 +201,17 @@ def processimage(countevents, imgcode):
     
 def processwtime(textpar, alarm):
     processed = textpar
+    if len(alarm) > 0:
+        (alarmimg1, alarmimg2) = lookupalarm(alarm)
+        if alarmimg1 is not None:
+            inlineimg1 = "<img src=" + alarmimg1 + " width='10' height='10' valign='-2'/>"
+        else:
+            inlineimg1 = ""
+        if alarmimg2 is not None:
+            inlineimg2 = "<img src=" + alarmimg2 + " width='10' height='10' valign='-2'/>"
+        else:
+            inlineimg2 = ""
+        processed = processed + "   " + inlineimg1 + inlineimg2
     return processed
     
 def processwdescription(textpar):
