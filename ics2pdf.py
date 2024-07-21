@@ -270,8 +270,6 @@ def fillWeekReports(first_week, countdays):
         (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
             weekreps[i].p0[index].append(calwimage)
-            print("image found", imgcode)
-        key = input()
         wk += 1
         if wk < last_week - first_week + 1:
             imgcode = ""
@@ -292,8 +290,6 @@ def fillWeekReports(first_week, countdays):
             (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
                 weekreps[i].p1[index].append(calwimage)
-                print("image found", imgcode)
-            key = input()
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
