@@ -61,10 +61,12 @@ class ColumnReport:
     p = [[] for _ in range(20)]
     
     def append_Paragraph(self, paragraph, style):
+        print(paragraph)
         textpar = Paragraph(paragraph, style)
         self.p.append(textpar)
 
     def append_Header(self, header, style):
+        print(header)
         headerpar = Paragraph(header, style)
         self.h.append(headerpar)
     
