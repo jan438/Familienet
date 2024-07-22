@@ -59,6 +59,12 @@ class ColumnReport:
     h = [[] for _ in range(20)]
     p = [[] for _ in range(20)]
     
+    def clear(self):
+        while len(self.h) > 0:
+            self.h.pop()
+        while len(self.p) > 0:
+            self.p.pop()
+    
 class WeekReport:
     h0 =  [[] for _ in range(7)]
     p0 =  [[] for _ in range(7)]
@@ -274,6 +280,11 @@ def splicedheader(textpar, index):
 
 def fillcolumnReports(countdays):
     print("fillcolumnReports", countdays)
+    columnreps = []
+    columnreps.append(ColumnReport())
+    i = 0
+    columnreportname = "Familienet" + str(i) + ".pdf"
+    columnreps[0].clear()
     return
     
 def fillWeekReports(first_week, countdays):
