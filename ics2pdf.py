@@ -54,6 +54,10 @@ styles["Normal"].alignment = TA_LEFT
 styles["Normal"].borderColor = red
 styles["Normal"].textColor = green
 styles["Normal"].fontSize = 8
+
+class ColumnReport:
+    h = [[] for _ in range(20)]
+    p = [[] for _ in range(20)]
     
 class WeekReport:
     h0 =  [[] for _ in range(7)]
@@ -268,6 +272,10 @@ def splicedheader(textpar, index):
     processed = "<font name=" + calfont + "Bold size=10>" + part1 + "</font>" + "<font name=" + calfont + "Bold size=12>" + part2 + "</font>"
     return processed
 
+def fillcolumnReports(countdays):
+    print("fillcolumnReports", countdays)
+    return
+    
 def fillWeekReports(first_week, countdays):
     weekreps = []
     countweekreps = math.ceil((last_week - first_week + 1) / 2)
@@ -546,11 +554,13 @@ pdfmetrics.registerFont(TTFont('TimesNewRomanBold', 'Times_New_Roman_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
-key = input("w or m")
+key = input("w or m or c")
 if key == 'w':
     fillWeekReports(first_week, countdays)
-else:
+elif key == 'm':
     fillMatrixReports(countdays)
+elif key == 'c':
+    fillcolumnReports(countdays)
 merger = PdfWriter()
 for i in range(10):
     if os.path.isfile("Familienet" + str(i) + ".pdf"):
