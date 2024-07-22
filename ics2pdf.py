@@ -9,7 +9,7 @@ from datetime import datetime, date, timedelta
 from ics import Calendar, Event
 from pypdf import PdfReader, PdfWriter
 from reportlab.pdfgen.canvas import Canvas
-from reportlab.lib.pagesizes import LETTER, A4, landscape
+from reportlab.lib.pagesizes import LETTER, A4, landscape, portrait
 from reportlab.lib.units import inch
 from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, purple, orange, yellow
 from reportlab.pdfbase import pdfmetrics  
@@ -37,6 +37,7 @@ matrixsumheadingStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName 
 matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 10, spaceBefore = 0, spaceAfter = 1, textColor = green, alignment=TA_CENTER, leading = 8)
 matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
 matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
+columnStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
 title = Paragraph("Juli 2024", titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
@@ -58,6 +59,14 @@ styles["Normal"].fontSize = 8
 class ColumnReport:
     h = [[] for _ in range(20)]
     p = [[] for _ in range(20)]
+    
+    def append_Paragraph(self, paragraph, style):
+        textpar = Paragraph(paragraph, style)
+        self.p.append(textpar)
+
+    def append_Header(self, header, style):
+        headerpar = Paragraph(header, style)
+        self.h.append(headerpar)
     
     def clear(self):
         while len(self.h) > 0:
@@ -284,7 +293,15 @@ def fillcolumnReports(countdays):
     columnreps.append(ColumnReport())
     i = 0
     columnreportname = "Familienet" + str(i) + ".pdf"
-    columnreps[0].clear()
+    doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4))
+    storypdf=[]
+    columnreps[i].append_Header("Header", headerStyle)
+    columnreps[i].append_Paragraph("Paragraph", columnStyle)
+    tbl_data = [[columnreps[i].h[0]], [columnreps[i].p[0]]]
+    tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
+    storypdf.append(tbl)
+    doc.build(storypdf)
+    columnreps[i].clear()
     return
     
 def fillWeekReports(first_week, countdays):
