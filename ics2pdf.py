@@ -546,8 +546,11 @@ pdfmetrics.registerFont(TTFont('TimesNewRomanBold', 'Times_New_Roman_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
-fillWeekReports(first_week, countdays)
-#fillMatrixReports(countdays)
+key = input("w or m")
+if key == 'w':
+    fillWeekReports(first_week, countdays)
+else:
+    fillMatrixReports(countdays)
 merger = PdfWriter()
 for i in range(10):
     if os.path.isfile("Familienet" + str(i) + ".pdf"):
