@@ -148,10 +148,12 @@ def weekDay(year, month, day):
     return round(dayOfWeek)
     
 def lookupimage(imgcode):
-    newcalendar = [[] for _ in range(200)]
+    newcalendar = [[] for _ in range(300)]
+    newcalendar[156] = "VivaLaFrance.jpg"
     newcalendar[171] = "MiniPrideWalk12juni-2.jpg"
     newcalendar[191] = "6617f09c1049a.jpg"
     newcalendar[190] = "keukenhof-lisse-molen.jpg"
+    newcalendar[266] = "AlpenWeide.jpeg"
     img = newcalendar[int(imgcode)]
     I = Image(img)
     I.drawHeight = 0.95*inch
