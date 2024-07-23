@@ -57,22 +57,15 @@ styles["Normal"].textColor = green
 styles["Normal"].fontSize = 8
 
 class ColumnReport:
-    h = []
-    p = []
+    d = []
     
     def append_Paragraph(self, paragraph, style):
         textpar = Paragraph(paragraph, style)
-        self.p.append(textpar)
-
-    def append_Header(self, header, style):
-        headerpar = Paragraph(header, style)
-        self.h.append(headerpar)
+        self.d.append(textpar)
     
     def clear(self):
-        while len(self.h) > 0:
-            self.h.pop()
-        while len(self.p) > 0:
-            self.p.pop()
+        while len(self.d) > 0:
+            self.d.pop()
     
 class WeekReport:
     h0 =  [[] for _ in range(7)]
@@ -291,20 +284,16 @@ def fillcolumnReports(countdays):
     print("fillcolumnReports", countdays)
     columnreps = []
     columnreps.append(ColumnReport())
-    columndayhea = []
-    columndayheaindex = 0
-    columndaypar = []
-    columndayparindex = 0
     i = 0
     columnreportname = "Familienet" + str(i) + ".pdf"
     doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
         print(monthevents[indexevents].summary)
-    columnreps[i].append_Header("Header", headerStyle)
+    columnreps[i].append_Paragraph("Header", headerStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
-    tbl_data = [[columnreps[i].h[0]], [columnreps[i].p[0]], [columnreps[i].p[1]]]
+    tbl_data = [[columnreps[i].d]]
     tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
     storypdf.append(tbl)
     doc.build(storypdf)
