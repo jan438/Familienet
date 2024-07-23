@@ -301,6 +301,8 @@ def fillcolumnReports(countdays):
     columnreportname = "Familienet" + str(i) + ".pdf"
     doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
+    for indexevents in range(len(monthevents)):
+        print(monthevents[indexevents].summary)
     columnreps[i].append_Header("Header", headerStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
