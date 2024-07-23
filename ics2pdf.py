@@ -299,7 +299,8 @@ def fillcolumnReports(countdays):
     storypdf=[]
     columnreps[i].append_Header("Header", headerStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
-    tbl_data = [[columnreps[i].h[0]], [columnreps[i].p[0]]]
+    columnreps[i].append_Paragraph("Paragraph", columnStyle)
+    tbl_data = [[columnreps[i].h[0]], [columnreps[i].p[0]], [columnreps[i].p[1]]]
     tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
     storypdf.append(tbl)
     doc.build(storypdf)
