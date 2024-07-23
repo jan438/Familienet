@@ -293,6 +293,10 @@ def fillcolumnReports(countdays):
     print("fillcolumnReports", countdays)
     columnreps = []
     columnreps.append(ColumnReport())
+    columndayhea = []
+    columndayheaindex = 0
+    columndaypar = []
+    columndayparindex = 0
     i = 0
     columnreportname = "Familienet" + str(i) + ".pdf"
     doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
