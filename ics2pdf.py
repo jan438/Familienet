@@ -297,6 +297,8 @@ def fillcolumnReports(countdays):
             columnreps[i].append_Paragraph(header, headerStyle)
             eventday = monthevents[indexevents].dayyear
         columnreps[i].append_Paragraph(monthevents[indexevents].summary, columnStyle)
+        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
+        columnreps[i].d.append(paragraph)
     tbl_data = [[columnreps[i].d]]
     tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
     storypdf.append(tbl)
