@@ -25,6 +25,7 @@ calfont = "Georgia"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
+rowscolumnreport = 20
 styles = getSampleStyleSheet()
 #styles.list()
 titleStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
@@ -283,15 +284,16 @@ def splicedheader(textpar, index):
 def fillcolumnReports(countdays):
     print("fillcolumnReports", countdays)
     columnreps = []
-    columnreps.append(ColumnReport())
+    countcolumnReports = math.ceil(countdays / rowscolumnreport)
+    for i in range(countcolumnReports):
+        columnreps.append(ColumnReport())
     i = 0
     columnreportname = "Familienet" + str(i) + ".pdf"
     doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     eventday = -1
+    rows = 0
     for indexevents in range(len(monthevents)):
-        if indexevents == 10:
-            break
         if eventday == -1 or eventday != monthevents[indexevents].dayyear:
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
             columnreps[i].append_Paragraph(header, headerStyle)
@@ -302,7 +304,10 @@ def fillcolumnReports(countdays):
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
-            columnreps[i].d.append(calimage)        
+            columnreps[i].d.append(calimage)
+        rows += 1
+        if rows == rowscolumnreport:
+            break
     tbl_data = [[columnreps[i].d]]
     tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
     storypdf.append(tbl)
