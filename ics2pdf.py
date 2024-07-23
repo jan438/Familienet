@@ -295,7 +295,7 @@ def fillcolumnReports(countdays):
     columnreps.append(ColumnReport())
     i = 0
     columnreportname = "Familienet" + str(i) + ".pdf"
-    doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4))
+    doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=72, leftMargin=72, topMargin=72, bottomMargin=18)
     storypdf=[]
     columnreps[i].append_Header("Header", headerStyle)
     columnreps[i].append_Paragraph("Paragraph", columnStyle)
