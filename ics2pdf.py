@@ -57,8 +57,8 @@ styles["Normal"].textColor = green
 styles["Normal"].fontSize = 8
 
 class ColumnReport:
-    h = [[] for _ in range(20)]
-    p = [[] for _ in range(20)]
+    h = []
+    p = []
     
     def append_Paragraph(self, paragraph, style):
         print(paragraph)
