@@ -432,7 +432,7 @@ def fillMatrixReports(countdays):
                     matrixreps[indexreports].clear()
                     indexreports += 1
                     matrixreportname = "Familienet" + str(indexreports) + ".pdf"
-                    doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4))
+                    doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
             headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
