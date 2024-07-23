@@ -318,7 +318,7 @@ def fillWeekReports(first_week, countdays):
     wk = 0
     for i in range(countweekreps):
         weekreportname = "Familienet" + str(i) + ".pdf"
-        doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4))
+        doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
         storypdf=[]
         imgcode = ""
         countevents = [0,0,0,0,0,0,0]
