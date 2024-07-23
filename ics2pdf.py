@@ -397,7 +397,7 @@ def fillMatrixReports(countdays):
     eventday = -1
     headerplaced = False
     matrixreportname = "Familienet" + str(indexreports) + ".pdf"
-    doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4))
+    doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
         if eventday == -1:
