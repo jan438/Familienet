@@ -25,7 +25,7 @@ calfont = "Georgia"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
-rowscolumnreport = 20
+rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
 titleStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
@@ -284,7 +284,8 @@ def splicedheader(textpar, index):
 def fillcolumnReports(countdays):
     print("fillcolumnReports", countdays)
     columnreps = []
-    countcolumnReports = math.ceil(countdays / rowscolumnreport)
+    countcolumnReports = 4
+    print(countcolumnReports)
     for i in range(countcolumnReports):
         columnreps.append(ColumnReport())
     i = 0
@@ -307,12 +308,16 @@ def fillcolumnReports(countdays):
             columnreps[i].d.append(calimage)
         rows += 1
         if rows == rowscolumnreport:
-            break
-    tbl_data = [[columnreps[i].d]]
-    tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
-    storypdf.append(tbl)
-    doc.build(storypdf)
-    columnreps[i].clear()
+            tbl_data = [[columnreps[i].d]]
+            tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
+            storypdf.append(tbl)
+            doc.build(storypdf)
+            columnreps[i].clear()
+            i += 1
+            storypdf=[]
+            columnreportname = "Familienet" + str(i) + ".pdf"
+            doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+            rows = 0
     return
     
 def fillWeekReports(first_week, countdays):
