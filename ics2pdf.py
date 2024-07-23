@@ -300,7 +300,7 @@ def fillcolumnReports(countdays):
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         columnreps[i].d.append(paragraph)
     tbl_data = [[columnreps[i].d]]
-    tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
+    tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
     storypdf.append(tbl)
     doc.build(storypdf)
     columnreps[i].clear()
