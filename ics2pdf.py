@@ -294,7 +294,9 @@ def fillcolumnReports(countdays):
     storypdf=[]
     eventday = -1
     rows = 0
+    openreport = False
     for indexevents in range(len(monthevents)):
+        openreport = True
         if eventday == -1 or eventday != monthevents[indexevents].dayyear:
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
             columnreps[i].append_Paragraph(header, headerStyle)
@@ -317,7 +319,15 @@ def fillcolumnReports(countdays):
             storypdf=[]
             columnreportname = "Familienet" + str(i) + ".pdf"
             doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+            eventday = -1
             rows = 0
+            openreport = False
+    if openreport:
+        tbl_data = [[columnreps[i].d]]
+        tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
+        storypdf.append(tbl)
+        doc.build(storypdf)
+        columnreps[i].clear()
     return
     
 def fillWeekReports(first_week, countdays):
