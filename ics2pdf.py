@@ -39,7 +39,8 @@ matrixsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfo
 matrixdesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 1, spaceAfter = 2, textColor = purple, alignment=TA_CENTER, leading = 8)
 matrixtimlocStyle = ParagraphStyle('tim', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
 columnStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
-title = Paragraph("Juli 2024", titleStyle)
+version = "Juli 2024"
+title = Paragraph(version, titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -622,7 +623,7 @@ for i in range(10):
         merger.append(inputpdf)
     else:
         break
-output = open("Totaal.pdf", "wb")
+output = open(version + ".pdf", "wb")
 merger.write(output)
 merger.close()
 output.close()
