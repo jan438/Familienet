@@ -306,7 +306,7 @@ def fillcolumnReports(countdays):
         (paragraph, calimage) = processdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
-            columnreps[i].d.append(calimage)
+            columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
