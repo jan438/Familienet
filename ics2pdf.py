@@ -313,6 +313,7 @@ def fillcolumnReports(countdays):
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
             tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
+            storypdf.append(title)
             storypdf.append(tbl)
             doc.build(storypdf)
             columnreps[i].clear()
@@ -326,6 +327,7 @@ def fillcolumnReports(countdays):
     if openreport:
         tbl_data = [[columnreps[i].d]]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
+        storypdf.append(title)
         storypdf.append(tbl)
         doc.build(storypdf)
         columnreps[i].clear()
