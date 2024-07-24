@@ -49,7 +49,6 @@ weekStyle = [
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
 matrixStyle = [
-('BOX',(0,0),(-1,-1),3,red),
 ('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
@@ -453,6 +452,7 @@ def fillMatrixReports(countdays):
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
                     tbl.setStyle(matrixStyle)
+                    storypdf.append(title)
                     storypdf.append(tbl)
                     doc.build(storypdf)
                     matrixreps[indexreports].clear()
@@ -487,6 +487,7 @@ def fillMatrixReports(countdays):
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
     tbl.setStyle(matrixStyle)
+    storypdf.append(title)
     storypdf.append(tbl)
     doc.build(storypdf)
     matrixreps[indexreports].clear()
