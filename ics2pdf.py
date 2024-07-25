@@ -236,9 +236,9 @@ def processcdescription(textpar):
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
         processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
         calimage = lookupimage(imgcode)
-        paragraph = Paragraph(processed, matrixdesStyle )
+        paragraph = Paragraph(processed, columndesStyle )
     else:
-        paragraph = Paragraph(textpar, matrixdesStyle )
+        paragraph = Paragraph(textpar, columndesStyle )
     return (paragraph, calimage)
     
 def processwdescription(textpar):
