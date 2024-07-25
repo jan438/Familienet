@@ -203,7 +203,7 @@ def lookupalarm(alarm):
         img2 = "notification.png"
     return (img1, img2)
     
-def combinecolumns(prm1, prm2, alarm):
+def combinecolumns(prm1, prm2, alarm, s):
     processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
         (alarmimg1, alarmimg2) = lookupalarm(alarm)
@@ -216,7 +216,7 @@ def combinecolumns(prm1, prm2, alarm):
         else:
             inlineimg2 = ""
         processed = processed + "   " + inlineimg1 + inlineimg2
-    paragraph = Paragraph(processed, matrixtimlocStyle )
+    paragraph = Paragraph(processed, s)
     return paragraph
     
 def processimage(countevents, imgcode):
@@ -340,7 +340,7 @@ def fillcolumnReports(countdays):
             columnreps[i].append_Paragraph(header, headerStyle)
             eventday = monthevents[indexevents].dayyear
         columnreps[i].append_Paragraph(processcheader(monthevents[indexevents].summary), columnsumStyle)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
+        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle)
         columnreps[i].d.append(paragraph)
         (paragraph, calimage) = processcdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
@@ -504,7 +504,7 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processmheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
+        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
         (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
