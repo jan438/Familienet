@@ -21,14 +21,14 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = date(1990,1,1)
 datecal = datetime.now()
-calfont = "Georgia"
+calfont = "Arial"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
 rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
-titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
+titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
@@ -42,7 +42,6 @@ columnsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfo
 columndesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 13, spaceBefore = 0, spaceAfter = 0, textColor = purple, alignment=TA_CENTER, leading = 8)
 columntimlocStyle = ParagraphStyle('timloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
 version = "Juli 2024"
-title = Paragraph(version, titleStyle)
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -349,7 +348,7 @@ def fillcolumnReports(countdays):
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
             tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
-            storypdf.append(title)
+            storypdf.append(Paragraph(version, titleStyle))
             storypdf.append(tbl)
             doc.build(storypdf)
             columnreps[i].clear()
@@ -363,7 +362,7 @@ def fillcolumnReports(countdays):
     if openreport:
         tbl_data = [[columnreps[i].d]]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[7.5*inch])
-        storypdf.append(title)
+        storypdf.append(Paragraph(version, titleStyle))
         storypdf.append(tbl)
         doc.build(storypdf)
         columnreps[i].clear()
@@ -432,7 +431,7 @@ def fillWeekReports(first_week, countdays):
         ]
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
-        storypdf.append(title)
+        storypdf.append(Paragraph(version, titleStyle))
         storypdf.append(tbl)
         doc.build(storypdf)
         weekreps[i].clear()
@@ -489,7 +488,7 @@ def fillMatrixReports(countdays):
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
                     tbl.setStyle(matrixStyle)
-                    storypdf.append(title)
+                    storypdf.append(Paragraph(version, titleStyle))
                     storypdf.append(tbl)
                     doc.build(storypdf)
                     matrixreps[indexreports].clear()
@@ -523,7 +522,7 @@ def fillMatrixReports(countdays):
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
     tbl.setStyle(matrixStyle)
-    storypdf.append(title)
+    storypdf.append(Paragraph(version, titleStyle))
     storypdf.append(tbl)
     doc.build(storypdf)
     matrixreps[indexreports].clear()
