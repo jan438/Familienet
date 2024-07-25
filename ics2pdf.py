@@ -28,7 +28,7 @@ rowsmatrixreport = 4
 rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
-titleStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
+titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = "ArialBold", fontSize = 12, textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('loc', parent=styles['Normal'], fontName = "ArialItalic", fontSize = 9, textColor = blue, leading = 8)
