@@ -624,13 +624,7 @@ pdfmetrics.registerFont(TTFont('TimesNewRomanBold', 'Times_New_Roman_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
-key = input("w or m or c")
-if key == 'w':
-    fillWeekReports(first_week, countdays)
-elif key == 'm':
-    fillMatrixReports(countdays)
-elif key == 'c':
-    fillcolumnReports(countdays)
+fillWeekReports(first_week, countdays)
 merger = PdfWriter()
 for i in range(10):
     if os.path.isfile("Familienet" + str(i) + ".pdf"):
@@ -638,11 +632,42 @@ for i in range(10):
         merger.append(inputpdf)
     else:
         break
-output = open(key + version + ".pdf", "wb")
+output = open('w' + version + ".pdf", "wb")
 merger.write(output)
 merger.close()
 output.close()
 for i in range(10):
     if os.path.isfile("Familienet" + str(i) + ".pdf"):
         os.remove("Familienet" + str(i) + ".pdf")
-
+fillMatrixReports(countdays)
+fillWeekReports(first_week, countdays)
+merger = PdfWriter()
+for i in range(10):
+    if os.path.isfile("Familienet" + str(i) + ".pdf"):
+        inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
+        merger.append(inputpdf)
+    else:
+        break
+output = open('m' + version + ".pdf", "wb")
+merger.write(output)
+merger.close()
+output.close()
+for i in range(10):
+    if os.path.isfile("Familienet" + str(i) + ".pdf"):
+        os.remove("Familienet" + str(i) + ".pdf")
+fillcolumnReports(countdays)
+fillWeekReports(first_week, countdays)
+merger = PdfWriter()
+for i in range(10):
+    if os.path.isfile("Familienet" + str(i) + ".pdf"):
+        inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
+        merger.append(inputpdf)
+    else:
+        break
+output = open('c' + version + ".pdf", "wb")
+merger.write(output)
+merger.close()
+output.close()
+for i in range(10):
+    if os.path.isfile("Familienet" + str(i) + ".pdf"):
+        os.remove("Familienet" + str(i) + ".pdf")
