@@ -228,6 +228,18 @@ def processwtime(textpar, alarm):
             inlineimg2 = ""
         processed = processed + "   " + inlineimg1 + inlineimg2
     return processed
+
+def processcdescription(textpar):
+    calimage = None
+    dtimgeventpos = textpar.find("n[i")
+    if dtimgeventpos >= 0:
+        imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
+        processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
+        calimage = lookupimage(imgcode)
+        paragraph = Paragraph(processed, matrixdesStyle )
+    else:
+        paragraph = Paragraph(textpar, matrixdesStyle )
+    return (paragraph, calimage)
     
 def processwdescription(textpar):
     imgcode = ""
@@ -304,7 +316,7 @@ def fillcolumnReports(countdays):
         columnreps[i].append_Paragraph(monthevents[indexevents].summary, columnsumStyle)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         columnreps[i].d.append(paragraph)
-        (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
+        (paragraph, calimage) = processcdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
