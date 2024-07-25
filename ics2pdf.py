@@ -625,7 +625,7 @@ for i in range(10):
         merger.append(inputpdf)
     else:
         break
-output = open(version + ".pdf", "wb")
+output = open(key + version + ".pdf", "wb")
 merger.write(output)
 merger.close()
 output.close()
