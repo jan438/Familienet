@@ -275,6 +275,17 @@ def processmdescription(textpar):
     else:
         paragraph = Paragraph(textpar, matrixdesStyle )
     return (paragraph, calimage)
+    
+def processcheader(textpar):
+    processed = textpar
+    dtheaeventpos = textpar.find("<h")
+    if dtheaeventpos == 0:
+        closingtagpos = textpar.find("</h")
+        if textpar[dtheaeventpos+2] == '3':
+            processed = textpar[4:closingtagpos]
+    elif dtheaeventpos > 0:
+        processed = splicedheader(textpar, dtheaeventpos)
+    return processed
 
 def processwheader(textpar):
     processed = textpar
@@ -327,7 +338,7 @@ def fillcolumnReports(countdays):
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
             columnreps[i].append_Paragraph(header, headerStyle)
             eventday = monthevents[indexevents].dayyear
-        columnreps[i].append_Paragraph(monthevents[indexevents].summary, columnsumStyle)
+        columnreps[i].append_Paragraph(processcheader(monthevents[indexevents].summary), columnsumStyle)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         columnreps[i].d.append(paragraph)
         (paragraph, calimage) = processcdescription(monthevents[indexevents].description)
