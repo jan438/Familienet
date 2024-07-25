@@ -288,7 +288,7 @@ def processwheader(textpar):
     processed = Paragraph(processed, style = weeksumStyle)
     return processed
 
-def processheader(textpar):
+def processmheader(textpar):
     dtheaeventpos = textpar.find("<h")
     if dtheaeventpos == 0:
         closingtagpos = textpar.find("</h")
@@ -490,7 +490,7 @@ def fillMatrixReports(countdays):
             headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
             headerplaced = True
-        paragraph = processheader(monthevents[indexevents].summary)
+        paragraph = processmheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         matrixdaypar[matrixdayparindex].append(paragraph)
