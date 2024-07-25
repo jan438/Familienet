@@ -340,8 +340,7 @@ def fillcolumnReports(countdays):
             columnreps[i].append_Paragraph(header, headerStyle)
             eventday = monthevents[indexevents].dayyear
         columnreps[i].append_Paragraph(processcheader(monthevents[indexevents].summary), columnsumStyle)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle)
-        columnreps[i].d.append(paragraph)
+        columnreps[i].d.append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle))
         (paragraph, calimage) = processcdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
@@ -504,8 +503,7 @@ def fillMatrixReports(countdays):
             headerplaced = True
         paragraph = processmheader(monthevents[indexevents].summary)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle)
-        matrixdaypar[matrixdayparindex].append(paragraph)
+        matrixdaypar[matrixdayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle))
         (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
