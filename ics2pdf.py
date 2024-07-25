@@ -134,6 +134,22 @@ class FamilienetEvent:
         self.month = month
         self.alarm = alarm
         
+def processreport(t):
+    merger = PdfWriter()
+    for i in range(10):
+        if os.path.isfile("Familienet" + str(i) + ".pdf"):
+            inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
+            merger.append(inputpdf)
+        else:
+            break
+    output = open(t + version + ".pdf", "wb")
+    merger.write(output)
+    merger.close()
+    output.close()
+    for i in range(10):
+        if os.path.isfile("Familienet" + str(i) + ".pdf"):
+            os.remove("Familienet" + str(i) + ".pdf")
+        
 def leapMonth(year, month):
     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
         return 31
@@ -625,49 +641,8 @@ pdfmetrics.registerFont(TTFont('CourierNew', 'Courier_New.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewItalic', 'Courier_New_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CourierNewBold', 'Courier_New_Bold.ttf'))
 fillWeekReports(first_week, countdays)
-merger = PdfWriter()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
-        merger.append(inputpdf)
-    else:
-        break
-output = open('w' + version + ".pdf", "wb")
-merger.write(output)
-merger.close()
-output.close()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        os.remove("Familienet" + str(i) + ".pdf")
+processreport('w')
 fillMatrixReports(countdays)
-fillWeekReports(first_week, countdays)
-merger = PdfWriter()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
-        merger.append(inputpdf)
-    else:
-        break
-output = open('m' + version + ".pdf", "wb")
-merger.write(output)
-merger.close()
-output.close()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        os.remove("Familienet" + str(i) + ".pdf")
+processreport('m')
 fillcolumnReports(countdays)
-fillWeekReports(first_week, countdays)
-merger = PdfWriter()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
-        merger.append(inputpdf)
-    else:
-        break
-output = open('c' + version + ".pdf", "wb")
-merger.write(output)
-merger.close()
-output.close()
-for i in range(10):
-    if os.path.isfile("Familienet" + str(i) + ".pdf"):
-        os.remove("Familienet" + str(i) + ".pdf")
+processreport('c')
