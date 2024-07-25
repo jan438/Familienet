@@ -310,10 +310,8 @@ def splicedheader(textpar, index):
     return processed
 
 def fillcolumnReports(countdays):
-    print("fillcolumnReports", countdays)
     columnreps = []
     countcolumnReports = 4
-    print(countcolumnReports)
     for i in range(countcolumnReports):
         columnreps.append(ColumnReport())
     i = 0
