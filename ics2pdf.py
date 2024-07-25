@@ -236,7 +236,7 @@ def processwdescription(textpar):
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
     return imgcode
     
-def processdescription(textpar):
+def processmdescription(textpar):
     calimage = None
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
@@ -304,7 +304,7 @@ def fillcolumnReports(countdays):
         columnreps[i].append_Paragraph(monthevents[indexevents].summary, columnsumStyle)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         columnreps[i].d.append(paragraph)
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description)
+        (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
@@ -468,7 +468,7 @@ def fillMatrixReports(countdays):
         matrixdaypar[matrixdayparindex].append(paragraph)
         paragraph = combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description)
+        (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
             matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
