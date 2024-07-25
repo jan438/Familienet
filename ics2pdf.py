@@ -629,3 +629,7 @@ output = open(key + version + ".pdf", "wb")
 merger.write(output)
 merger.close()
 output.close()
+for i in range(10):
+    if os.path.isfile("Familienet" + str(i) + ".pdf"):
+        os.remove("Familienet" + str(i) + ".pdf")
+
