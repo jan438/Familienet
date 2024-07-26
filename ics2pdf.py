@@ -28,9 +28,10 @@ rowsmatrixreport = 4
 rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
-weeksumfontsize = [12, 14]
-columnsumfontsize = [12, 14]
-matrixsumfontsize = [12, 14]
+sumfontsize = [[] for _ in range(300)]
+sumfontsize[ord('c')] = [12, 14]
+sumfontsize[ord('m')] = [12, 14]
+sumfontsize[ord('w')] = [12, 14]
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
@@ -317,19 +318,10 @@ def processmheader(textpar):
     return processed
     
 def splicedheader(textpar, index, t):
-    if t == 'c':
-        fontsizesmall = columnsumfontsize[0]
-        fontsizelarge = columnsumfontsize[1]
-    if t == 'w':
-        fontsizesmall = weeksumfontsize[0]
-        fontsizelarge = weeksumfontsize[1]
-    if t == 'm':
-        fontsizesmall = matrixsumfontsize[0]
-        fontsizelarge = matrixsumfontsize[1]
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
-    processed = "<font name=" + calfont + "Bold size=" + str(fontsizesmall) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(fontsizelarge) + ">" + part2 + "</font>"
+    processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>"
     return processed
 
 def fillcolumnReports(countdays):
