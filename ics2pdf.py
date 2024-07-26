@@ -498,8 +498,7 @@ def fillMatrixReports(countdays):
             headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
             headerplaced = True
-        paragraph = processmheader(monthevents[indexevents].summary)
-        matrixdaypar[matrixdayparindex].append(paragraph)
+        matrixdaypar[matrixdayparindex].append(processmheader(monthevents[indexevents].summary))
         matrixdaypar[matrixdayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle))
         (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
         matrixdaypar[matrixdayparindex].append(paragraph)
