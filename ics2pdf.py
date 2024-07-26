@@ -41,7 +41,7 @@ matrixtimlocStyle = ParagraphStyle('loctim', parent=styles['Normal'], fontName =
 columnsumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 14, spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
 columndesStyle = ParagraphStyle('des', parent=styles['Normal'], fontName = calfont, fontSize = 13, spaceBefore = 0, spaceAfter = 0, textColor = purple, alignment=TA_CENTER, leading = 8)
 columntimlocStyle = ParagraphStyle('timloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
-version = "Juli 2024"
+version = "Juni 2024"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -392,8 +392,7 @@ def fillWeekReports(first_week, countdays):
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
                 index = monthevents[j].weekday
-                paragraph = processwheader(monthevents[j].summary)
-                weekreps[i].p0[index].append(paragraph)
+                weekreps[i].p0[index].append(processwheader(monthevents[j].summary))
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
@@ -414,8 +413,7 @@ def fillWeekReports(first_week, countdays):
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
                     index = monthevents[j].weekday
-                    paragraph = processwheader(monthevents[j].summary)
-                    weekreps[i].p1[index].append(paragraph)
+                    weekreps[i].p1[index].append(processwheader(monthevents[j].summary))
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
