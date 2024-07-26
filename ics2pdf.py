@@ -28,6 +28,10 @@ rowsmatrixreport = 4
 rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
+weeksumfontsize = [12, 14]
+columnsumfontsize = [12, 14]
+matrixsumfontsize = [12, 14]
+print("Matrix", matrixsumfontsize[0], matrixsumfontsize[1])
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
