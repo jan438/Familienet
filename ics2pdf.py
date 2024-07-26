@@ -31,7 +31,6 @@ styles = getSampleStyleSheet()
 weeksumfontsize = [12, 14]
 columnsumfontsize = [12, 14]
 matrixsumfontsize = [12, 14]
-print("Matrix", matrixsumfontsize[0], matrixsumfontsize[1])
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
 headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('sum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
@@ -318,7 +317,16 @@ def processmheader(textpar):
     return processed
     
 def splicedheader(textpar, index, t):
-    print("Type in splicedheader", t)
+    if t == 'c':
+        fontsizesmall = columnsumfontsize[0]
+        fontsizelarge = columnsumfontsize[1]
+    if t == 'w':
+        fontsizesmall = weeksumfontsize[0]
+        fontsizelarge = weeksumfontsize[1]
+    if t == 'm':
+        fontsizesmall = matrixsumfontsize[0]
+        fontsizelarge = matrixsumfontsize[1]
+    print("splicedheader", t, fontsizesmall, fontsizelarge)
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
