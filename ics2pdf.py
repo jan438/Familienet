@@ -288,7 +288,7 @@ def processcheader(textpar):
         if textpar[dtheaeventpos+2] == '3':
             processed = textpar[4:closingtagpos]
     elif dtheaeventpos > 0:
-        processed = splicedheader(textpar, dtheaeventpos)
+        processed = splicedheader(textpar, dtheaeventpos, 'c')
     return processed
 
 def processwheader(textpar):
@@ -299,7 +299,7 @@ def processwheader(textpar):
         if textpar[dtheaeventpos+2] == '3':
             processed = textpar[4:closingtagpos]
     elif dtheaeventpos > 0:
-        processed = splicedheader(textpar, dtheaeventpos)
+        processed = splicedheader(textpar, dtheaeventpos, 'w')
     processed = Paragraph(processed, style = weeksumStyle)
     return processed
 
@@ -311,13 +311,14 @@ def processmheader(textpar):
             mask = textpar[4:closingtagpos]
             processed = Paragraph(mask, style = matrixsumheadingStyle)
     elif dtheaeventpos > 0:
-        mask = splicedheader(textpar, dtheaeventpos)
+        mask = splicedheader(textpar, dtheaeventpos, 'm')
         processed = Paragraph(mask, style = matrixsumStyle)
     else:
         processed = Paragraph(textpar, style = matrixsumStyle)
     return processed
     
-def splicedheader(textpar, index):
+def splicedheader(textpar, index, t):
+    print("Type in splicedheader", t)
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
