@@ -326,7 +326,6 @@ def splicedheader(textpar, index, t):
     if t == 'm':
         fontsizesmall = matrixsumfontsize[0]
         fontsizelarge = matrixsumfontsize[1]
-    print("splicedheader", t, fontsizesmall, fontsizelarge)
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
