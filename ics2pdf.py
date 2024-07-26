@@ -330,7 +330,7 @@ def splicedheader(textpar, index, t):
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
-    processed = "<font name=" + calfont + "Bold size=10>" + part1 + "</font>" + "<font name=" + calfont + "Bold size=12>" + part2 + "</font>"
+    processed = "<font name=" + calfont + "Bold size=" + str(fontsizesmall) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(fontsizelarge) + ">" + part2 + "</font>"
     return processed
 
 def fillcolumnReports(countdays):
