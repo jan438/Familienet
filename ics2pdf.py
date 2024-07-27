@@ -36,7 +36,7 @@ titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, 
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
-weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
+weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
 weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont, fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
