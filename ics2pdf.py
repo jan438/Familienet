@@ -33,7 +33,9 @@ sumfontsize[ord('c')] = [12, 14]
 sumfontsize[ord('m')] = [12, 14]
 sumfontsize[ord('w')] = [12, 14]
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8)
-headerStyle = ParagraphStyle('hea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
+cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
+wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
+mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 12, textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
@@ -301,7 +303,7 @@ def fillcolumnReports(countdays):
         openreport = True
         if eventday == -1 or eventday != monthevents[indexevents].dayyear:
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
-            columnreps[i].append_Paragraph(header, headerStyle)
+            columnreps[i].append_Paragraph(header, cheaderStyle)
             eventday = monthevents[indexevents].dayyear
         columnreps[i].d.append(processheader(monthevents[indexevents].summary, 'c', columnsumStyle))
         columnreps[i].d.append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle))
@@ -349,7 +351,7 @@ def fillWeekReports(first_week, countdays):
         imgcode = ""
         countevents = [0,0,0,0,0,0,0]
         for j in range(7):
-            weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+            weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
@@ -370,7 +372,7 @@ def fillWeekReports(first_week, countdays):
             imgcode = ""
             countevents = [0,0,0,0,0,0,0]
             for j in range(7):
-                weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, headerStyle)
+                weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
                 datecal += timedelta(days=1)
                 cal_day = str(int(str(datecal)[8:10]))
             for j in range(len(monthevents)):
@@ -460,7 +462,7 @@ def fillMatrixReports(countdays):
                     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
-            headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], headerStyle)
+            headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], mheaderStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
             headerplaced = True
         matrixdaypar[matrixdayparindex].append(processheader(monthevents[indexevents].summary, 'm', matrixsumStyle))
