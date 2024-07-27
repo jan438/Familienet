@@ -248,18 +248,6 @@ def processwtime(textpar, alarm):
             inlineimg2 = ""
         processed = processed + "   " + inlineimg1 + inlineimg2
     return processed
-
-def processcdescription(textpar):
-    calimage = None
-    dtimgeventpos = textpar.find("n[i")
-    if dtimgeventpos >= 0:
-        imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
-        processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
-        calimage = lookupimage(imgcode)
-        paragraph = Paragraph(processed, columndesStyle )
-    else:
-        paragraph = Paragraph(textpar, columndesStyle )
-    return (paragraph, calimage)
     
 def processwdescription(textpar):
     imgcode = ""
@@ -268,16 +256,16 @@ def processwdescription(textpar):
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
     return imgcode
     
-def processmdescription(textpar):
+def processdescription(textpar, s):
     calimage = None
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
         processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
         calimage = lookupimage(imgcode)
-        paragraph = Paragraph(processed, matrixdesStyle )
+        paragraph = Paragraph(processed, s)
     else:
-        paragraph = Paragraph(textpar, matrixdesStyle )
+        paragraph = Paragraph(textpar, s)
     return (paragraph, calimage)
     
 def processheader(textpar, t, s):
@@ -317,7 +305,7 @@ def fillcolumnReports(countdays):
             eventday = monthevents[indexevents].dayyear
         columnreps[i].d.append(processheader(monthevents[indexevents].summary, 'c', columnsumStyle))
         columnreps[i].d.append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle))
-        (paragraph, calimage) = processcdescription(monthevents[indexevents].description)
+        (paragraph, calimage) = processdescription(monthevents[indexevents].description, columndesStyle)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
@@ -477,7 +465,7 @@ def fillMatrixReports(countdays):
             headerplaced = True
         matrixdaypar[matrixdayparindex].append(processheader(monthevents[indexevents].summary, 'm', matrixsumStyle))
         matrixdaypar[matrixdayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle))
-        (paragraph, calimage) = processmdescription(monthevents[indexevents].description)
+        (paragraph, calimage) = processdescription(monthevents[indexevents].description, matrixdesStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
             matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
