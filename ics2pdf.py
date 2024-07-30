@@ -193,6 +193,9 @@ def weekDay(year, month, day):
     dayOfWeek += offset[month - 1] + (day - 1)               
     dayOfWeek %= 7
     return round(dayOfWeek)
+
+def lookupflag(imgcode):
+    print(imgcode)
     
 def lookupimage(imgcode):
     newcalendar = [[] for _ in range(300)]
@@ -292,12 +295,13 @@ def processsummary(textpar, t, s):
     fls = find_all_occurrences(processed, "[f")
     if len(fls) > 0:
         for f in range(len(fls) - 1, -1, -1):
+            g = fls[f]
+            lookupflag(processed[g+2:g+5]           )
             if f == 0:
                 flagimg = "nl.png"
             if f == 1:
                 flagimg = "pl.png"
             inlineimg = "<img src=" + flagimg + " width='10' height='10' valign='-2'/>"
-            g = fls[f]
             processed = processed.replace(processed[g:g+5], inlineimg)
     return Paragraph(processed, style = s)
 
