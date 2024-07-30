@@ -292,7 +292,10 @@ def processsummary(textpar, t, s):
     fls = find_all_occurrences(processed, "[f")
     if len(fls) > 0:
         for f in range(len(fls) - 1, -1, -1):
-            flagimg = "nl.png"
+            if f == 0:
+                flagimg = "nl.png"
+            if f == 1:
+                flagimg = "pl.png"
             inlineimg = "<img src=" + flagimg + " width='10' height='10' valign='-2'/>"
             g = fls[f]
             processed = processed.replace(processed[g:g+5], inlineimg)
