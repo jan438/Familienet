@@ -270,7 +270,7 @@ def processdescription(textpar, s):
         paragraph = Paragraph(textpar, s)
     return (paragraph, calimage)
     
-def processheader(textpar, t, s):
+def processsummary(textpar, t, s):
     processed = textpar
     tagpos = textpar.find("<h")
     if tagpos == 0:
@@ -305,7 +305,7 @@ def fillcolumnReports(countdays):
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
             columnreps[i].append_Paragraph(header, cheaderStyle)
             eventday = monthevents[indexevents].dayyear
-        columnreps[i].d.append(processheader(monthevents[indexevents].summary, 'c', columnsumStyle))
+        columnreps[i].d.append(processsummary(monthevents[indexevents].summary, 'c', columnsumStyle))
         columnreps[i].d.append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, columntimlocStyle))
         (paragraph, calimage) = processdescription(monthevents[indexevents].description, columndesStyle)
         columnreps[i].d.append(paragraph)
@@ -359,7 +359,7 @@ def fillWeekReports(first_week, countdays):
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
                 index = monthevents[j].weekday
-                weekreps[i].p0[index].append(processheader(monthevents[j].summary, 'w', weeksumStyle))
+                weekreps[i].p0[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
@@ -380,7 +380,7 @@ def fillWeekReports(first_week, countdays):
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
                     index = monthevents[j].weekday
-                    weekreps[i].p1[index].append(processheader(monthevents[j].summary, 'w', weeksumStyle))
+                    weekreps[i].p1[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
@@ -465,7 +465,7 @@ def fillMatrixReports(countdays):
             headerpar = Paragraph(weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1], mheaderStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
             headerplaced = True
-        matrixdaypar[matrixdayparindex].append(processheader(monthevents[indexevents].summary, 'm', matrixsumStyle))
+        matrixdaypar[matrixdayparindex].append(processsummary(monthevents[indexevents].summary, 'm', matrixsumStyle))
         matrixdaypar[matrixdayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, matrixtimlocStyle))
         (paragraph, calimage) = processdescription(monthevents[indexevents].description, matrixdesStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
