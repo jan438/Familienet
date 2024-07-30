@@ -282,8 +282,6 @@ def processdescription(textpar, s):
     return (paragraph, calimage)
     
 def processsummary(textpar, t, s):
-    h3s = find_all_occurrences(textpar, "<h")
-    fls = find_all_occurrences(textpar, "[f")
     processed = textpar
     tagpos = textpar.find("<h")
     if tagpos == 0:
@@ -291,6 +289,7 @@ def processsummary(textpar, t, s):
         processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>"
     elif tagpos > 0:
         processed = splicedheader(textpar, tagpos, t)
+    fls = find_all_occurrences(processed, "[f")     
     if len(fls) > 0:
         print(fls)
     return Paragraph(processed, style = s)
