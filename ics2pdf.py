@@ -291,7 +291,8 @@ def processsummary(textpar, t, s):
         processed = splicedheader(textpar, tagpos, t)
     fls = find_all_occurrences(processed, "[f")     
     if len(fls) > 0:
-        print(fls)
+        for f in range(len(fls)):
+            print(fls[f])
     return Paragraph(processed, style = s)
 
 def splicedheader(textpar, index, t):
