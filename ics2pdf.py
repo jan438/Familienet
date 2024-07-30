@@ -302,7 +302,7 @@ def processsummary(textpar, t, s):
         for f in range(len(fls) - 1, -1, -1):
             g = fls[f]
             flagimg = lookupflag(processed[g+2:g+5]           )
-            inlineimg = "<img src=" + flagimg + " width='10' height='10' valign='-2'/>"
+            inlineimg = "<img src=" + flagimg + " width='15' height='10' valign='-2'/>"
             processed = processed.replace(processed[g:g+5], inlineimg)
     return Paragraph(processed, style = s)
 
