@@ -289,9 +289,9 @@ def processsummary(textpar, t, s):
         processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>"
     elif tagpos > 0:
         processed = splicedheader(textpar, tagpos, t)
-    fls = find_all_occurrences(processed, "[f")     
+    fls = find_all_occurrences(processed, "[f")
     if len(fls) > 0:
-        for f in range(len(fls)):
+        for f in range(len(fls) - 1, -1, -1):
             print(fls[f])
     return Paragraph(processed, style = s)
 
