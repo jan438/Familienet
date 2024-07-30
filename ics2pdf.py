@@ -291,8 +291,10 @@ def processsummary(textpar, t, s):
         processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>"
     elif tagpos > 0:
         processed = splicedheader(textpar, tagpos, t)
+    if len(fls) > 0:
+        print(fls)
     return Paragraph(processed, style = s)
-    
+
 def splicedheader(textpar, index, t):
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
