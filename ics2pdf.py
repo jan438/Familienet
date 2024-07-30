@@ -292,8 +292,10 @@ def processsummary(textpar, t, s):
     fls = find_all_occurrences(processed, "[f")
     if len(fls) > 0:
         for f in range(len(fls) - 1, -1, -1):
+            flagimg = "nl.png"
+            inlineimg = "<img src=" + flagimg + " width='10' height='10' valign='-2'/>"
             g = fls[f]
-            print(g, processed[g:g+2])
+            processed = processed.replace(processed[g:g+5], inlineimg)
     return Paragraph(processed, style = s)
 
 def splicedheader(textpar, index, t):
