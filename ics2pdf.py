@@ -140,6 +140,17 @@ class FamilienetEvent:
         self.month = month
         self.alarm = alarm
         
+def find_all_occurrences(textpar, sub):
+    index_of_occurrences = []
+    current_index = 0
+    while True:
+        current_index = textpar.find(sub, current_index)
+        if current_index == -1:
+            return index_of_occurrences
+        else:
+            index_of_occurrences.append(current_index)
+            current_index += len(sub)
+        
 def processreport(t):
     merger = PdfWriter()
     for i in range(10):
@@ -271,6 +282,8 @@ def processdescription(textpar, s):
     return (paragraph, calimage)
     
 def processsummary(textpar, t, s):
+    h3s = find_all_occurrences(textpar, "<h")
+    fls = find_all_occurrences(textpar, "[f")
     processed = textpar
     tagpos = textpar.find("<h")
     if tagpos == 0:
