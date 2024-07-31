@@ -625,6 +625,8 @@ for i in range(countlines):
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialBold', 'Arial_Bold.ttf'))
+pdfmetrics.registerFont(TTFont('Verdana', 'Verdana.ttf'))
+pdfmetrics.registerFont(TTFont('VerdanaBold', 'Verdana_Bold.ttf'))
 fillWeekReports(first_week, countdays)
 processreport('w')
 fillMatrixReports(countdays)
