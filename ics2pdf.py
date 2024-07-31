@@ -21,7 +21,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = date(1990,1,1)
 datecal = datetime.now()
-calfont = "Georgia"
+calfont = "Verdana"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
@@ -628,6 +628,7 @@ pdfmetrics.registerFont(TTFont('ArialBold', 'Arial_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('ArialItalic', 'ariali.ttf'))
 pdfmetrics.registerFont(TTFont('Verdana', 'Verdana.ttf'))
 pdfmetrics.registerFont(TTFont('VerdanaBold', 'Verdana_Bold.ttf'))
+pdfmetrics.registerFont(TTFont('VerdanaItalic', 'verdanai.ttf'))
 pdfmetrics.registerFont(TTFont('Georgia', 'Georgia.ttf'))
 pdfmetrics.registerFont(TTFont('GeorgiaBold', 'Georgia_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('GeorgiaItalic', 'georgiai.ttf'))
