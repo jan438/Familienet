@@ -37,7 +37,7 @@ cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfon
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 8)
-weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
+weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
 weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont, fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
 matrixsumheadingStyle = ParagraphStyle('mhsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][1], spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 8)
@@ -624,7 +624,6 @@ for i in range(countlines):
         alarm = ""
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
-pdfmetrics.registerFont(TTFont('ArialItalic', 'Arial_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('ArialBold', 'Arial_Bold.ttf'))
 fillWeekReports(first_week, countdays)
 processreport('w')
