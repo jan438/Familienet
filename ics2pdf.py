@@ -195,15 +195,15 @@ def weekDay(year, month, day):
     return round(dayOfWeek)
 
 def lookupflag(imgcode):
-    flagimg = "nl.png"
+    flagimg = "Flags/nl.png"
     if imgcode == "HOL":
-        flagimg = "nl.png"
+        flagimg = "Flags/nl.png"
     if imgcode == "POL":
-        flagimg = "pl.png"
+        flagimg = "Flags/pl.png"
     if imgcode == "FRA":
-        flagimg = "fr.png"
+        flagimg = "Flags/fr.png"
     if imgcode == "AUT":
-        flagimg = "at.png"
+        flagimg = "Flags/at.png"
     return flagimg
     
 def lookupimage(imgcode):
