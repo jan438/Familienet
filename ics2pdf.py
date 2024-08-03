@@ -58,10 +58,6 @@ matrixStyle = [
 ('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
-styles["Normal"].alignment = TA_LEFT
-styles["Normal"].borderColor = red
-styles["Normal"].textColor = green
-styles["Normal"].fontSize = 8
 
 class ColumnReport:
     d = []
