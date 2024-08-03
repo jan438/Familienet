@@ -21,7 +21,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = date(1990,1,1)
 datecal = datetime.now()
-calfont = "Verdana"
+calfont = "Arial"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
@@ -628,7 +628,8 @@ for i in range(countlines):
 print("Count events", len(monthevents))
 pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
 pdfmetrics.registerFont(TTFont('ArialBold', 'Arial_Bold.ttf'))
-pdfmetrics.registerFont(TTFont('ArialItalic', 'ariali.ttf'))
+pdfmetrics.registerFont(TTFont('ArialItalic', 'Arial_Italic.ttf'))
+pdfmetrics.registerFont(TTFont('ArialBoldItalic', 'Arial_Bold_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('Verdana', 'Verdana.ttf'))
 pdfmetrics.registerFont(TTFont('VerdanaBold', 'Verdana_Bold.ttf'))
 pdfmetrics.registerFont(TTFont('VerdanaItalic', 'Verdana_Italic.ttf'))
