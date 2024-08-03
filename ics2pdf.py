@@ -21,7 +21,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = date(1990,1,1)
 datecal = datetime.now()
-calfont = "DejaVuSerif"
+calfont = "Trebuchet"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
@@ -639,8 +639,9 @@ pdfmetrics.registerFont(TTFont('TimesNewRoman', 'times.ttf'))
 pdfmetrics.registerFont(TTFont('TimesNewRomanBold', 'timesbd.ttf'))
 pdfmetrics.registerFont(TTFont('TimesNewRomanItalic', 'timesi.ttf'))
 pdfmetrics.registerFont(TTFont('Trebuchet', 'Trebuchet_MS.ttf'))
-pdfmetrics.registerFont(TTFont('TrebuchetBold', 'trebucbd.ttf'))
-pdfmetrics.registerFont(TTFont('TrebuchetItalic', 'trebucbi.ttf'))
+pdfmetrics.registerFont(TTFont('TrebuchetBold', 'Trebuchet_MS_Bold.ttf'))
+pdfmetrics.registerFont(TTFont('TrebuchetItalic', 'Trebuchet_MS_Italic.ttf'))
+pdfmetrics.registerFont(TTFont('TrebuchetBoldItalic', 'Trebuchet_MS_Bold_Italic.ttf'))
 pdfmetrics.registerFont(TTFont('Ubuntu', 'Ubuntu-Regular.ttf'))
 pdfmetrics.registerFont(TTFont('UbuntuBold', 'Ubuntu-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('UbuntuItalic', 'Ubuntu-Italic.ttf'))
