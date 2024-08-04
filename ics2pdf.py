@@ -500,7 +500,7 @@ def fillMatrixReports(countdays):
         matrixdaypar[matrixdayparindex].append(paragraph)
         if calimage is not None:
             matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
-            matrixdaypar[matrixdayparindex].append(calimage)        
+            matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
     matrixreps[indexreports].h[row][col].append(matrixdayhea[matrixdayheaindex])
     matrixreps[indexreports].p[row][col].append(matrixdaypar[matrixdayparindex])
     tbl_data = [
