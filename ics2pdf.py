@@ -21,7 +21,7 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = date(1990,1,1)
 datecal = datetime.now()
-calfont = "CormorantGaramond"
+calfont = "DancingScript"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
