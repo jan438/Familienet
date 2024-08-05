@@ -11,7 +11,7 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import LETTER, A4, landscape, portrait
 from reportlab.lib.units import inch
-from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, purple, orange, yellow
+from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, purple, orange, yellow, white
 from reportlab.pdfbase import pdfmetrics  
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
@@ -32,10 +32,10 @@ sumfontsize = [[] for _ in range(300)]
 sumfontsize[ord('c')] = [12, 14]
 sumfontsize[ord('m')] = [12, 14]
 sumfontsize[ord('w')] = [12, 14]
-titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8, spaceAfter = 3)
+titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = black, alignment=TA_CENTER, leading = 8, spaceAfter = 7)
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, leading = 8)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
-mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8, underlineOffset = -3, underlineWidth = 0.5, underlineColor = yellow)
+mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8, underlineOffset = -3, underlineWidth = 0.5, underlineColor = yellow, backColor = white)
 weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
