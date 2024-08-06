@@ -43,7 +43,7 @@ weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfon
 weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont + "BoldItalic", fontSize = 9, spaceBefore = 4, spaceAfter = 0, textColor = red, leading = 8)
 matrixsumStyle = ParagraphStyle('msum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][0], spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 15)
 matrixdesStyle = ParagraphStyle('mdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceBefore = 0, spaceAfter = 0, textColor = purple, alignment=TA_CENTER, leading = 12)
-matrixtimlocStyle = ParagraphStyle('mloctim', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 0, spaceAfter = 0, textColor = red, alignment=TA_CENTER, leading = 9)
+matrixtimlocStyle = ParagraphStyle('mloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, spaceBefore = 0, spaceAfter = 0, textColor = red, alignment=TA_CENTER, leading = 10)
 columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('c')][0], spaceBefore = 0, spaceAfter = 2, textColor = green, alignment=TA_CENTER, leading = 8)
 columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 13, spaceBefore = 0, spaceAfter = 4, textColor = purple, alignment=TA_CENTER, leading = 8)
 columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
