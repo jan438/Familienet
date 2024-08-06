@@ -36,6 +36,7 @@ titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, 
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, leading = 8)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 8)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#E3D4B7")
+mheaderwkeStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#c2cfbd")
 weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 8)
 weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
 weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceAfter = 4, textColor = purple, leading = 8)
@@ -491,7 +492,10 @@ def fillMatrixReports(countdays):
                     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
-            headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderStyle)
+            if monthevents[indexevents].weekday == 5 or monthevents[indexevents].weekday == 6:
+                headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderwkeStyle)
+            else:
+                headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderStyle)
             matrixdayhea[matrixdayheaindex].append(headerpar)
             headerplaced = True
         matrixdaypar[matrixdayparindex].append(processsummary(monthevents[indexevents].summary, 'm', matrixsumStyle))
