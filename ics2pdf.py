@@ -545,6 +545,99 @@ def fillMatrixReports(countdays):
     matrixreps[indexreports].clear()
     return
     
+def fillSquareReports(countdays):
+    Squarereps = []
+    countSquareReports = math.ceil(countdays / (rowsSquarereport * columsSquarereport))
+    for i in range(countSquareReports):
+        Squarereps.append(SquareReport())
+    Squaredayhea =  [[] for _ in range(500)] 
+    Squaredayheaindex = 0
+    Squaredaypar =  [[] for _ in range(500)] 
+    Squaredayparindex = 0
+    indexreports = 0
+    calimage = None
+    for i in range(rowsSquarereport):
+        for j in range(columsSquarereport):
+            Squarereps[indexreports].h[i][j] = []
+            Squarereps[indexreports].p[i][j] = []
+    col = 0
+    row = 0
+    eventday = -1
+    headerplaced = False
+    Squarereportname = "Familienet" + str(indexreports) + ".pdf"
+    doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+    storypdf=[]
+    for indexevents in range(len(monthevents)):
+        if eventday == -1:
+             eventday = monthevents[indexevents].dayyear
+        if eventday != monthevents[indexevents].dayyear:
+            Squarereps[indexreports].h[row][col].append(Squaredayhea[Squaredayheaindex])
+            Squarereps[indexreports].p[row][col].append(Squaredaypar[Squaredayparindex])
+            Squaredayheaindex += 1
+            Squaredayparindex += 1
+            col += 1
+            eventday = monthevents[indexevents].dayyear
+            headerplaced = False
+            if col == columsSquarereport:
+
+                col = 0
+                row += 1
+                if row == rowsSquarereport:
+                    row = 0
+                    tbl_data = [
+    [Squarereps[indexreports].h[0][0], Squarereps[indexreports].h[0][1], Squarereps[indexreports].h[0][2]],
+    [Squarereps[indexreports].p[0][0], Squarereps[indexreports].p[0][1], Squarereps[indexreports].p[0][2]],
+    [Squarereps[indexreports].h[1][0], Squarereps[indexreports].h[1][1], Squarereps[indexreports].h[1][2]],
+    [Squarereps[indexreports].p[1][0], Squarereps[indexreports].p[1][1], Squarereps[indexreports].p[1][2]],
+    [Squarereps[indexreports].h[2][0], Squarereps[indexreports].h[2][1], Squarereps[indexreports].h[2][2]],   
+    [Squarereps[indexreports].p[2][0], Squarereps[indexreports].p[2][1], Squarereps[indexreports].p[2][2]],
+    [Squarereps[indexreports].h[3][0], Squarereps[indexreports].h[3][1], Squarereps[indexreports].h[3][2]],   
+    [Squarereps[indexreports].p[3][0], Squarereps[indexreports].p[3][1], Squarereps[indexreports].p[3][2]]
+                    ]
+                    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
+                    tbl.setStyle(SquareStyle)
+                    storypdf.append(Paragraph(version, titleStyle))
+                    storypdf.append(tbl)
+                    doc.build(storypdf)
+                    Squarereps[indexreports].clear()
+                    indexreports += 1
+                    Squarereportname = "Familienet" + str(indexreports) + ".pdf"
+                    doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+                    storypdf=[]
+        if not headerplaced:
+            if monthevents[indexevents].weekday == 5 or monthevents[indexevents].weekday == 6:
+                headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderwkeStyle)
+            else:
+                headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderStyle)
+            Squaredayhea[Squaredayheaindex].append(headerpar)
+            headerplaced = True
+        Squaredaypar[Squaredayparindex].append(processsummary(monthevents[indexevents].summary, 'm', SquaresumStyle))
+        Squaredaypar[Squaredayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, SquaretimlocStyle))
+        (paragraph, calimage) = processdescription(monthevents[indexevents].description, SquaredesStyle)
+        Squaredaypar[Squaredayparindex].append(paragraph)
+        if calimage is not None:
+            Squaredaypar[Squaredayparindex].append(Spacer(width=10, height=10))
+            Squaredaypar[Squaredayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
+    Squarereps[indexreports].h[row][col].append(Squaredayhea[Squaredayheaindex])
+    Squarereps[indexreports].p[row][col].append(Squaredaypar[Squaredayparindex])
+    tbl_data = [
+    [Squarereps[indexreports].h[0][0], Squarereps[indexreports].h[0][1], Squarereps[indexreports].h[0][2]],
+    [Squarereps[indexreports].p[0][0], Squarereps[indexreports].p[0][1], Squarereps[indexreports].p[0][2]],
+    [Squarereps[indexreports].h[1][0], Squarereps[indexreports].h[1][1], Squarereps[indexreports].h[1][2]],
+    [Squarereps[indexreports].p[1][0], Squarereps[indexreports].p[1][1], Squarereps[indexreports].p[1][2]],
+    [Squarereps[indexreports].h[2][0], Squarereps[indexreports].h[2][1], Squarereps[indexreports].h[2][2]],   
+    [Squarereps[indexreports].p[2][0], Squarereps[indexreports].p[2][1], Squarereps[indexreports].p[2][2]],
+    [Squarereps[indexreports].h[3][0], Squarereps[indexreports].h[3][1], Squarereps[indexreports].h[3][2]],   
+    [Squarereps[indexreports].p[3][0], Squarereps[indexreports].p[3][1], Squarereps[indexreports].p[3][2]]
+    ]
+    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
+    tbl.setStyle(SquareStyle)
+    storypdf.append(Paragraph(version, titleStyle))
+    storypdf.append(tbl)
+    doc.build(storypdf)
+    Squarereps[indexreports].clear()
+    return
+    
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Familienet/Calendar'
 if sys.platform[0] == 'w':
