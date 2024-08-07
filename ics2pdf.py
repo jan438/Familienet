@@ -554,25 +554,25 @@ def fillSquareReports(countdays):
     Squaredayheaindex = 0
     Squaredaypar =  [[] for _ in range(500)] 
     Squaredayparindex = 0
-    indexreports = 0
+    indrep = 0
     calimage = None
     for i in range(rowsSquarereport):
         for j in range(columsSquarereport):
-            Squarereps[indexreports].h[i][j] = []
-            Squarereps[indexreports].p[i][j] = []
+            Squarereps[indrep].h[i][j] = []
+            Squarereps[indrep].p[i][j] = []
     col = 0
     row = 0
     eventday = -1
     headerplaced = False
-    Squarereportname = "Familienet" + str(indexreports) + ".pdf"
+    Squarereportname = "Familienet" + str(indrep) + ".pdf"
     doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
         if eventday == -1:
              eventday = monthevents[indexevents].dayyear
         if eventday != monthevents[indexevents].dayyear:
-            Squarereps[indexreports].h[row][col].append(Squaredayhea[Squaredayheaindex])
-            Squarereps[indexreports].p[row][col].append(Squaredaypar[Squaredayparindex])
+            Squarereps[indrep].h[row][col].append(Squaredayhea[Squaredayheaindex])
+            Squarereps[indrep].p[row][col].append(Squaredaypar[Squaredayparindex])
             Squaredayheaindex += 1
             Squaredayparindex += 1
             col += 1
@@ -585,23 +585,23 @@ def fillSquareReports(countdays):
                 if row == rowsSquarereport:
                     row = 0
                     tbl_data = [
-    [Squarereps[indexreports].h[0][0], Squarereps[indexreports].h[0][1], Squarereps[indexreports].h[0][2]],
-    [Squarereps[indexreports].p[0][0], Squarereps[indexreports].p[0][1], Squarereps[indexreports].p[0][2]],
-    [Squarereps[indexreports].h[1][0], Squarereps[indexreports].h[1][1], Squarereps[indexreports].h[1][2]],
-    [Squarereps[indexreports].p[1][0], Squarereps[indexreports].p[1][1], Squarereps[indexreports].p[1][2]],
-    [Squarereps[indexreports].h[2][0], Squarereps[indexreports].h[2][1], Squarereps[indexreports].h[2][2]],   
-    [Squarereps[indexreports].p[2][0], Squarereps[indexreports].p[2][1], Squarereps[indexreports].p[2][2]],
-    [Squarereps[indexreports].h[3][0], Squarereps[indexreports].h[3][1], Squarereps[indexreports].h[3][2]],   
-    [Squarereps[indexreports].p[3][0], Squarereps[indexreports].p[3][1], Squarereps[indexreports].p[3][2]]
+    [Squarereps[indrep].h[0][0], Squarereps[indrep].h[0][1], Squarereps[indrep].h[0][2]],
+    [Squarereps[indrep].p[0][0], Squarereps[indrep].p[0][1], Squarereps[indrep].p[0][2]],
+    [Squarereps[indrep].h[1][0], Squarereps[indrep].h[1][1], Squarereps[indrep].h[1][2]],
+    [Squarereps[indrep].p[1][0], Squarereps[indrep].p[1][1], Squarereps[indrep].p[1][2]],
+    [Squarereps[indrep].h[2][0], Squarereps[indrep].h[2][1], Squarereps[indrep].h[2][2]],   
+    [Squarereps[indrep].p[2][0], Squarereps[indrep].p[2][1], Squarereps[indrep].p[2][2]],
+    [Squarereps[indrep].h[3][0], Squarereps[indrep].h[3][1], Squarereps[indrep].h[3][2]],   
+    [Squarereps[indrep].p[3][0], Squarereps[indrep].p[3][1], Squarereps[indrep].p[3][2]]
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
                     tbl.setStyle(SquareStyle)
                     storypdf.append(Paragraph(version, titleStyle))
                     storypdf.append(tbl)
                     doc.build(storypdf)
-                    Squarereps[indexreports].clear()
-                    indexreports += 1
-                    Squarereportname = "Familienet" + str(indexreports) + ".pdf"
+                    Squarereps[indrep].clear()
+                    indrep += 1
+                    Squarereportname = "Familienet" + str(indrep) + ".pdf"
                     doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
@@ -618,24 +618,24 @@ def fillSquareReports(countdays):
         if calimage is not None:
             Squaredaypar[Squaredayparindex].append(Spacer(width=10, height=10))
             Squaredaypar[Squaredayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
-    Squarereps[indexreports].h[row][col].append(Squaredayhea[Squaredayheaindex])
-    Squarereps[indexreports].p[row][col].append(Squaredaypar[Squaredayparindex])
+    Squarereps[indrep].h[row][col].append(Squaredayhea[Squaredayheaindex])
+    Squarereps[indrep].p[row][col].append(Squaredaypar[Squaredayparindex])
     tbl_data = [
-    [Squarereps[indexreports].h[0][0], Squarereps[indexreports].h[0][1], Squarereps[indexreports].h[0][2]],
-    [Squarereps[indexreports].p[0][0], Squarereps[indexreports].p[0][1], Squarereps[indexreports].p[0][2]],
-    [Squarereps[indexreports].h[1][0], Squarereps[indexreports].h[1][1], Squarereps[indexreports].h[1][2]],
-    [Squarereps[indexreports].p[1][0], Squarereps[indexreports].p[1][1], Squarereps[indexreports].p[1][2]],
-    [Squarereps[indexreports].h[2][0], Squarereps[indexreports].h[2][1], Squarereps[indexreports].h[2][2]],   
-    [Squarereps[indexreports].p[2][0], Squarereps[indexreports].p[2][1], Squarereps[indexreports].p[2][2]],
-    [Squarereps[indexreports].h[3][0], Squarereps[indexreports].h[3][1], Squarereps[indexreports].h[3][2]],   
-    [Squarereps[indexreports].p[3][0], Squarereps[indexreports].p[3][1], Squarereps[indexreports].p[3][2]]
+    [Squarereps[indrep].h[0][0], Squarereps[indrep].h[0][1], Squarereps[indrep].h[0][2]],
+    [Squarereps[indrep].p[0][0], Squarereps[indrep].p[0][1], Squarereps[indrep].p[0][2]],
+    [Squarereps[indrep].h[1][0], Squarereps[indrep].h[1][1], Squarereps[indrep].h[1][2]],
+    [Squarereps[indrep].p[1][0], Squarereps[indrep].p[1][1], Squarereps[indrep].p[1][2]],
+    [Squarereps[indrep].h[2][0], Squarereps[indrep].h[2][1], Squarereps[indrep].h[2][2]],   
+    [Squarereps[indrep].p[2][0], Squarereps[indrep].p[2][1], Squarereps[indrep].p[2][2]],
+    [Squarereps[indrep].h[3][0], Squarereps[indrep].h[3][1], Squarereps[indrep].h[3][2]],   
+    [Squarereps[indrep].p[3][0], Squarereps[indrep].p[3][1], Squarereps[indrep].p[3][2]]
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
     tbl.setStyle(SquareStyle)
     storypdf.append(Paragraph(version, titleStyle))
     storypdf.append(tbl)
     doc.build(storypdf)
-    Squarereps[indexreports].clear()
+    Squarereps[indrep].clear()
     return
     
 if sys.platform[0] == 'l':
