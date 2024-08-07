@@ -46,6 +46,12 @@ weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfon
 matrixsumStyle = ParagraphStyle('msum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][0], spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 15)
 matrixdesStyle = ParagraphStyle('mdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceBefore = 0, spaceAfter = 0, textColor = purple, alignment=TA_CENTER, leading = 12, hyphenationLang="nl_NL")
 matrixtimlocStyle = ParagraphStyle('mloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, spaceBefore = 0, spaceAfter = 0, textColor = red, alignment=TA_CENTER, leading = 10)
+
+squaresumStyle = ParagraphStyle('ssum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][0], spaceBefore = 0, spaceAfter = 0, textColor = green, alignment=TA_CENTER, leading = 15)
+squaredesStyle = ParagraphStyle('sdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, spaceBefore = 0, spaceAfter = 0, textColor = purple, alignment=TA_CENTER, leading = 12, hyphenationLang="nl_NL")
+squaretimlocStyle = ParagraphStyle('sloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, spaceBefore = 0, spaceAfter = 0, textColor = red, alignment=TA_CENTER, leading = 10)
+
+
 columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('c')][0], spaceBefore = 0, spaceAfter = 2, textColor = green, alignment=TA_CENTER, leading = 8)
 columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 13, spaceBefore = 0, spaceAfter = 4, textColor = purple, alignment=TA_CENTER, leading = 8)
 columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, spaceAfter = 1, textColor = red, alignment=TA_CENTER, leading = 8)
@@ -58,6 +64,10 @@ weekStyle = [
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
 matrixStyle = [
+('VALIGN',(0,0),(-1,-1),'TOP'),
+('ALIGN',(0,0),(3,1),'CENTER')
+]
+squareStyle = [
 ('VALIGN',(0,0),(-1,-1),'TOP'),
 ('ALIGN',(0,0),(3,1),'CENTER')
 ]
@@ -546,96 +556,96 @@ def fillMatrixReports(countdays):
     return
     
 def fillSquareReports(countdays):
-    Squarereps = []
-    countSquareReports = math.ceil(countdays / (rowsSquarereport * columsSquarereport))
-    for i in range(countSquareReports):
-        Squarereps.append(SquareReport())
-    Squaredayhea =  [[] for _ in range(500)] 
-    Squaredayheaindex = 0
-    Squaredaypar =  [[] for _ in range(500)] 
-    Squaredayparindex = 0
+    squarereps = []
+    countsquareReports = math.ceil(countdays / (rowssquarereport * columssquarereport))
+    for i in range(countsquareReports):
+        squarereps.append(SquareReport())
+    squaredayhea =  [[] for _ in range(500)] 
+    squaredayheaindex = 0
+    squaredaypar =  [[] for _ in range(500)] 
+    squaredayparindex = 0
     indrep = 0
     calimage = None
-    for i in range(rowsSquarereport):
-        for j in range(columsSquarereport):
-            Squarereps[indrep].h[i][j] = []
-            Squarereps[indrep].p[i][j] = []
+    for i in range(rowssquarereport):
+        for j in range(columssquarereport):
+            squarereps[indrep].h[i][j] = []
+            squarereps[indrep].p[i][j] = []
     col = 0
     row = 0
     eventday = -1
     headerplaced = False
-    Squarereportname = "Familienet" + str(indrep) + ".pdf"
-    doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+    squarereportname = "Familienet" + str(indrep) + ".pdf"
+    doc = SimpleDocTemplate(squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
         if eventday == -1:
              eventday = monthevents[indexevents].dayyear
         if eventday != monthevents[indexevents].dayyear:
-            Squarereps[indrep].h[row][col].append(Squaredayhea[Squaredayheaindex])
-            Squarereps[indrep].p[row][col].append(Squaredaypar[Squaredayparindex])
-            Squaredayheaindex += 1
-            Squaredayparindex += 1
+            squarereps[indrep].h[row][col].append(squaredayhea[squaredayheaindex])
+            squarereps[indrep].p[row][col].append(squaredaypar[squaredayparindex])
+            squaredayheaindex += 1
+            squaredayparindex += 1
             col += 1
             eventday = monthevents[indexevents].dayyear
             headerplaced = False
-            if col == columsSquarereport:
+            if col == columssquarereport:
 
                 col = 0
                 row += 1
-                if row == rowsSquarereport:
+                if row == rowssquarereport:
                     row = 0
                     tbl_data = [
-    [Squarereps[indrep].h[0][0], Squarereps[indrep].h[0][1], Squarereps[indrep].h[0][2]],
-    [Squarereps[indrep].p[0][0], Squarereps[indrep].p[0][1], Squarereps[indrep].p[0][2]],
-    [Squarereps[indrep].h[1][0], Squarereps[indrep].h[1][1], Squarereps[indrep].h[1][2]],
-    [Squarereps[indrep].p[1][0], Squarereps[indrep].p[1][1], Squarereps[indrep].p[1][2]],
-    [Squarereps[indrep].h[2][0], Squarereps[indrep].h[2][1], Squarereps[indrep].h[2][2]],   
-    [Squarereps[indrep].p[2][0], Squarereps[indrep].p[2][1], Squarereps[indrep].p[2][2]],
-    [Squarereps[indrep].h[3][0], Squarereps[indrep].h[3][1], Squarereps[indrep].h[3][2]],   
-    [Squarereps[indrep].p[3][0], Squarereps[indrep].p[3][1], Squarereps[indrep].p[3][2]]
+    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2]],
+    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2]],
+    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2]],
+    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2]],
+    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2]],   
+    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2]],
+    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2]],   
+    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2]]
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
-                    tbl.setStyle(SquareStyle)
+                    tbl.setStyle(squareStyle)
                     storypdf.append(Paragraph(version, titleStyle))
                     storypdf.append(tbl)
                     doc.build(storypdf)
-                    Squarereps[indrep].clear()
+                    squarereps[indrep].clear()
                     indrep += 1
-                    Squarereportname = "Familienet" + str(indrep) + ".pdf"
-                    doc = SimpleDocTemplate(Squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+                    squarereportname = "Familienet" + str(indrep) + ".pdf"
+                    doc = SimpleDocTemplate(squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
             if monthevents[indexevents].weekday == 5 or monthevents[indexevents].weekday == 6:
                 headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderwkeStyle)
             else:
                 headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", mheaderStyle)
-            Squaredayhea[Squaredayheaindex].append(headerpar)
+            squaredayhea[squaredayheaindex].append(headerpar)
             headerplaced = True
-        Squaredaypar[Squaredayparindex].append(processsummary(monthevents[indexevents].summary, 'm', SquaresumStyle))
-        Squaredaypar[Squaredayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, SquaretimlocStyle))
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description, SquaredesStyle)
-        Squaredaypar[Squaredayparindex].append(paragraph)
+        squaredaypar[squaredayparindex].append(processsummary(monthevents[indexevents].summary, 'm', squaresumStyle))
+        squaredaypar[squaredayparindex].append(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm, squaretimlocStyle))
+        (paragraph, calimage) = processdescription(monthevents[indexevents].description, squaredesStyle)
+        squaredaypar[squaredayparindex].append(paragraph)
         if calimage is not None:
-            Squaredaypar[Squaredayparindex].append(Spacer(width=10, height=10))
-            Squaredaypar[Squaredayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
-    Squarereps[indrep].h[row][col].append(Squaredayhea[Squaredayheaindex])
-    Squarereps[indrep].p[row][col].append(Squaredaypar[Squaredayparindex])
+            squaredaypar[squaredayparindex].append(Spacer(width=10, height=10))
+            squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
+    squarereps[indrep].h[row][col].append(squaredayhea[squaredayheaindex])
+    squarereps[indrep].p[row][col].append(squaredaypar[squaredayparindex])
     tbl_data = [
-    [Squarereps[indrep].h[0][0], Squarereps[indrep].h[0][1], Squarereps[indrep].h[0][2]],
-    [Squarereps[indrep].p[0][0], Squarereps[indrep].p[0][1], Squarereps[indrep].p[0][2]],
-    [Squarereps[indrep].h[1][0], Squarereps[indrep].h[1][1], Squarereps[indrep].h[1][2]],
-    [Squarereps[indrep].p[1][0], Squarereps[indrep].p[1][1], Squarereps[indrep].p[1][2]],
-    [Squarereps[indrep].h[2][0], Squarereps[indrep].h[2][1], Squarereps[indrep].h[2][2]],   
-    [Squarereps[indrep].p[2][0], Squarereps[indrep].p[2][1], Squarereps[indrep].p[2][2]],
-    [Squarereps[indrep].h[3][0], Squarereps[indrep].h[3][1], Squarereps[indrep].h[3][2]],   
-    [Squarereps[indrep].p[3][0], Squarereps[indrep].p[3][1], Squarereps[indrep].p[3][2]]
+    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2]],
+    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2]],
+    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2]],
+    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2]],
+    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2]],   
+    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2]],
+    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2]],   
+    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2]]
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
-    tbl.setStyle(SquareStyle)
+    tbl.setStyle(squareStyle)
     storypdf.append(Paragraph(version, titleStyle))
     storypdf.append(tbl)
     doc.build(storypdf)
-    Squarereps[indrep].clear()
+    squarereps[indrep].clear()
     return
     
 if sys.platform[0] == 'l':
@@ -785,3 +795,4 @@ fillMatrixReports(countdays)
 processreport('m')
 fillColumnReports(countdays)
 processreport('c')
+fillSquareReports(countdays)
