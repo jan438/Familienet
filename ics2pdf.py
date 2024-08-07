@@ -628,14 +628,14 @@ def fillSquareReports(countdays):
     squarereps[indrep].h[row][col].append(squaredayhea[squaredayheaindex])
     squarereps[indrep].p[row][col].append(squaredaypar[squaredayparindex])
     tbl_data = [
-    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2]],
-    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2]],
-    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2]],
-    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2]],
-    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2]],   
-    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2]],
-    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2]],   
-    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2]]
+    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2], squarereps[indrep].h[0][3]],
+    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2], squarereps[indrep].p[0][3]],
+    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2], squarereps[indrep].h[1][3]],
+    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2], squarereps[indrep].p[1][3]],
+    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2], squarereps[indrep].h[2][3]],  
+    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2], squarereps[indrep].p[2][3]],
+    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
+    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
     tbl.setStyle(squareStyle)
