@@ -25,6 +25,8 @@ calfont = "DancingScript"
 weekreps = []
 columsmatrixreport = 3
 rowsmatrixreport = 4
+columssquarereport = 4
+rowssquarereport = 4
 rowscolumnreport = 15
 styles = getSampleStyleSheet()
 #styles.list()
