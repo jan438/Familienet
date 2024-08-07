@@ -601,7 +601,7 @@ def fillSquareReports(countdays):
     [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
     [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]
                     ]
-                    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
+                    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.92*inch])
                     tbl.setStyle(squareStyle)
                     storypdf.append(Paragraph(version, titleStyle))
                     storypdf.append(tbl)
@@ -637,7 +637,7 @@ def fillSquareReports(countdays):
     [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
     [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]
     ]
-    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.81*inch])
+    tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.92*inch])
     tbl.setStyle(squareStyle)
     storypdf.append(Paragraph(version, titleStyle))
     storypdf.append(tbl)
