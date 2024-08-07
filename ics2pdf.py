@@ -462,25 +462,25 @@ def fillMatrixReports(countdays):
     matrixdayheaindex = 0
     matrixdaypar =  [[] for _ in range(500)] 
     matrixdayparindex = 0
-    indexreports = 0
+    indrep = 0
     calimage = None
     for i in range(rowsmatrixreport):
         for j in range(columsmatrixreport):
-            matrixreps[indexreports].h[i][j] = []
-            matrixreps[indexreports].p[i][j] = []
+            matrixreps[indrep].h[i][j] = []
+            matrixreps[indrep].p[i][j] = []
     col = 0
     row = 0
     eventday = -1
     headerplaced = False
-    matrixreportname = "Familienet" + str(indexreports) + ".pdf"
+    matrixreportname = "Familienet" + str(indrep) + ".pdf"
     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
         if eventday == -1:
              eventday = monthevents[indexevents].dayyear
         if eventday != monthevents[indexevents].dayyear:
-            matrixreps[indexreports].h[row][col].append(matrixdayhea[matrixdayheaindex])
-            matrixreps[indexreports].p[row][col].append(matrixdaypar[matrixdayparindex])
+            matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
+            matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
             matrixdayheaindex += 1
             matrixdayparindex += 1
             col += 1
@@ -492,23 +492,23 @@ def fillMatrixReports(countdays):
                 if row == rowsmatrixreport:
                     row = 0
                     tbl_data = [
-    [matrixreps[indexreports].h[0][0], matrixreps[indexreports].h[0][1], matrixreps[indexreports].h[0][2]],
-    [matrixreps[indexreports].p[0][0], matrixreps[indexreports].p[0][1], matrixreps[indexreports].p[0][2]],
-    [matrixreps[indexreports].h[1][0], matrixreps[indexreports].h[1][1], matrixreps[indexreports].h[1][2]],
-    [matrixreps[indexreports].p[1][0], matrixreps[indexreports].p[1][1], matrixreps[indexreports].p[1][2]],
-    [matrixreps[indexreports].h[2][0], matrixreps[indexreports].h[2][1], matrixreps[indexreports].h[2][2]],   
-    [matrixreps[indexreports].p[2][0], matrixreps[indexreports].p[2][1], matrixreps[indexreports].p[2][2]],
-    [matrixreps[indexreports].h[3][0], matrixreps[indexreports].h[3][1], matrixreps[indexreports].h[3][2]],   
-    [matrixreps[indexreports].p[3][0], matrixreps[indexreports].p[3][1], matrixreps[indexreports].p[3][2]]
+    [matrixreps[indrep].h[0][0], matrixreps[indrep].h[0][1], matrixreps[indrep].h[0][2]],
+    [matrixreps[indrep].p[0][0], matrixreps[indrep].p[0][1], matrixreps[indrep].p[0][2]],
+    [matrixreps[indrep].h[1][0], matrixreps[indrep].h[1][1], matrixreps[indrep].h[1][2]],
+    [matrixreps[indrep].p[1][0], matrixreps[indrep].p[1][1], matrixreps[indrep].p[1][2]],
+    [matrixreps[indrep].h[2][0], matrixreps[indrep].h[2][1], matrixreps[indrep].h[2][2]],   
+    [matrixreps[indrep].p[2][0], matrixreps[indrep].p[2][1], matrixreps[indrep].p[2][2]],
+    [matrixreps[indrep].h[3][0], matrixreps[indrep].h[3][1], matrixreps[indrep].h[3][2]],   
+    [matrixreps[indrep].p[3][0], matrixreps[indrep].p[3][1], matrixreps[indrep].p[3][2]]
                     ]
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
                     tbl.setStyle(matrixStyle)
                     storypdf.append(Paragraph(version, titleStyle))
                     storypdf.append(tbl)
                     doc.build(storypdf)
-                    matrixreps[indexreports].clear()
-                    indexreports += 1
-                    matrixreportname = "Familienet" + str(indexreports) + ".pdf"
+                    matrixreps[indrep].clear()
+                    indrep += 1
+                    matrixreportname = "Familienet" + str(indrep) + ".pdf"
                     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
@@ -525,24 +525,24 @@ def fillMatrixReports(countdays):
         if calimage is not None:
             matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
             matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
-    matrixreps[indexreports].h[row][col].append(matrixdayhea[matrixdayheaindex])
-    matrixreps[indexreports].p[row][col].append(matrixdaypar[matrixdayparindex])
+    matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
+    matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
     tbl_data = [
-    [matrixreps[indexreports].h[0][0], matrixreps[indexreports].h[0][1], matrixreps[indexreports].h[0][2]],
-    [matrixreps[indexreports].p[0][0], matrixreps[indexreports].p[0][1], matrixreps[indexreports].p[0][2]],
-    [matrixreps[indexreports].h[1][0], matrixreps[indexreports].h[1][1], matrixreps[indexreports].h[1][2]],
-    [matrixreps[indexreports].p[1][0], matrixreps[indexreports].p[1][1], matrixreps[indexreports].p[1][2]],
-    [matrixreps[indexreports].h[2][0], matrixreps[indexreports].h[2][1], matrixreps[indexreports].h[2][2]],   
-    [matrixreps[indexreports].p[2][0], matrixreps[indexreports].p[2][1], matrixreps[indexreports].p[2][2]],
-    [matrixreps[indexreports].h[3][0], matrixreps[indexreports].h[3][1], matrixreps[indexreports].h[3][2]],   
-    [matrixreps[indexreports].p[3][0], matrixreps[indexreports].p[3][1], matrixreps[indexreports].p[3][2]]
+    [matrixreps[indrep].h[0][0], matrixreps[indrep].h[0][1], matrixreps[indrep].h[0][2]],
+    [matrixreps[indrep].p[0][0], matrixreps[indrep].p[0][1], matrixreps[indrep].p[0][2]],
+    [matrixreps[indrep].h[1][0], matrixreps[indrep].h[1][1], matrixreps[indrep].h[1][2]],
+    [matrixreps[indrep].p[1][0], matrixreps[indrep].p[1][1], matrixreps[indrep].p[1][2]],
+    [matrixreps[indrep].h[2][0], matrixreps[indrep].h[2][1], matrixreps[indrep].h[2][2]],   
+    [matrixreps[indrep].p[2][0], matrixreps[indrep].p[2][1], matrixreps[indrep].p[2][2]],
+    [matrixreps[indrep].h[3][0], matrixreps[indrep].h[3][1], matrixreps[indrep].h[3][2]],   
+    [matrixreps[indrep].p[3][0], matrixreps[indrep].p[3][1], matrixreps[indrep].p[3][2]]
     ]
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
     tbl.setStyle(matrixStyle)
     storypdf.append(Paragraph(version, titleStyle))
     storypdf.append(tbl)
     doc.build(storypdf)
-    matrixreps[indexreports].clear()
+    matrixreps[indrep].clear()
     return
     
 def fillSquareReports(countdays):
