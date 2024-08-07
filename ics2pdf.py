@@ -337,7 +337,7 @@ def splicedheader(textpar, index, t):
     processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>"
     return processed
 
-def fillcolumnReports(countdays):
+def fillColumnReports(countdays):
     columnreps = []
     countcolumnReports = 4
     for i in range(countcolumnReports):
@@ -783,5 +783,5 @@ fillWeekReports(first_week, countdays)
 processreport('w')
 fillMatrixReports(countdays)
 processreport('m')
-fillcolumnReports(countdays)
+fillColumnReports(countdays)
 processreport('c')
