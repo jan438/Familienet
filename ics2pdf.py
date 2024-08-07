@@ -123,6 +123,24 @@ class MatrixReport:
                     c.pop()
                 except IndexError:
                     print(c)
+                    
+class SquareReport:
+    h = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
+    p = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
+ 
+    def clear(self):
+        for r in self.h:
+            for c in r:
+                try:
+                    c.pop()
+                except IndexError:
+                    print(c)
+        for r in self.p:
+            for c in r:
+                try:
+                    c.pop()
+                except IndexError:
+                    print(c)
     
 class FamilienetEvent:
     def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month, alarm):
