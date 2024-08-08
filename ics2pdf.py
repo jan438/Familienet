@@ -424,10 +424,12 @@ def fillWeekReports(first_week, countdays):
                         print(imgcode)
                 index = monthevents[j].weekday
                 weekreps[i].p0[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
-                weekreps[i].append0_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
-                countevents[monthevents[j].weekday] += 1
+                weekreps[i].append0_Paragraph(index, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
+                weekreps[i].append0_Paragraph(index, monthevents[j].location, weeklocStyle)
+                if imgday == index:
+                    print(imgcode)
+                weekreps[i].append0_Paragraph(index, monthevents[j].description, weekdesStyle)
+                countevents[index] += 1
         (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
             weekreps[i].p0[index].append(calwimage)
@@ -450,10 +452,12 @@ def fillWeekReports(first_week, countdays):
                             print(imgcode)
                     index = monthevents[j].weekday
                     weekreps[i].p1[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
-                    weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
-                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].location, weeklocStyle)
-                    weekreps[i].append1_Paragraph(monthevents[j].weekday, monthevents[j].description, weekdesStyle)
-                    countevents[monthevents[j].weekday] += 1
+                    weekreps[i].append1_Paragraph(index, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
+                    weekreps[i].append1_Paragraph(index, monthevents[j].location, weeklocStyle)
+                    if imgday == index:
+                        print(imgcode)
+                    weekreps[i].append1_Paragraph(index, monthevents[j].description, weekdesStyle)
+                    countevents[index] += 1
             (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
                 weekreps[i].p1[index].append(calwimage)
