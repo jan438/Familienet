@@ -262,7 +262,7 @@ def lookupalarm(alarm):
     return (img1, img2)
     
 def combinecolumns(prm1, prm2, alarm, s):
-    processed = "<font name=" + calfont + "Bold textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + "Bold textColor=blue>" + prm2 + "</font>"
+    processed = "<font name=" + calfont + " textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + " textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
         (alarmimg1, alarmimg2) = lookupalarm(alarm)
         if alarmimg1 is not None:
