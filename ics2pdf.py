@@ -409,6 +409,7 @@ def fillWeekReports(first_week, countdays):
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
         storypdf=[]
         imgcode = ""
+        imgday = -1
         countevents = [0,0,0,0,0,0,0]
         for j in range(7):
             weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
@@ -418,6 +419,9 @@ def fillWeekReports(first_week, countdays):
             if wk == monthevents[j].weeknr:
                 if imgcode == "":
                     imgcode = processwdescription(monthevents[j].description)
+                    if len(imgcode) > 0:
+                        imgday = monthevents[j].weekday
+                        print(imgcode)
                 index = monthevents[j].weekday
                 weekreps[i].p0[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
                 weekreps[i].append0_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
@@ -427,6 +431,8 @@ def fillWeekReports(first_week, countdays):
         (index, calwimage) = processimage(countevents, imgcode)
         if calwimage is not None:
             weekreps[i].p0[index].append(calwimage)
+            imgcode = ""
+            imgday = -1
         wk += 1
         if wk < last_week - first_week + 1:
             imgcode = ""
@@ -439,6 +445,9 @@ def fillWeekReports(first_week, countdays):
                 if wk == monthevents[j].weeknr:
                     if imgcode == "":
                         imgcode = processwdescription(monthevents[j].description)
+                        if len(imgcode) > 0:
+                            imgday = monthevents[j].weekday
+                            print(imgcode)
                     index = monthevents[j].weekday
                     weekreps[i].p1[index].append(processsummary(monthevents[j].summary, 'w', weeksumStyle))
                     weekreps[i].append1_Paragraph(monthevents[j].weekday, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
@@ -448,6 +457,8 @@ def fillWeekReports(first_week, countdays):
             (index, calwimage) = processimage(countevents, imgcode)
             if calwimage is not None:
                 weekreps[i].p1[index].append(calwimage)
+                imgcode = ""
+                imgday = -1
         tbl_data = [
         [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
         [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
