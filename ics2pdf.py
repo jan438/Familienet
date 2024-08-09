@@ -39,6 +39,7 @@ titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, 
 #=================================================================================================================================
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, leading = 14)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#DAEEC9", leading = 14)
+wheaderwkeStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#FEDDB9", leading = 14)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 14, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
 mheaderwkeStyle = ParagraphStyle('mheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#FEDDB9", leftIndent = 24, rightIndent = 24)
 sheaderStyle = ParagraphStyle('shea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
@@ -417,7 +418,10 @@ def fillWeekReports(first_week, countdays):
         imgday = -1
         countevents = [0,0,0,0,0,0,0]
         for j in range(7):
-            weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
+            if j < 5:
+                weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
+            else:
+                weekreps[i].append0_Header(j, weekdaynames[j] + " " + cal_day, wheaderwkeStyle)
             datecal += timedelta(days=1)
             cal_day = str(int(str(datecal)[8:10]))
         for j in range(len(monthevents)):
@@ -446,7 +450,10 @@ def fillWeekReports(first_week, countdays):
             imgcode = ""
             countevents = [0,0,0,0,0,0,0]
             for j in range(7):
-                weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
+                if j < 5:
+                    weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, wheaderStyle)
+                else:
+                    weekreps[i].append1_Header(j, weekdaynames[j] + " " + cal_day, wheaderwkeStyle) 
                 datecal += timedelta(days=1)
                 cal_day = str(int(str(datecal)[8:10]))
             for j in range(len(monthevents)):
