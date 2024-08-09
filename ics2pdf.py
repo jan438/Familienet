@@ -434,9 +434,9 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].append0_Paragraph(index, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                 weekreps[i].append0_Paragraph(index, monthevents[j].location, weeklocStyle)
                 if imgday == index:
-                    dtimgeventpos = monthevents[j].description.find("n[i")
-                    if dtimgeventpos >= 0:
-                        monthevents[j].description = monthevents[j].description[:dtimgeventpos] + monthevents[j].description[dtimgeventpos+7:]
+                    wimgpos = monthevents[j].description.find("n[i")
+                    if wimgpos >= 0:
+                        monthevents[j].description = monthevents[j].description[:wimgpos] + monthevents[j].description[wimgpos+7:]
                 weekreps[i].append0_Paragraph(index, monthevents[j].description, weekdesStyle)
                 countevents[index] += 1
         (index, calwimage) = processimage(countevents, imgcode)
@@ -466,9 +466,9 @@ def fillWeekReports(first_week, countdays):
                     weekreps[i].append1_Paragraph(index, processwtime(monthevents[j].starttime + "-" + monthevents[j].endtime, monthevents[j].alarm), weektimStyle)
                     weekreps[i].append1_Paragraph(index, monthevents[j].location, weeklocStyle)
                     if imgday == index:
-                        dtimgeventpos = monthevents[j].description.find("n[i")
-                        if dtimgeventpos >= 0:
-                            monthevents[j].description = monthevents[j].description[:dtimgeventpos] + monthevents[j].description[dtimgeventpos+7:]
+                        wimgpos = monthevents[j].description.find("n[i")
+                        if wimgpos >= 0:
+                            monthevents[j].description = monthevents[j].description[:wimgpos] + monthevents[j].description[wimgpos+7:]
                     weekreps[i].append1_Paragraph(index, monthevents[j].description, weekdesStyle)
                     countevents[index] += 1
             (index, calwimage) = processimage(countevents, imgcode)
