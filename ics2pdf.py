@@ -36,6 +36,7 @@ sumfontsize[ord('m')] = [11, 13]
 sumfontsize[ord('w')] = [11, 13]
 sumfontsize[ord('s')] = [11, 13]
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 13, textColor = black, alignment=TA_CENTER, leading = 14, spaceAfter = 3)
+#=================================================================================================================================
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, leading = 14)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, leading = 14)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 14, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
@@ -43,10 +44,10 @@ mheaderwkeStyle = ParagraphStyle('mheawke', parent=styles['Normal'], fontName = 
 sheaderStyle = ParagraphStyle('shea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
 sheaderwkeStyle = ParagraphStyle('sheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#FEDDB9", leftIndent = 24, rightIndent = 24)
 #=================================================================================================================================
-weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 12)
-weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 8)
-weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = purple, leading = 9, hyphenationLang="nl_NL")
-weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont + "BoldItalic", fontSize = 9, textColor = red, leading = 8)
+weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 14)
+weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 10)
+weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = purple, leading = 10, hyphenationLang="nl_NL")
+weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont + "BoldItalic", fontSize = 9, textColor = red, leading = 10)
 #=================================================================================================================================
 matrixsumStyle = ParagraphStyle('msum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][0], textColor = green, alignment=TA_CENTER, leading = 15)
 matrixdesStyle = ParagraphStyle('mdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11, hyphenationLang="nl_NL")
