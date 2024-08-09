@@ -655,7 +655,7 @@ def fillSquareReports(countdays):
         squaredaypar[squaredayparindex].append(paragraph)
         if calimage is not None:
             squaredaypar[squaredayparindex].append(Spacer(width=10, height=10))
-            squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
+            squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[0.95 * inch, 0.95 * inch, 0.95 * inch],  rowHeights=[0.95 * inch]))
     squarereps[indrep].h[row][col].append(squaredayhea[squaredayheaindex])
     squarereps[indrep].p[row][col].append(squaredaypar[squaredayparindex])
     tbl_data = [
