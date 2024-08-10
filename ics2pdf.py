@@ -35,6 +35,7 @@ sumfontsize[ord('c')] = [12, 14]
 sumfontsize[ord('m')] = [11, 13]
 sumfontsize[ord('w')] = [11, 13]
 sumfontsize[ord('s')] = [11, 13]
+#=================================================================================================================================
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 13, textColor = black, alignment=TA_CENTER, leading = 14, spaceAfter = 3)
 #=================================================================================================================================
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, leading = 14)
@@ -59,8 +60,9 @@ squaredesStyle = ParagraphStyle('sdes', parent=styles['Normal'], fontName = calf
 squaretimlocStyle = ParagraphStyle('sloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = red, alignment=TA_CENTER, leading = 10)
 #=================================================================================================================================
 columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('c')][0], textColor = green, alignment=TA_CENTER, leading = 8)
-columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 13, spaceBefore = 0, spaceAfter = 4, textColor = purple, alignment=TA_CENTER, leading = 8)
-columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, spaceBefore = 3, textColor = red, alignment=TA_CENTER, leading = 8)
+columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 13, textColor = purple, alignment=TA_CENTER, leading = 8)
+columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, textColor = red, alignment=TA_CENTER, leading = 8)
+#================================================================================================================================
 version = "Augustus 2024"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
