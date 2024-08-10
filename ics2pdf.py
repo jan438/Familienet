@@ -655,7 +655,7 @@ def fillSquareReports(countdays):
                 headerpar = Paragraph("<u>" + weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1] + "</u>", sheaderStyle)
             squaredayhea[squaredayheaindex].append(headerpar)
             headerplaced = True
-        squaredaypar[squaredayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 'm'), squaresumStyle))
+        squaredaypar[squaredayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 's'), squaresumStyle))
         squaredaypar[squaredayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), squaretimlocStyle))
         (paragraph, calimage) = processdescription(monthevents[indexevents].description, squaredesStyle)
         squaredaypar[squaredayparindex].append(paragraph)
