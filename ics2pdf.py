@@ -39,6 +39,7 @@ sumfontsize[ord('s')] = [11, 13]
 titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 13, textColor = black, alignment=TA_CENTER, leading = 14, spaceAfter = 3)
 #=================================================================================================================================
 cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, backColor = "#DAEEC9", leading = 14)
+cheaderwkeStyle = ParagraphStyle('cheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, backColor = "#FEDDB9", leading = 14)
 wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#DAEEC9", leading = 14)
 wheaderwkeStyle = ParagraphStyle('wheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#FEDDB9", leading = 14)
 mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 14, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
@@ -370,7 +371,10 @@ def fillColumnReports(countdays):
         openreport = True
         if eventday == -1 or eventday != monthevents[indexevents].dayyear:
             header = weekdaynames[monthevents[indexevents].weekday] + " " + str(monthevents[indexevents].day) + " " + monthnames[monthevents[indexevents].month-1]
-            columnreps[i].append_Paragraph(header, cheaderStyle)
+            if monthevents[indexevents].weekday < 5:
+                columnreps[i].append_Paragraph(header, cheaderStyle)
+            else:
+                columnreps[i].append_Paragraph(header, cheaderwkeStyle)
             eventday = monthevents[indexevents].dayyear
         columnreps[i].d.append(Paragraph(processsummary(monthevents[indexevents].summary, 'c'), columnsumStyle))
         columnreps[i].d.append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), columntimlocStyle))
