@@ -192,6 +192,7 @@ def processreport(t):
         if os.path.isfile("Familienet" + str(i) + ".pdf"):
             inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
             merger.append(inputpdf)
+            inputpdf.close()
         else:
             break
     output = open(t + version + ".pdf", "wb")
