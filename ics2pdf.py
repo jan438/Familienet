@@ -1,4 +1,3 @@
-import pytz
 import os
 import sys
 import re
@@ -19,7 +18,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image, Space
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
-startdate = date(1990,1,1)
+startdate = datetime(1990,1,1)
 datecal = datetime.now()
 calfont = "LiberationSerif"
 weekreps = []
@@ -749,10 +748,6 @@ for i in range(countlines):
             first_week = weeknr
         if weeknr > last_week:
             last_week = weeknr
-        if day < 8 and weekDay(year, month, 1) > 1:
-            splitfirstw = True
-        if day > daysinmonth - 7 and weekDay(year, month, daysinmonth) < 6:
-            splitlastw = True
         found += 1
     if dtendeventpos == 0:
         if alldayevent:
