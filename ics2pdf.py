@@ -187,8 +187,8 @@ def find_all_occurrences(textpar, sub):
 def processreport(t):
     merger = PdfWriter()
     for i in range(10):
-        if os.path.isfile("Familienet" + str(i) + ".pdf"):
-            inputpdf = open("Familienet" + str(i) + ".pdf", "rb")
+        if os.path.isfile("PDF/Familienet" + str(i) + ".pdf"):
+            inputpdf = open("PDF/Familienet" + str(i) + ".pdf", "rb")
             merger.append(inputpdf)
             inputpdf.close()
         else:
@@ -198,8 +198,8 @@ def processreport(t):
     merger.close()
     output.close()
     for i in range(10):
-        if os.path.isfile("Familienet" + str(i) + ".pdf"):
-            os.remove("Familienet" + str(i) + ".pdf")
+        if os.path.isfile("PDF/Familienet" + str(i) + ".pdf"):
+            os.remove("PDF/Familienet" + str(i) + ".pdf")
         
 def leapMonth(year, month):
     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
@@ -360,7 +360,7 @@ def fillColumnReports(countdays):
     for i in range(countcolumnReports):
         columnreps.append(ColumnReport())
     i = 0
-    columnreportname = "Familienet" + str(i) + ".pdf"
+    columnreportname = "PDF/Familienet" + str(i) + ".pdf"
     doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     eventday = -1
@@ -391,7 +391,7 @@ def fillColumnReports(countdays):
             columnreps[i].clear()
             i += 1
             storypdf=[]
-            columnreportname = "Familienet" + str(i) + ".pdf"
+            columnreportname = "PDF/Familienet" + str(i) + ".pdf"
             doc = SimpleDocTemplate(columnreportname, pagesize=portrait(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
             eventday = -1
             rows = 0
@@ -415,7 +415,7 @@ def fillWeekReports(first_week, countdays):
     cal_day = str(int(str(datecal)[8:10]))
     wk = 0
     for i in range(countweekreps):
-        weekreportname = "Familienet" + str(i) + ".pdf"
+        weekreportname = "PDF/Familienet" + str(i) + ".pdf"
         doc = SimpleDocTemplate(weekreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
         storypdf=[]
         imgcode = ""
@@ -515,7 +515,7 @@ def fillMatrixReports(countdays):
     row = 0
     eventday = -1
     headerplaced = False
-    matrixreportname = "Familienet" + str(indrep) + ".pdf"
+    matrixreportname = "PDF/Familienet" + str(indrep) + ".pdf"
     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
@@ -551,7 +551,7 @@ def fillMatrixReports(countdays):
                     doc.build(storypdf)
                     matrixreps[indrep].clear()
                     indrep += 1
-                    matrixreportname = "Familienet" + str(indrep) + ".pdf"
+                    matrixreportname = "PDF/Familienet" + str(indrep) + ".pdf"
                     doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
@@ -607,7 +607,7 @@ def fillSquareReports(countdays):
     row = 0
     eventday = -1
     headerplaced = False
-    squarereportname = "Familienet" + str(indrep) + ".pdf"
+    squarereportname = "PDF/Familienet" + str(indrep) + ".pdf"
     doc = SimpleDocTemplate(squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
     storypdf=[]
     for indexevents in range(len(monthevents)):
@@ -644,7 +644,7 @@ def fillSquareReports(countdays):
                     doc.build(storypdf)
                     squarereps[indrep].clear()
                     indrep += 1
-                    squarereportname = "Familienet" + str(indrep) + ".pdf"
+                    squarereportname = "PDF/Familienet" + str(indrep) + ".pdf"
                     doc = SimpleDocTemplate(squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
                     storypdf=[]
         if not headerplaced:
@@ -682,11 +682,11 @@ def fillSquareReports(countdays):
     return
     
 if sys.platform[0] == 'l':
-    path = '/home/jan/git/Familienet/Calendar'
+    path = '/home/jan/git/Familienet'
 if sys.platform[0] == 'w':
-    path = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
+    path = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet"
 os.chdir(path)
-eventcal = "Familienet.ics"
+eventcal = "Calendar/Familienet.ics"
 in_file = open(os.path.join(path, eventcal), 'r')
 count = 0
 lastpos = 0
