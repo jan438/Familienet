@@ -262,11 +262,11 @@ def lookupalarm(alarm):
     img1 = None
     img2 = None
     if alarm[0] == 'A':
-        img1 = "bell.png"
+        img1 = "Alarms/bell.png"
     elif alarm[0] == 'M':
-        img1 = "notification.png"
+        img1 = "Alarms/notification.png"
     if len(alarm) > 5 and alarm[5] == 'M':
-        img2 = "notification.png"
+        img2 = "Alarms/notification.png"
     return (img1, img2)
     
 def combinecolumns(prm1, prm2, alarm):
