@@ -193,7 +193,7 @@ def processreport(t):
             inputpdf.close()
         else:
             break
-    output = open(t + version + ".pdf", "wb")
+    output = open("PDF/" + t + version + ".pdf", "wb")
     merger.write(output)
     merger.close()
     output.close()
