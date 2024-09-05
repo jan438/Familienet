@@ -269,6 +269,14 @@ def lookupalarm(alarm):
         img2 = "Alarms/notification.png"
     return (img1, img2)
     
+def lookupemoji(imgcode):
+    emojitable = [[] for _ in range(3000)]
+    emojitable[1602] = "Emojis/642.png"
+    emojitable[1550] = "Emojis/60E.png"
+    emojiint = int(imgcode, 16)
+    emojiimg = emojitable[emojiint]
+    return emojiimg
+    
 def combinecolumns(prm1, prm2, alarm):
     processed = "<font name=" + calfont + " textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + " textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
@@ -335,7 +343,7 @@ def processsummary(textpar, t):
     tagpos = textpar.find("<h")
     if tagpos == 0:
         closingtagpos = textpar.find("</h")
-        processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>"
+        processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>" + textpar[closingtagpos+5:]
     elif tagpos > 0:
         processed = splicedheader(textpar, tagpos, t)
     fls = find_all_occurrences(processed, "[f")
@@ -345,6 +353,13 @@ def processsummary(textpar, t):
             flagimg = lookupflag(processed[g+2:g+5]           )
             inlineimg = "<img src=" + flagimg + " width='15' height='10' valign='-2'/>"
             processed = processed.replace(processed[g:g+5], inlineimg)
+    ems = find_all_occurrences(processed, "[e")
+    if len(ems) > 0:
+        for e in range(len(ems) - 1, -1, -1):
+            h = ems[e]
+            emojiimg = lookupemoji(processed[h+2:h+5])
+            inlineimg = "<img src=" + emojiimg + " width='15' height='15' valign='-4'/>"
+            processed = processed.replace(processed[h:h+5], inlineimg)
     return processed
 
 def splicedheader(textpar, index, t):
