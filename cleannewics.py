@@ -47,6 +47,38 @@ def process_organizers(line, pos):
     for i in range(len(pos), 0, -1):
         processed = process_organizer(processed, pos[i-1])
     return processed
+    
+def process_flag(line, pos):
+    eb = line[pos+3]
+    lb = line[pos+7]
+    germancode = bytearray.fromhex("A9AA")
+    francecode = bytearray.fromhex("ABB7")
+    hollandcode = bytearray.fromhex("B3B1")
+    spaincode = bytearray.fromhex("AAB8")
+    austriacode = bytearray.fromhex("A6B9")
+    polandcode = bytearray.fromhex("B5B1")
+    if (eb == germancode[0] and lb == germancode[1]):
+        landcode = flagprefix + "DEU".encode()
+    elif (eb == francecode[0] and lb == francecode[1]):
+        landcode = flagprefix + "FRA".encode()
+    elif (eb == hollandcode[0] and lb == hollandcode[1]):
+        landcode = flagprefix + "HOL".encode()
+    elif (eb == spaincode[0] and lb == spaincode[1]):
+        landcode = flagprefix + "ESP".encode()
+    elif (eb == austriacode[0] and lb == austriacode[1]):
+        landcode = flagprefix + "AUT".encode()
+    elif (eb == polandcode[0] and lb == polandcode[1]):
+        landcode = flagprefix + "POL".encode()
+    else:
+        landcode = "".encode()
+    processed = line[:pos] + landcode + line[pos+8:]
+    return processed
+
+def process_flags(line, pos):
+    processed = line
+    for i in range(len(pos), 0, -2):
+        processed = process_flag(processed, pos[i-2])
+    return processed
            
 def process_linebreak(line, pos):
     processed = line[:pos] + line[pos+3:]
@@ -91,9 +123,13 @@ backslash = "\\".encode()
 ORGANIZER = "ORGANIZER:mailto:local@newcalendar".encode()
 print("============", line, len(line))
 alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
+flagcode = bytearray.fromhex("F09F87")
+flagprefix = "[f".encode("utf-8")
 line = process_alarms(line, alarms)
 organizers = find_all_occurrences(line, ORGANIZER, 0, len(line))
 line = process_organizers(line, organizers)
+flagcodes = find_all_occurrences(line, flagcode, 0, len(line))
+line = process_flags(line, flagcodes)
 neweventpos = line.find(BEGINVEVENT)
 dtstartpos = line.find(DTSTART)
 dtendpos = line.find(DTEND)
