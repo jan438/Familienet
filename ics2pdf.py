@@ -367,7 +367,7 @@ def splicedheader(textpar, index, t):
     closingtagpos = textpar.find("</h")
     part1 = textpar[:index]
     part2 = textpar[index+4:closingtagpos]
-    processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>"
+    processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>" + textpar[closingtagpos+5:]
     return processed
 
 def fillColumnReports(countdays):
