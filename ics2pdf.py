@@ -342,10 +342,7 @@ def processdescription(textpar, s):
 def processsummary(textpar, t):
     processed = textpar
     tagpos = textpar.find("<h")
-    if tagpos == 0:
-        closingtagpos = textpar.find("</h")
-        processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>" + textpar[closingtagpos+5:]
-    elif tagpos > 0:
+    if tagpos >= 0:
         closingtagpos = textpar.find("</h")
         part1 = textpar[:tagpos]
         part2 = textpar[tagpos+4:closingtagpos]
