@@ -346,7 +346,10 @@ def processsummary(textpar, t):
         closingtagpos = textpar.find("</h")
         processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + textpar[4:closingtagpos] + "</font>" + textpar[closingtagpos+5:]
     elif tagpos > 0:
-        processed = splicedheader(textpar, tagpos, t)
+        closingtagpos = textpar.find("</h")
+        part1 = textpar[:tagpos]
+        part2 = textpar[tagpos+4:closingtagpos]
+        processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>" + textpar[closingtagpos+5:]
     fls = find_all_occurrences(processed, "[f")
     if len(fls) > 0:
         for f in range(len(fls) - 1, -1, -1):
@@ -361,13 +364,6 @@ def processsummary(textpar, t):
             emojiimg = lookupemoji(processed[h+2:h+5])
             inlineimg = "<img src=" + emojiimg + " width='15' height='15' valign='-4'/>"
             processed = processed.replace(processed[h:h+5], inlineimg)
-    return processed
-
-def splicedheader(textpar, index, t):
-    closingtagpos = textpar.find("</h")
-    part1 = textpar[:index]
-    part2 = textpar[index+4:closingtagpos]
-    processed = "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][0]) + ">" + part1 + "</font>" + "<font name=" + calfont + "Bold size=" + str(sumfontsize[ord(t)][1]) + ">" + part2 + "</font>" + textpar[closingtagpos+5:]
     return processed
 
 def fillColumnReports(countdays):
