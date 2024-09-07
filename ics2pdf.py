@@ -320,7 +320,7 @@ def processwtime(textpar, alarm):
         processed = processed + "   " + inlineimg1 + inlineimg2
     return processed
     
-def processwdescription(textpar):
+def processidescription(textpar):
     imgcode = ""
     dtimgeventpos = textpar.find("n[i")
     if dtimgeventpos >= 0:
@@ -440,7 +440,7 @@ def fillWeekReports(first_week, countdays):
         for j in range(len(monthevents)):
             if wk == monthevents[j].weeknr:
                 if imgcode == "":
-                    imgcode = processwdescription(monthevents[j].description)
+                    imgcode = processidescription(monthevents[j].description)
                     if len(imgcode) > 0:
                         imgday = monthevents[j].weekday
                 index = monthevents[j].weekday
@@ -472,7 +472,7 @@ def fillWeekReports(first_week, countdays):
             for j in range(len(monthevents)):
                 if wk == monthevents[j].weeknr:
                     if imgcode == "":
-                        imgcode = processwdescription(monthevents[j].description)
+                        imgcode = processidescription(monthevents[j].description)
                         if len(imgcode) > 0:
                             imgday = monthevents[j].weekday
                     index = monthevents[j].weekday
