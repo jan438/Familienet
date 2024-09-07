@@ -80,7 +80,7 @@ def process_flags(line, pos):
         processed = process_flag(processed, pos[i-2])
     return processed
     
-def process_emoji9(line, pos):
+def process_emoji(line, pos):
     smbytes = line[pos:pos+4]
     utf8code = smbytes.decode('utf-8')
     unicode = utf8code.encode('unicode_escape')
@@ -90,10 +90,10 @@ def process_emoji9(line, pos):
     processed = line[:pos] + emojiprefix + emojicode + line[pos+4:]
     return processed
 
-def process_emojis9(line, pos):
+def process_emojis(line, pos):
     processed = line
     for i in range(len(pos), 0, -1):
-        processed = process_emoji9(processed, pos[i-1])
+        processed = process_emoji(processed, pos[i-1])
     return processed   
            
 def process_linebreak(line, pos):
@@ -139,18 +139,15 @@ print("============", line, len(line))
 alarms = find_all_occurrences(line, BEGINVALARM, 0, len(line))
 flagcode = bytearray.fromhex("F09F87")
 flagprefix = "[f".encode("utf-8")
-emojicode98 = bytearray.fromhex("F09F98")
-emojicode99 = bytearray.fromhex("F09F99")
+emojicode = bytearray.fromhex("F09F")
 emojiprefix = "[e".encode("utf-8")
 line = process_alarms(line, alarms)
 organizers = find_all_occurrences(line, ORGANIZER, 0, len(line))
 line = process_organizers(line, organizers)
 flagcodes = find_all_occurrences(line, flagcode, 0, len(line))
 line = process_flags(line, flagcodes)
-emojicodes = find_all_occurrences(line, emojicode99, 0, len(line))
-line = process_emojis9(line, emojicodes)
-emojicodes = find_all_occurrences(line, emojicode98, 0, len(line))
-line = process_emojis9(line, emojicodes)
+emojicodes = find_all_occurrences(line, emojicode, 0, len(line))
+line = process_emojis(line, emojicodes)
 neweventpos = line.find(BEGINVEVENT)
 dtstartpos = line.find(DTSTART)
 dtendpos = line.find(DTEND)
