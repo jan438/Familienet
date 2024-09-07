@@ -111,12 +111,10 @@ def process_backslash(line, pos):
     return processed
 
 if sys.platform[0] == 'l':
-    inppath = '/home/jan/git/Familienet/Calendar'
-    outpath = '/home/jan/git/Familienet/Calendar'
+    path = '/home/jan/git/Familienet/Calendar'
 if sys.platform[0] == 'w':
-    inppath = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
-    outpath = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
-os.chdir(inppath)
+    path = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
+os.chdir(path)
 src = "NewCalendar.ics"
 #src = "KOrganizer.ics"
 bup = "Familienet.bup"
