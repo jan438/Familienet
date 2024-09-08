@@ -699,6 +699,36 @@ def fillSquareReports(countdays):
         squaredaypar[squaredayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), squaretimlocStyle))
         (paragraph, calimage) = processdescription(monthevents[indexevents].description, squaredesStyle)
         squaredaypar[squaredayparindex].append(paragraph)
+    if calimage is not None:
+        squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
+        calimage = None
+        col += 1
+        if col == columssquarereport:
+            col = 0
+            row += 1
+            if row == rowssquarereport:
+                row = 0
+                tbl_data = [
+    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2], squarereps[indrep].h[0][3]],
+    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2], squarereps[indrep].p[0][3]],
+
+    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2], squarereps[indrep].h[1][3]],
+    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2], squarereps[indrep].p[1][3]],
+    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2], squarereps[indrep].h[2][3]],  
+    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2], squarereps[indrep].p[2][3]],
+    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
+    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]
+                ]
+                tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.92*inch])
+                tbl.setStyle(squareStyle)
+                storypdf.append(Paragraph(version, titleStyle))
+                storypdf.append(tbl)
+                doc.build(storypdf)
+                squarereps[indrep].clear()
+                indrep += 1
+                squarereportname = "PDF/Familienet" + str(indrep) + ".pdf"
+                doc = SimpleDocTemplate(squarereportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+                storypdf=[]
     squarereps[indrep].h[row][col].append(squaredayhea[squaredayheaindex])
     squarereps[indrep].p[row][col].append(squaredaypar[squaredayparindex])
     tbl_data = [
