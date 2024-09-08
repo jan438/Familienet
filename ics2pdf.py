@@ -247,8 +247,10 @@ def lookupflag(imgcode):
 def lookupimage(imgcode):
     newcalendar = [[] for _ in range(300)]
     newcalendar[156] = "Photos/VivaLaFrance.jpg"
+    newcalendar[157] = "Photos/Herfst2.jpg"
     newcalendar[171] = "Photos/MiniPrideWalk12juni-2.jpg"
     newcalendar[191] = "Photos/6617f09c1049a.jpg"
+    newcalendar[182] = "Photos/Herfst3.jpg"
     newcalendar[183] = "Photos/Herfst1.jpg"
     newcalendar[190] = "Photos/keukenhof-lisse-molen.jpg"
     newcalendar[262] = "Photos/spain_PNG58.png"
