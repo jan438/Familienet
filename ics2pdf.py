@@ -240,6 +240,8 @@ def lookupflag(imgcode):
         flagimg = "Flags/at.png"
     if imgcode == "ESP":
         flagimg = "Flags/es.png"
+    if imgcode == "DEU":
+        flagimg = "Flags/de.png"
     return flagimg
     
 def lookupimage(imgcode):
