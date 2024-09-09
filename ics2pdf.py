@@ -141,6 +141,16 @@ class MatrixReport:
                 except IndexError:
                     print(c)
                     
+    def tabledata(self):
+        return [[self.h[0][0], self.h[0][1], self.h[0][2]],
+                [self.p[0][0], self.p[0][1], self.p[0][2]],
+                [self.h[1][0], self.h[1][1], self.h[1][2]],
+                [self.p[1][0], self.p[1][1], self.p[1][2]],
+                [self.h[2][0], self.h[2][1], self.h[2][2]],   
+                [self.p[2][0], self.p[2][1], self.p[2][2]],
+                [self.h[3][0], self.h[3][1], self.h[3][2]],   
+                [self.p[3][0], self.p[3][1], self.p[3][2]]]
+                    
 class SquareReport:
     h = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
     p = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
@@ -557,16 +567,7 @@ def fillMatrixReports(countdays):
                 row += 1
                 if row == rowsmatrixreport:
                     row = 0
-                    tbl_data = [
-    [matrixreps[indrep].h[0][0], matrixreps[indrep].h[0][1], matrixreps[indrep].h[0][2]],
-    [matrixreps[indrep].p[0][0], matrixreps[indrep].p[0][1], matrixreps[indrep].p[0][2]],
-    [matrixreps[indrep].h[1][0], matrixreps[indrep].h[1][1], matrixreps[indrep].h[1][2]],
-    [matrixreps[indrep].p[1][0], matrixreps[indrep].p[1][1], matrixreps[indrep].p[1][2]],
-    [matrixreps[indrep].h[2][0], matrixreps[indrep].h[2][1], matrixreps[indrep].h[2][2]],   
-    [matrixreps[indrep].p[2][0], matrixreps[indrep].p[2][1], matrixreps[indrep].p[2][2]],
-    [matrixreps[indrep].h[3][0], matrixreps[indrep].h[3][1], matrixreps[indrep].h[3][2]],   
-    [matrixreps[indrep].p[3][0], matrixreps[indrep].p[3][1], matrixreps[indrep].p[3][2]]
-                    ]
+                    tbl_data = matrixreps[indrep].tabledata()
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
                     tbl.setStyle(matrixStyle)
                     storypdf.append(Paragraph(version, titleStyle))
