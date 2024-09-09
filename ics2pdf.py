@@ -160,14 +160,14 @@ class SquareReport:
                     print(c)
                     
     def tabledata(self):
-        return [[squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2], squarereps[indrep].h[0][3]],
-                [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2], squarereps[indrep].p[0][3]],
-                [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2], squarereps[indrep].h[1][3]],
-                [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2], squarereps[indrep].p[1][3]],
-                [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2], squarereps[indrep].h[2][3]],  
-                [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2], squarereps[indrep].p[2][3]],
-                [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
-                [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]]
+        return [[self.h[0][0], self.h[0][1], self.h[0][2], self.h[0][3]],
+                [self.p[0][0], self.p[0][1], self.p[0][2], self.p[0][3]],
+                [self.h[1][0], self.h[1][1], self.h[1][2], self.h[1][3]],
+                [self.p[1][0], self.p[1][1], self.p[1][2], self.p[1][3]],
+                [self.h[2][0], self.h[2][1], self.h[2][2], self.h[2][3]],  
+                [self.p[2][0], self.p[2][1], self.p[2][2], self.p[2][3]],
+                [self.h[3][0], self.h[3][1], self.h[3][2], self.h[3][3]],  
+                [self.p[3][0], self.p[3][1], self.p[3][2], self.p[3][3]]]
     
 class FamilienetEvent:
     def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month, alarm):
@@ -669,16 +669,7 @@ def fillSquareReports(countdays):
                 row += 1
                 if row == rowssquarereport:
                     row = 0
-                    tbl_data = [
-    [squarereps[indrep].h[0][0], squarereps[indrep].h[0][1], squarereps[indrep].h[0][2], squarereps[indrep].h[0][3]],
-    [squarereps[indrep].p[0][0], squarereps[indrep].p[0][1], squarereps[indrep].p[0][2], squarereps[indrep].p[0][3]],
-    [squarereps[indrep].h[1][0], squarereps[indrep].h[1][1], squarereps[indrep].h[1][2], squarereps[indrep].h[1][3]],
-    [squarereps[indrep].p[1][0], squarereps[indrep].p[1][1], squarereps[indrep].p[1][2], squarereps[indrep].p[1][3]],
-    [squarereps[indrep].h[2][0], squarereps[indrep].h[2][1], squarereps[indrep].h[2][2], squarereps[indrep].h[2][3]],  
-    [squarereps[indrep].p[2][0], squarereps[indrep].p[2][1], squarereps[indrep].p[2][2], squarereps[indrep].p[2][3]],
-    [squarereps[indrep].h[3][0], squarereps[indrep].h[3][1], squarereps[indrep].h[3][2], squarereps[indrep].h[3][3]],  
-    [squarereps[indrep].p[3][0], squarereps[indrep].p[3][1], squarereps[indrep].p[3][2], squarereps[indrep].p[3][3]]
-                    ]
+                    tbl_data = squarereps[indrep].tabledata()
                     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.92*inch])
                     tbl.setStyle(squareStyle)
                     storypdf.append(Paragraph(version, titleStyle))
