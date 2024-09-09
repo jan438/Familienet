@@ -594,16 +594,7 @@ def fillMatrixReports(countdays):
             matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
     matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
     matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
-    tbl_data = [
-    [matrixreps[indrep].h[0][0], matrixreps[indrep].h[0][1], matrixreps[indrep].h[0][2]],
-    [matrixreps[indrep].p[0][0], matrixreps[indrep].p[0][1], matrixreps[indrep].p[0][2]],
-    [matrixreps[indrep].h[1][0], matrixreps[indrep].h[1][1], matrixreps[indrep].h[1][2]],
-    [matrixreps[indrep].p[1][0], matrixreps[indrep].p[1][1], matrixreps[indrep].p[1][2]],
-    [matrixreps[indrep].h[2][0], matrixreps[indrep].h[2][1], matrixreps[indrep].h[2][2]],   
-    [matrixreps[indrep].p[2][0], matrixreps[indrep].p[2][1], matrixreps[indrep].p[2][2]],
-    [matrixreps[indrep].h[3][0], matrixreps[indrep].h[3][1], matrixreps[indrep].h[3][2]],   
-    [matrixreps[indrep].p[3][0], matrixreps[indrep].p[3][1], matrixreps[indrep].p[3][2]]
-    ]
+    tbl_data = matrixreps[indrep].tabledata()
     tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[3.75*inch])
     tbl.setStyle(matrixStyle)
     storypdf.append(Paragraph(version, titleStyle))
