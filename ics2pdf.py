@@ -123,6 +123,12 @@ class WeekReport:
             while len(self.p1[i]) > 0:
                 self.p1[i].pop()
 
+    def tabledata(self):
+        return [[self.h0[0], self.h0[1], self.h0[2], self.h0[3], self.h0[4], self.h0[5], self.h0[6]],
+                [self.p0[0], self.p0[1], self.p0[2], self.p0[3], self.p0[4], self.p0[5], self.p0[6]],
+                [self.h1[0], self.h1[1], self.h1[2], self.h1[3], self.h1[4], self.h1[5], self.h1[6]],
+                [self.p1[0], self.p1[1], self.p1[2], self.p1[3], self.p1[4], self.p1[5], self.p1[6]]]
+
 class MatrixReport:
     h = [[0 for i in range(columsmatrixreport)] for j in range(rowsmatrixreport)] 
     p = [[0 for i in range(columsmatrixreport)] for j in range(rowsmatrixreport)] 
@@ -514,12 +520,7 @@ def fillWeekReports(first_week, countdays):
                 weekreps[i].p1[index].append(calwimage)
                 imgcode = ""
                 imgday = -1
-        tbl_data = [
-        [weekreps[i].h0[0], weekreps[i].h0[1], weekreps[i].h0[2], weekreps[i].h0[3], weekreps[i].h0[4], weekreps[i].h0[5], weekreps[i].h0[6]],
-        [weekreps[i].p0[0], weekreps[i].p0[1], weekreps[i].p0[2], weekreps[i].p0[3], weekreps[i].p0[4], weekreps[i].p0[5], weekreps[i].p0[6]],
-        [weekreps[i].h1[0], weekreps[i].h1[1], weekreps[i].h1[2], weekreps[i].h1[3], weekreps[i].h1[4], weekreps[i].h1[5], weekreps[i].h1[6]],
-        [weekreps[i].p1[0], weekreps[i].p1[1], weekreps[i].p1[2], weekreps[i].p1[3], weekreps[i].p1[4], weekreps[i].p1[5], weekreps[i].p1[6]]
-        ]
+        tbl_data = weekreps[i].tabledata()
         tbl = Table(tbl_data, repeatRows=0, colWidths=[1.6*inch])
         tbl.setStyle(weekStyle)
         storypdf.append(Paragraph(version, titleStyle))
