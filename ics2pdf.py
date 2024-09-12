@@ -352,9 +352,9 @@ def processwtime(textpar, alarm):
     
 def processidescription(textpar):
     imgcode = ""
-    dtimgeventpos = textpar.find("n[i")
+    dtimgeventpos = textpar.find("[i")
     if dtimgeventpos >= 0:
-        imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
+        imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
     return imgcode
     
 def processdescription(textpar, s):
