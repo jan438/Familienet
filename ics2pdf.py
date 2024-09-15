@@ -359,10 +359,10 @@ def processidescription(textpar):
     
 def processdescription(textpar, s):
     calimage = None
-    dtimgeventpos = textpar.find("n[i")
+    dtimgeventpos = textpar.find("[i")
     if dtimgeventpos >= 0:
-        imgcode = textpar[dtimgeventpos+3:dtimgeventpos+6]
-        processed = textpar[:dtimgeventpos] + textpar[dtimgeventpos+7:]
+        imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
+        processed = textpar[:dtimgeventpos-1] + textpar[dtimgeventpos+6:]
         calimage = lookupimage(imgcode)
         paragraph = Paragraph(processed, s)
     else:
@@ -852,10 +852,10 @@ pdfmetrics.registerFont(TTFont('CormorantGaramond', 'CormorantGaramond-Regular.t
 pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
-#fillMatrixReports(countdays)
-#processreport('m')
-#fillColumnReports(countdays)
-#processreport('c')
+fillMatrixReports(countdays)
+processreport('m')
+fillColumnReports(countdays)
+processreport('c')
 #fillSquareReports(countdays)
 #processreport('s')
 fillWeekReports(first_week, countdays)
