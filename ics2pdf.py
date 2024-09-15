@@ -146,7 +146,7 @@ class MatrixReport:
                     c.pop()
                 except IndexError:
                     print(c)
-                    
+
     def tabledata(self):
         return [[self.h[0][0], self.h[0][1], self.h[0][2]],
                 [self.p[0][0], self.p[0][1], self.p[0][2]],
@@ -156,7 +156,7 @@ class MatrixReport:
                 [self.p[2][0], self.p[2][1], self.p[2][2]],
                 [self.h[3][0], self.h[3][1], self.h[3][2]],   
                 [self.p[3][0], self.p[3][1], self.p[3][2]]]
-                    
+
 class SquareReport:
     h = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
     p = [[0 for i in range(columssquarereport)] for j in range(rowssquarereport)] 
@@ -174,7 +174,7 @@ class SquareReport:
                     c.pop()
                 except IndexError:
                     print(c)
-                    
+
     def tabledata(self):
         return [[self.h[0][0], self.h[0][1], self.h[0][2], self.h[0][3]],
                 [self.p[0][0], self.p[0][1], self.p[0][2], self.p[0][3]],
@@ -288,7 +288,7 @@ def lookupimage(imgcode):
     I.drawWidth = 0.95*inch
     I.hAlign = 'CENTER'
     return I
-    
+
 def lookupalarm(alarm):
     img1 = None
     img2 = None
@@ -299,7 +299,7 @@ def lookupalarm(alarm):
     if len(alarm) > 5 and alarm[5] == 'M':
         img2 = "Alarms/notification.png"
     return (img1, img2)
-    
+
 def lookupemoji(imgcode):
     emojitable = [[] for _ in range(3000)]
     emojitable[1602] = "Emojis/642.png"
@@ -307,7 +307,7 @@ def lookupemoji(imgcode):
     emojiint = int(imgcode, 16)
     emojiimg = emojitable[emojiint]
     return emojiimg
-    
+
 def combinecolumns(prm1, prm2, alarm):
     processed = "<font name=" + calfont + " textColor=red>" + prm1 + "</font>" + "   " + "<font name=" + calfont + " textColor=blue>" + prm2 + "</font>"
     if len(alarm) > 0:
