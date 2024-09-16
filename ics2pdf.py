@@ -699,7 +699,7 @@ def fillSquareReports(countdays):
             headerplaced = True
         squaredaypar[squaredayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 's'), squaresumStyle))
         squaredaypar[squaredayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), squaretimlocStyle))
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description, squaredesStyle)
+        (paragraph, imgcode, imgpos) = processsdescription(monthevents[indexevents].description, squaredesStyle)
         squaredaypar[squaredayparindex].append(paragraph)
     if calimage is not None:
         squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
