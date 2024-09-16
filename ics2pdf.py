@@ -627,7 +627,8 @@ def fillSquareReports(countdays):
     squaredaypar =  [[] for _ in range(500)] 
     squaredayparindex = 0
     indrep = 0
-    calimage = None
+    imgcode = ""
+    imgpos = ''
     for i in range(rowssquarereport):
         for j in range(columssquarereport):
             squarereps[indrep].h[i][j] = []
