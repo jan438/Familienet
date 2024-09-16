@@ -368,7 +368,20 @@ def processdescription(textpar, s):
     else:
         paragraph = Paragraph(textpar, s)
     return (paragraph, calimage)
-    
+
+def processsdescription(textpar, s):
+    imgcode = ""
+    imgpos = ''
+    dtimgeventpos = textpar.find("[i")
+    if dtimgeventpos >= 0:
+        imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
+        imgpos = textpar[dtimgeventpos-1]
+        processed = textpar[:dtimgeventpos-1] + textpar[dtimgeventpos+6:]
+        paragraph = Paragraph(processed, s)
+    else:
+        paragraph = Paragraph(textpar, s)
+    return (paragraph, imgcode, imgpos)
+
 def processsummary(textpar, t):
     processed = textpar
     tagpos = textpar.find("<h")
