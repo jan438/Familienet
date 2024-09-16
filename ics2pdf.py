@@ -711,6 +711,9 @@ def fillSquareReports(countdays):
     if len(imgcode) > 0 and imgpos == 'l':
         calimage = lookupimage(imgcode)
         squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
+        imgcode = ""
+        ímgpos = ''
+        calimage = None
         col += 1
         if col == columssquarereport:
             col = 0
