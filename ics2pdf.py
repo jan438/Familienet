@@ -741,7 +741,7 @@ def fillSquareReports(countdays):
     doc.build(storypdf)
     squarereps[indrep].clear()
     return
-    
+
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Familienet'
 if sys.platform[0] == 'w':
