@@ -40,13 +40,13 @@ def process_alarms(line, pos):
 def process_organizer(line, pos):
     processed = line[:pos] + line[pos+36:]
     return processed
-    
+
 def process_organizers(line, pos):
     processed = line
     for i in range(len(pos), 0, -1):
         processed = process_organizer(processed, pos[i-1])
     return processed
-    
+
 def process_2symbol(line, pos, wsymbol):
     processed = line[:pos] + wsymbol + line[pos+2:]
     return processed
@@ -98,7 +98,7 @@ def process_flags(line, pos):
     for i in range(len(pos), 0, -2):
         processed = process_flag(processed, pos[i-2])
     return processed
-    
+
 def process_emoji(line, pos):
     smbytes = line[pos:pos+4]
     utf8code = smbytes.decode('utf-8')
@@ -124,7 +124,7 @@ def process_linebreaks(line, pos):
     for i in range(len(pos), 0, -1):
         processed = process_linebreak(processed, pos[i-1])
     return processed
-    
+
 def process_backslash(line, pos):
     processed = line[:pos] + line[pos+1:]
     return processed
