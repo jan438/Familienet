@@ -47,6 +47,26 @@ def process_organizers(line, pos):
         processed = process_organizer(processed, pos[i-1])
     return processed
     
+def process_2symbol(line, pos, wsymbol):
+    processed = line[:pos] + wsymbol + line[pos+2:]
+    return processed
+
+def process_2symbols(line, pos, wsymbol):
+    processed = line
+    for i in range(len(pos), 0, -1):
+        processed = process_2symbol(processed, pos[i-1], wsymbol)
+    return processed
+
+def process_symbol(line, pos, wsymbol):
+    processed = line[:pos] + wsymbol + line[pos+3:]
+    return processed
+
+def process_symbols(line, pos, wsymbol):
+    processed = line
+    for i in range(len(pos), 0, -1):
+        processed = process_symbol(processed, pos[i-1], wsymbol)
+    return processed
+
 def process_flag(line, pos):
     eb = line[pos+3]
     lb = line[pos+7]
@@ -93,12 +113,12 @@ def process_emojis(line, pos):
     processed = line
     for i in range(len(pos), 0, -1):
         processed = process_emoji(processed, pos[i-1])
-    return processed   
-           
+    return processed
+
 def process_linebreak(line, pos):
     processed = line[:pos] + line[pos+3:]
     return processed
-    
+
 def process_linebreaks(line, pos):
     processed = line
     for i in range(len(pos), 0, -1):
