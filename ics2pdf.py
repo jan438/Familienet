@@ -644,7 +644,8 @@ def fillSquareReports(countdays):
         if eventday == -1:
              eventday = monthevents[indexevents].dayyear
         if eventday != monthevents[indexevents].dayyear:
-            if calimage is not None:
+            if len(imgcode) > 0 and imgpos == 'l':
+                calimage = lookupimage(imgcode)
                 squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
                 calimage = None
                 col += 1
