@@ -616,7 +616,7 @@ def fillMatrixReports(countdays):
     doc.build(storypdf)
     matrixreps[indrep].clear()
     return
-    
+
 def fillSquareReports(countdays):
     squarereps = []
     countsquareReports = math.ceil(countdays / (rowssquarereport * columssquarereport))
