@@ -116,7 +116,6 @@ if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Familienet/Calendar"
 os.chdir(path)
 src = "NewCalendar.ics"
-#src = "KOrganizer.ics"
 bup = "Familienet.bup"
 cleaned = "Familienet.ics"
 shutil.copy(src, bup)
