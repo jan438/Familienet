@@ -36,7 +36,7 @@ def process_alarms(line, pos):
         endpos = processed.find(ENDVALARM, pos[i-1])
         processed = process_alarm(processed, pos[i-1], endpos)
     return processed
-            
+
 def process_organizer(line, pos):
     processed = line[:pos] + line[pos+36:]
     return processed
