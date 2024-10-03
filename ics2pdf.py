@@ -282,6 +282,7 @@ def lookupimage(imgcode):
     newcalendar[262] = "Photos/spain_PNG58.png"
     newcalendar[266] = "Photos/AlpenWeide.jpeg"
     newcalendar[269] = "Photos/Los-del-Sol-cantando-mariachi.jpg"
+    newcalendar[271] = "Photos/Conny-en-Ronald.png"
     img = newcalendar[int(imgcode)]
     I = Image(img)
     I.drawHeight = 0.95*inch
