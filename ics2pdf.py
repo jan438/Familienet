@@ -631,6 +631,8 @@ def fillSquareReports(countdays):
     squaredaypar =  [[] for _ in range(500)] 
     squaredayparindex = 0
     indrep = 0
+    dagimgcode = ""
+    dagimgpos = ''
     imgcode = ""
     imgpos = ''
     for i in range(rowssquarereport):
@@ -705,13 +707,18 @@ def fillSquareReports(countdays):
         squaredaypar[squaredayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), squaretimlocStyle))
         (paragraph, imgcode, imgpos) = processsdescription(monthevents[indexevents].description, squaredesStyle)
         squaredaypar[squaredayparindex].append(paragraph)
-        if len(imgcode) > 0 and imgpos == 'b':
-            calimage = lookupimage(imgcode)
-            squaredaypar[squaredayparindex].append(Spacer(width=10, height=10))
-            squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
-            imgcode = ""
-            ímgpos = ''
-            calimage = None
+        if len(imgcode) > 0:
+            if imgpos == 'b':
+                calimage = lookupimage(imgcode)
+                squaredaypar[squaredayparindex].append(Spacer(width=10, height=10))
+                squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
+                imgcode = ""
+                ímgpos = ''
+                calimage = None
+            elif imgpos == 'l':
+                dagimgcode = imgcode
+                dagimgpos = imgpos
+                print(dagimgcode)
     if len(imgcode) > 0 and imgpos == 'l':
         calimage = lookupimage(imgcode)
         squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
