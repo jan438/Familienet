@@ -309,11 +309,7 @@ def lookupemoji(imgcode):
     emojitable[1550] = "Emojis/60E.png"
     emojitable[1602] = "Emojis/642.png"
     emojiint = int(imgcode, 16)
-    print(emojiint)
-    key = input("Wait")
     emojiimg = emojitable[emojiint]
-    print(emojiimg)
-    key = input("Wait")
     return emojiimg
 
 def combinecolumns(prm1, prm2, alarm):
