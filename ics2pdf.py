@@ -608,9 +608,10 @@ def fillMatrixReports(countdays):
             headerplaced = True
         matrixdaypar[matrixdayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 'm'), matrixsumStyle))
         matrixdaypar[matrixdayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), matrixtimlocStyle))
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description, matrixdesStyle)
+        (paragraph, imgcode, imgpos) = processsdescription(monthevents[indexevents].description, matrixdesStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
-        if calimage is not None:
+        if len(imgcode) > 0:
+            calimage = lookupimage(imgcode)
             matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
             matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
     matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
