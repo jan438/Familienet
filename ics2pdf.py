@@ -576,6 +576,29 @@ def fillMatrixReports(countdays):
         if eventday == -1:
              eventday = monthevents[indexevents].dayyear
         if eventday != monthevents[indexevents].dayyear:
+            if len(dagimgcode) > 0 and dagimgpos == 'l':
+                calimage = lookupimage(dagimgcode)
+                matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
+                dagimgcode = ""
+                dagimgpos = ''
+                calimage = None
+                col += 1
+                if col == columsmatrixreport:
+                    col = 0
+                    row += 1
+                    if row == rowsmatrixreport:
+                        row = 0
+                        tbl_data = matrixreps[indrep].tabledata()
+                        tbl = Table(tbl_data, repeatRows=0, rowHeights=None, colWidths=[2.92*inch])
+                        tbl.setStyle(matrixStyle)
+                        storypdf.append(Paragraph(version, titleStyle))
+                        storypdf.append(tbl)
+                        doc.build(storypdf)
+                        matrixreps[indrep].clear()
+                        indrep += 1
+                        matrixreportname = "PDF/Familienet" + str(indrep) + ".pdf"
+                        doc = SimpleDocTemplate(matrixreportname, pagesize=landscape(A4), rightMargin=5, leftMargin=5, topMargin=5, bottomMargin=5)
+                        storypdf=[]
             matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
             matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
             matrixdayheaindex += 1
