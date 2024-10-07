@@ -611,9 +611,17 @@ def fillMatrixReports(countdays):
         (paragraph, imgcode, imgpos) = processmsdescription(monthevents[indexevents].description, matrixdesStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if len(imgcode) > 0:
-            calimage = lookupimage(imgcode)
-            matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
-            matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
+            if imgpos == 'b':
+                calimage = lookupimage(imgcode)
+                matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
+                matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
+                imgcode = ""
+                ímgpos = ''
+                calimage = None
+            elif imgpos == 'l':
+                dagimgcode = imgcode
+                dagimgpos = imgpos
+                print(dagimgcode)
     matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
     matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
     tbl_data = matrixreps[indrep].tabledata()
