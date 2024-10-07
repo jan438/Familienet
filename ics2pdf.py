@@ -557,7 +557,10 @@ def fillMatrixReports(countdays):
     matrixdaypar =  [[] for _ in range(500)] 
     matrixdayparindex = 0
     indrep = 0
-    calimage = None
+    dagimgcode = ""
+    dagimgpos = ''
+    imgcode = ""
+    imgpos = ''
     for i in range(rowsmatrixreport):
         for j in range(columsmatrixreport):
             matrixreps[indrep].h[i][j] = []
