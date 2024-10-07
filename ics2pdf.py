@@ -373,7 +373,7 @@ def processdescription(textpar, s):
         paragraph = Paragraph(textpar, s)
     return (paragraph, calimage)
 
-def processsdescription(textpar, s):
+def processmsdescription(textpar, s):
     imgcode = ""
     imgpos = ''
     dtimgeventpos = textpar.find("[i")
@@ -608,7 +608,7 @@ def fillMatrixReports(countdays):
             headerplaced = True
         matrixdaypar[matrixdayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 'm'), matrixsumStyle))
         matrixdaypar[matrixdayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), matrixtimlocStyle))
-        (paragraph, imgcode, imgpos) = processsdescription(monthevents[indexevents].description, matrixdesStyle)
+        (paragraph, imgcode, imgpos) = processmsdescription(monthevents[indexevents].description, matrixdesStyle)
         matrixdaypar[matrixdayparindex].append(paragraph)
         if len(imgcode) > 0:
             calimage = lookupimage(imgcode)
@@ -709,7 +709,7 @@ def fillSquareReports(countdays):
             headerplaced = True
         squaredaypar[squaredayparindex].append(Paragraph(processsummary(monthevents[indexevents].summary, 's'), squaresumStyle))
         squaredaypar[squaredayparindex].append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), squaretimlocStyle))
-        (paragraph, imgcode, imgpos) = processsdescription(monthevents[indexevents].description, squaredesStyle)
+        (paragraph, imgcode, imgpos) = processmsdescription(monthevents[indexevents].description, squaredesStyle)
         squaredaypar[squaredayparindex].append(paragraph)
         if len(imgcode) > 0:
             if imgpos == 'b':
