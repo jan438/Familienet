@@ -644,7 +644,6 @@ def fillMatrixReports(countdays):
             elif imgpos == 'l':
                 dagimgcode = imgcode
                 dagimgpos = imgpos
-                print(dagimgcode)
     matrixreps[indrep].h[row][col].append(matrixdayhea[matrixdayheaindex])
     matrixreps[indrep].p[row][col].append(matrixdaypar[matrixdayparindex])
     tbl_data = matrixreps[indrep].tabledata()
