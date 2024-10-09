@@ -355,14 +355,14 @@ def processwtime(textpar, alarm):
         processed = processed + "   " + inlineimg1 + inlineimg2
     return processed
     
-def processidescription(textpar):
+def processwdescription(textpar):
     imgcode = ""
     dtimgeventpos = textpar.find("[i")
     if dtimgeventpos >= 0:
         imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
     return imgcode
     
-def processdescription(textpar, s):
+def processcdescription(textpar, s):
     calimage = None
     dtimgeventpos = textpar.find("[i")
     if dtimgeventpos >= 0:
@@ -434,7 +434,7 @@ def fillColumnReports(countdays):
             eventday = monthevents[indexevents].dayyear
         columnreps[i].d.append(Paragraph(processsummary(monthevents[indexevents].summary, 'c'), columnsumStyle))
         columnreps[i].d.append(Paragraph(combinecolumns(monthevents[indexevents].starttime + "-" + monthevents[indexevents].endtime,  monthevents[indexevents].location, monthevents[indexevents].alarm), columntimlocStyle))
-        (paragraph, calimage) = processdescription(monthevents[indexevents].description, columndesStyle)
+        (paragraph, calimage) = processcdescription(monthevents[indexevents].description, columndesStyle)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
@@ -488,7 +488,7 @@ def fillWeekReports(first_week, countdays):
         for j in range(len(monthevents)):
             if wk == monthevents[j].weeknr:
                 if imgcode == "":
-                    imgcode = processidescription(monthevents[j].description)
+                    imgcode = processwdescription(monthevents[j].description)
                     if len(imgcode) > 0:
                         imgday = monthevents[j].weekday
                 index = monthevents[j].weekday
@@ -520,7 +520,7 @@ def fillWeekReports(first_week, countdays):
             for j in range(len(monthevents)):
                 if wk == monthevents[j].weeknr:
                     if imgcode == "":
-                        imgcode = processidescription(monthevents[j].description)
+                        imgcode = processwdescription(monthevents[j].description)
                         if len(imgcode) > 0:
                             imgday = monthevents[j].weekday
                     index = monthevents[j].weekday
