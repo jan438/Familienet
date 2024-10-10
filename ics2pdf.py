@@ -287,9 +287,9 @@ def lookupimage(imgcode):
     newcalendar[271] = "Photos/Conny-en-Ronald.png"
     img = newcalendar[int(imgcode)]
     I = Image(img)
-    I.drawHeight = 0.95*inch
-    I.drawWidth = 0.95*inch
-    I.hAlign = 'CENTER'
+    #I.drawHeight = 0.95*inch
+    #I.drawWidth = 0.95*inch
+    #I.hAlign = 'CENTER'
     return I
 
 def lookupalarm(alarm):
@@ -341,6 +341,9 @@ def processimage(countevents, imgcode):
                 minevents = countevents[d]
                 index = d 
         calwimage = lookupimage(imgcode)
+        calwimage.drawHeight = 0.95*inch
+        calwimage.drawWidth = 0.95*inch
+        calwimage.hAlign = 'CENTER'
     return (index, calwimage)
     
 def processwtime(textpar, alarm):
@@ -372,6 +375,9 @@ def processcdescription(textpar, s):
         imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
         processed = textpar[:dtimgeventpos-1] + textpar[dtimgeventpos+6:]
         calimage = lookupimage(imgcode)
+        calimage.drawHeight = 0.95*inch
+        calimage.drawWidth = 0.95*inch
+        calimage.hAlign = 'CENTER'
         paragraph = Paragraph(processed, s)
     else:
         paragraph = Paragraph(textpar, s)
@@ -582,6 +588,9 @@ def fillMatrixReports(countdays):
         if eventday != monthevents[indexevents].dayyear:
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
+                calimage.drawHeight = 0.95*inch
+                calimage.drawWidth = 0.95*inch
+                calimage.hAlign = 'CENTER'
                 matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
@@ -640,6 +649,9 @@ def fillMatrixReports(countdays):
         if len(imgcode) > 0:
             if imgpos == 'b':
                 calimage = lookupimage(imgcode)
+                calimage.drawHeight = 0.95*inch
+                calimage.drawWidth = 0.95*inch
+                calimage.hAlign = 'CENTER'
                 matrixdaypar[matrixdayparindex].append(Spacer(width=10, height=10))
                 matrixdaypar[matrixdayparindex].append(Table([[None, calimage, None]], colWidths=[1.1 * inch, 1.1 * inch, 1.1 * inch],  rowHeights=[1.1 * inch]))
                 imgcode = ""
@@ -690,6 +702,9 @@ def fillSquareReports(countdays):
         if eventday != monthevents[indexevents].dayyear:
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
+                calimage.drawHeight = 0.95*inch
+                calimage.drawWidth = 0.95*inch
+                calimage.hAlign = 'CENTER'
                 squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
@@ -748,6 +763,9 @@ def fillSquareReports(countdays):
         if len(imgcode) > 0:
             if imgpos == 'b':
                 calimage = lookupimage(imgcode)
+                calimage.drawHeight = 0.95*inch
+                calimage.drawWidth = 0.95*inch
+                calimage.hAlign = 'CENTER'
                 squaredaypar[squaredayparindex].append(Spacer(width=10, height=10))
                 squaredaypar[squaredayparindex].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
                 imgcode = ""
@@ -758,6 +776,9 @@ def fillSquareReports(countdays):
                 dagimgpos = imgpos
     if len(imgcode) > 0 and imgpos == 'l':
         calimage = lookupimage(imgcode)
+        calimage.drawHeight = 0.95*inch
+        calimage.drawWidth = 0.95*inch
+        calimage.hAlign = 'CENTER'
         squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
         imgcode = ""
         ímgpos = ''
