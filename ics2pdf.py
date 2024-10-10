@@ -287,9 +287,6 @@ def lookupimage(imgcode):
     newcalendar[271] = "Photos/Conny-en-Ronald.png"
     img = newcalendar[int(imgcode)]
     I = Image(img)
-    #I.drawHeight = 0.95*inch
-    #I.drawWidth = 0.95*inch
-    #I.hAlign = 'CENTER'
     return I
 
 def lookupalarm(alarm):
