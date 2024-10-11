@@ -706,7 +706,7 @@ def fillSquareReports(countdays):
                 calimage.drawWidth = ratio * 1.0*inch
                 calimage.hAlign = 'CENTER'
                 imgmargin = (2.92 - (ratio * 1.0)) / 2
-                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[imgmargin * inch, 1.0 * inch, imgmargin * inch],  rowHeights=[1.0 * inch]))
+                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[imgmargin * inch, ratio * 1.0 * inch, imgmargin * inch],  rowHeights=[1.0 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
                 calimage = None
