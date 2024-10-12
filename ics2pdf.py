@@ -701,10 +701,9 @@ def fillSquareReports(countdays):
         if eventday != monthevents[indexevents].dayyear:
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
-                columnw = 2.92 * inch
                 ratio = calimage.drawWidth / calimage.drawHeight
                 imgw = ratio * 1.0 * inch
-                margins = columnw - imgw
+                margins = 2.92 * inch - imgw
                 margin = margins / 2
                 calimage.drawWidth = imgw
                 calimage.drawHeight = 1.0 * inch
