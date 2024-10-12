@@ -375,8 +375,9 @@ def processcdescription(textpar, s):
         imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
         processed = textpar[:dtimgeventpos-1] + textpar[dtimgeventpos+6:]
         calimage = lookupimage(imgcode)
-        calimage.drawHeight = 0.95*inch
-        calimage.drawWidth = 0.95*inch
+        ratio = calimage.drawWidth / calimage.drawHeight
+        calimage.drawHeight = 0.95 * inch
+        calimage.drawWidth = ratio * calimage.drawHeight
         calimage.hAlign = 'CENTER'
         paragraph = Paragraph(processed, s)
     else:
