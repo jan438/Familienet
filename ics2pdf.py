@@ -340,8 +340,9 @@ def processimage(countevents, imgcode):
                 minevents = countevents[d]
                 index = d 
         calwimage = lookupimage(imgcode)
-        calwimage.drawHeight = 0.95*inch
-        calwimage.drawWidth = 0.95*inch
+        ratio = calwimage.drawWidth / calwimage.drawHeight
+        calwimage.drawHeight = 0.8 * inch
+        calwimage.drawWidth = ratio * calwimage.drawHeight
         calwimage.hAlign = 'CENTER'
     return (index, calwimage)
     
