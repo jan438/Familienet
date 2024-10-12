@@ -701,12 +701,16 @@ def fillSquareReports(countdays):
         if eventday != monthevents[indexevents].dayyear:
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
+                columnw = 2.92 * inch
                 ratio = calimage.drawWidth / calimage.drawHeight
-                calimage.drawHeight = 1.0*inch
-                calimage.drawWidth = ratio * 1.0*inch
+                imgw = ratio * 1.0 * inch
+                margins = columnw - imgw
+                lmargin = margins / 2
+                rmargin = margins / 2
+                calimage.drawWidth = imgw
+                calimage.drawHeight = 1.0 * inch
                 calimage.hAlign = 'CENTER'
-                imgmargin = (2.92 - (ratio * 1.0)) / 2
-                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[imgmargin * inch, ratio * 1.0 * inch, imgmargin * inch],  rowHeights=[1.0 * inch]))
+                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[lmargin, imgw, rmargin],  rowHeights=[1.0 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
                 calimage = None
