@@ -590,13 +590,12 @@ def fillMatrixReports(countdays):
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
                 ratio = calimage.drawWidth / calimage.drawHeight
-                imgw = ratio * 1.1 * inch
-                margins = 3.75 * inch - imgw
+                calimage.drawWidth = ratio * 1.1 * inch
+                margins = 3.75 * inch - calimage.drawWidth
                 margin = margins / 2
-                calimage.drawWidth = imgw
                 calimage.drawHeight = 1.1 * inch
                 calimage.hAlign = 'CENTER'
-                matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, imgw, margin],  rowHeights=[1.1 * inch]))
+                matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, calimage.drawWidth, margin],  rowHeights=[1.1 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
                 calimage = None
@@ -708,13 +707,12 @@ def fillSquareReports(countdays):
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
                 ratio = calimage.drawWidth / calimage.drawHeight
-                imgw = ratio * 1.0 * inch
-                margins = 2.92 * inch - imgw
+                calimage.drawWidth = ratio * 1.0 * inch
+                margins = 2.92 * inch - calimage.drawWidth
                 margin = margins / 2
-                calimage.drawWidth = imgw
                 calimage.drawHeight = 1.0 * inch
                 calimage.hAlign = 'CENTER'
-                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, imgw, margin],  rowHeights=[1.0 * inch]))
+                squarereps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, calimage.drawWidth, margin],  rowHeights=[1.0 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
                 calimage = None
