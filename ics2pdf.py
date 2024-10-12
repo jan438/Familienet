@@ -587,10 +587,14 @@ def fillMatrixReports(countdays):
         if eventday != monthevents[indexevents].dayyear:
             if len(dagimgcode) > 0 and dagimgpos == 'l':
                 calimage = lookupimage(dagimgcode)
-                calimage.drawHeight = 0.95*inch
-                calimage.drawWidth = 0.95*inch
+                ratio = calimage.drawWidth / calimage.drawHeight
+                imgw = ratio * 1.1 * inch
+                margins = 3.75 * inch - imgw
+                margin = margins / 2
+                calimage.drawWidth = imgw
+                calimage.drawHeight = 1.1 * inch
                 calimage.hAlign = 'CENTER'
-                matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[0.5 * inch, 0.96 * inch, 0.5 * inch],  rowHeights=[0.95 * inch]))
+                matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, imgw, margin],  rowHeights=[1.1 * inch]))
                 dagimgcode = ""
                 dagimgpos = ''
                 calimage = None
