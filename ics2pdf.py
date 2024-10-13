@@ -444,7 +444,7 @@ def fillColumnReports(countdays):
         columnreps[i].d.append(paragraph)
         if calimage is not None:
             ratio = calimage.drawWidth / calimage.drawHeight
-            calimage.drawHeight = 0.95 * inch
+            calimage.drawHeight = 1.0 * inch
             calimage.drawWidth = ratio * calimage.drawHeight
             calimage.hAlign = 'CENTER'
             # A4 8.3 x 11.7 inches   drawWidth mm in print
