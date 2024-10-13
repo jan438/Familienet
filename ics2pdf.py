@@ -375,10 +375,6 @@ def processcdescription(textpar, s):
         imgcode = textpar[dtimgeventpos+2:dtimgeventpos+5]
         processed = textpar[:dtimgeventpos-1] + textpar[dtimgeventpos+6:]
         calimage = lookupimage(imgcode)
-        ratio = calimage.drawWidth / calimage.drawHeight
-        calimage.drawHeight = 0.95 * inch
-        calimage.drawWidth = ratio * calimage.drawHeight
-        calimage.hAlign = 'CENTER'
         paragraph = Paragraph(processed, s)
     else:
         paragraph = Paragraph(textpar, s)
@@ -447,6 +443,10 @@ def fillColumnReports(countdays):
         (paragraph, calimage) = processcdescription(monthevents[indexevents].description, columndesStyle)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
+            ratio = calimage.drawWidth / calimage.drawHeight
+            calimage.drawHeight = 0.95 * inch
+            calimage.drawWidth = ratio * calimage.drawHeight
+            calimage.hAlign = 'CENTER'
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[3.0 * inch, 3.0 * inch, 3.0 * inch],  rowHeights=[1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
