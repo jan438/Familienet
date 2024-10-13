@@ -592,8 +592,7 @@ def fillMatrixReports(countdays):
                 calimage = lookupimage(dagimgcode)
                 ratio = calimage.drawWidth / calimage.drawHeight
                 calimage.drawWidth = ratio * 1.1 * inch
-                margins = 3.75 * inch - calimage.drawWidth
-                margin = margins / 2
+                margin = (3.75 * inch - calimage.drawWidth) / 2
                 calimage.drawHeight = 1.1 * inch
                 calimage.hAlign = 'CENTER'
                 matrixreps[indrep].p[row][col].append(Table([[None, calimage, None]], colWidths=[margin, calimage.drawWidth, margin],  rowHeights=[1.1 * inch]))
