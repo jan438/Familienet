@@ -451,7 +451,7 @@ def fillColumnReports(countdays):
             marginwidth = 2.7 * inch
             margins = (a4width - calimage.drawWidth) / inch
             print("A4 Width", a4width / inch, "I Width", round(calimage.drawWidth / inch, 1), "Margins", round(margins, 1))
-            columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[marginwidth, 2.7 * inch, marginwidth],  rowHeights=[1.1 * inch]))
+            columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[marginwidth, calimage.drawWidth, marginwidth],  rowHeights=[1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
