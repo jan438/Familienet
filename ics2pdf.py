@@ -447,6 +447,8 @@ def fillColumnReports(countdays):
             calimage.drawHeight = 1.0 * inch
             calimage.drawWidth = ratio * calimage.drawHeight
             # A4 8.3 x 11.7 inches   drawWidth mm in print
+            a4width = 8.3 * inch
+            print("A4 Width", a4width / inch)
             columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[2.7 * inch, 2.7 * inch, 2.7 * inch],  rowHeights=[1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
