@@ -443,15 +443,14 @@ def fillColumnReports(countdays):
         (paragraph, calimage) = processcdescription(monthevents[indexevents].description, columndesStyle)
         columnreps[i].d.append(paragraph)
         if calimage is not None:
+            colwidth =  7.5 * inch 
             ratio = calimage.drawWidth / calimage.drawHeight
             calimage.drawHeight = 1.0 * inch
             calimage.drawWidth = ratio * calimage.drawHeight
-            # A4 8.3 x 11.7 inches   drawWidth mm in print
-            a4width = 8.3 * inch
-            marginwidth = 2.7 * inch
-            margins = (a4width - calimage.drawWidth) / inch
-            print("A4 Width", a4width / inch, "I Width", round(calimage.drawWidth / inch, 1), "Margins", round(margins, 1), "Inch", inch)
-            columnreps[i].d.append(Table([[None, calimage, None]], colWidths=[marginwidth, calimage.drawWidth, marginwidth],  rowHeights=[1.1 * inch]))
+            margins = colwidth - calimage.drawWidth
+            margin = margins / 2
+            sp = Spacer(margin, calimage.drawHeight)
+            columnreps[i].d.append(Table([[sp, calimage, sp]], rowHeights=[1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
