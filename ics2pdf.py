@@ -447,8 +447,9 @@ def fillColumnReports(countdays):
             calimage.drawHeight = 1.0 * inch
             calimage.drawWidth = ratio * calimage.drawHeight
             margin = (7.5 * inch - calimage.drawWidth) / 2
-            sp = Spacer(margin, calimage.drawHeight)
-            columnreps[i].d.append(Table([[sp, calimage, sp]], rowHeights = [1.1 * inch]))
+            sp1 = Spacer(margin - 0.3 * inch, calimage.drawHeight)
+            sp2 = Spacer(margin, calimage.drawHeight)
+            columnreps[i].d.append(Table([[sp1, calimage, sp2]], rowHeights = [1.1 * inch]))
         rows += 1
         if rows == rowscolumnreport:
             tbl_data = [[columnreps[i].d]]
