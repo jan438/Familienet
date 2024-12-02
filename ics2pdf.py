@@ -313,8 +313,6 @@ def lookupemoji(imgcode):
     emojitable[1602] = "Emojis/642.png"
     emojitable[2711] = "Emojis/A97.png"
     emojiint = int(imgcode, 16)
-    print("emoji",imgcode, emojiint)
-    key = input("Wait")
     emojiimg = emojitable[emojiint]
     return emojiimg
 
