@@ -212,7 +212,7 @@ def find_all_occurrences(textpar, sub):
         
 def processreport(t):
     merger = PdfWriter()
-    for i in range(10):
+    for i in range(50):
         if os.path.isfile("PDF/Familienet" + str(i) + ".pdf"):
             inputpdf = open("PDF/Familienet" + str(i) + ".pdf", "rb")
             merger.append(inputpdf)
@@ -223,7 +223,7 @@ def processreport(t):
     merger.write(output)
     merger.close()
     output.close()
-    for i in range(10):
+    for i in range(50):
         if os.path.isfile("PDF/Familienet" + str(i) + ".pdf"):
             os.remove("PDF/Familienet" + str(i) + ".pdf")
         
