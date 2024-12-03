@@ -275,6 +275,7 @@ def lookupimage(imgcode):
     newcalendar[154] = "Photos/DoReMichiel.jpg"
     newcalendar[156] = "Photos/VivaLaFrance.jpg"
     newcalendar[157] = "Photos/Herfst2.jpg"
+    newcalendar[164] = "Photos/sinterklaas.jpg"
     newcalendar[171] = "Photos/MiniPrideWalk12juni-2.jpg"
     newcalendar[182] = "Photos/Herfst3.jpg"
     newcalendar[183] = "Photos/Herfst1.jpg"
