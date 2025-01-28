@@ -321,9 +321,11 @@ def lookupemoji(imgcode):
     emojitable[1242] = "Emojis/4DA.png"
     emojitable[1543] = "Emojis/607.png"
     emojitable[1543] = "Emojis/607.png"
+    emojitable[1718] = "Emojis/6B6.png"
     emojitable[1744] = "Emojis/6D0.png"
     emojitable[1602] = "Emojis/642.png"
     emojitable[2360] = "Emojis/938.png"
+    emojitable[2366] = "Emojis/93E.png"
     emojitable[2711] = "Emojis/A97.png"
     emojiint = int(imgcode, 16)
     emojiimg = emojitable[emojiint]
