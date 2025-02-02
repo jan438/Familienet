@@ -308,6 +308,7 @@ def lookupemoji(imgcode):
     emojitable = [[] for _ in range(3000)]
     emojitable[884] = "Emojis/374.png"
     emojitable[900] = "Emojis/384.png"
+    emojitable[905] = "Emojis/389.png"
     emojitable[907] = "Emojis/38B.png"
     emojitable[932] = "Emojis/3A4.png"
     emojitable[933] = "Emojis/3A5.png"
@@ -327,6 +328,7 @@ def lookupemoji(imgcode):
     emojitable[1602] = "Emojis/642.png"
     emojitable[2360] = "Emojis/938.png"
     emojitable[2366] = "Emojis/93E.png"
+    emojitable[2503] = "Emojis/9C7.png"
     emojitable[2711] = "Emojis/A97.png"
     emojiint = int(imgcode, 16)
     emojiimg = emojitable[emojiint]
