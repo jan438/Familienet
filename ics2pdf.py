@@ -306,29 +306,29 @@ def lookupalarm(alarm):
 
 def lookupemoji(imgcode):
     emojitable = [[] for _ in range(3000)]
-    emojitable[884] = "Emojis/374.png"
-    emojitable[900] = "Emojis/384.png"
+    emojitable[884] = "Emojis/374.png" #eten
+    emojitable[900] = "Emojis/384.png" #kerstboom
     emojitable[905] = "Emojis/389.png"
     emojitable[907] = "Emojis/38B.png"
-    emojitable[932] = "Emojis/3A4.png"
-    emojitable[933] = "Emojis/3A5.png"
+    emojitable[932] = "Emojis/3A4.png" #microfoon
+    emojitable[933] = "Emojis/3A5.png" #filmcamera
     emojitable[948] = "Emojis/3B4.png"
-    emojitable[956] = "Emojis/3BC.png"
-    emojitable[1108] = "Emojis/454.png"
-    emojitable[1155] = "Emojis/483.png"
-    emojitable[1168] = "Emojis/490.png"
+    emojitable[956] = "Emojis/3BC.png" #muzieksleutel
+    emojitable[1108] = "Emojis/454.png" #overhemd
+    emojitable[1155] = "Emojis/483.png" #danseres
+    emojitable[1168] = "Emojis/490.png" #bloemschikken
     emojitable[1171] = "Emojis/493.png"
-    emojitable[1183] = "Emojis/49F.png"
-    emojitable[1216] = "Emojis/4C0.png"
+    emojitable[1183] = "Emojis/49F.png" #wenskaart
+    emojitable[1216] = "Emojis/4C0.png" #goudenplaat
     emojitable[1242] = "Emojis/4DA.png"
-    emojitable[1543] = "Emojis/607.png"
+    emojitable[1543] = "Emojis/607.png" #halo
     emojitable[1718] = "Emojis/6B6.png"
     emojitable[1744] = "Emojis/6D0.png"
-    emojitable[1602] = "Emojis/642.png"
+    emojitable[1602] = "Emojis/642.png" #glimlach
     emojitable[2360] = "Emojis/938.png"
     emojitable[2366] = "Emojis/93E.png"
     emojitable[2503] = "Emojis/9C7.png"
-    emojitable[2711] = "Emojis/A97.png"
+    emojitable[2711] = "Emojis/A97.png" #accordeon
     emojiint = int(imgcode, 16)
     emojiimg = emojitable[emojiint]
     return emojiimg
