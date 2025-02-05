@@ -309,10 +309,10 @@ def lookupemoji(imgcode):
     emojitable[884] = "Emojis/374.png" #uiteten
     emojitable[900] = "Emojis/384.png" #kerstboom
     emojitable[905] = "Emojis/389.png" #bingo
-    emojitable[907] = "Emojis/38B.png"
     emojitable[932] = "Emojis/3A4.png" #microfoon
     emojitable[933] = "Emojis/3A5.png" #filmcamera
     emojitable[948] = "Emojis/3B4.png" #sjoelen
+    emojitable[955] = "Emojis/3BB.png" #viool
     emojitable[956] = "Emojis/3BC.png" #muzieksleutel
     emojitable[1108] = "Emojis/454.png" #overhemd
     emojitable[1155] = "Emojis/483.png" #danseres
@@ -322,6 +322,7 @@ def lookupemoji(imgcode):
     emojitable[1216] = "Emojis/4C0.png" #goudenplaat
     emojitable[1242] = "Emojis/4DA.png" #bibliotheek
     emojitable[1543] = "Emojis/607.png" #halo
+    emojitable[1550] = "Emojis/60E.png" #zonnebril
     emojitable[1718] = "Emojis/6B6.png" #wandelen
     emojitable[1744] = "Emojis/6D0.png" #kerkdienst
     emojitable[1602] = "Emojis/642.png" #glimlach
