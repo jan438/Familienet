@@ -312,6 +312,7 @@ def lookupemoji(imgcode):
     emojitable[932] = "Emojis/3A4.png" #microfoon
     emojitable[933] = "Emojis/3A5.png" #filmcamera
     emojitable[948] = "Emojis/3B4.png" #sjoelen
+    emojitable[953] = "Emojis/3B9.png" #klavier
     emojitable[955] = "Emojis/3BB.png" #viool
     emojitable[956] = "Emojis/3BC.png" #muzieksleutel
     emojitable[1108] = "Emojis/454.png" #overhemd
