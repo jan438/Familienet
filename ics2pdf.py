@@ -433,7 +433,7 @@ def processsummary(textpar, t):
         for e in range(len(ems) - 1, -1, -1):
             h = ems[e]
             emojiimg = lookupemoji(processed[h+2:h+5])
-            inlineimg = "<img src=" + emojiimg + " width='15' height='15' valign='-4'/>"
+            inlineimg = "<img src=" + emojiimg + " width='18' height='18' valign='-6'/>"
             processed = processed.replace(processed[h:h+5], inlineimg)
     return processed
 
