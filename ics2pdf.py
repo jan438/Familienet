@@ -332,6 +332,7 @@ def lookupemoji(imgcode):
     emojitable[2360] = "Emojis/938.png" #bewegenopmuziek
     emojitable[2366] = "Emojis/93E.png" #sportenspel
     emojitable[2503] = "Emojis/9C7.png" #wafel
+    emojitable[2530] = "Emojis/9E2.png" #kapiteinspet
     emojitable[2711] = "Emojis/A97.png" #accordeon
     emojiint = int(imgcode, 16)
     emojiimg = emojitable[emojiint]
