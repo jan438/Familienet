@@ -325,7 +325,9 @@ def lookupemoji(imgcode):
     emojitable[1216] = "Emojis/4C0.png" #goudenplaat
     emojitable[1242] = "Emojis/4DA.png" #bibliotheek
     emojitable[1543] = "Emojis/607.png" #halo
+    emojitable[1541] = "Emojis/605.png" #grijzendzweet
     emojitable[1550] = "Emojis/60E.png" #zonnebril
+    emojitable[1582] = "Emojis/62E.png" #zingen
     emojitable[1718] = "Emojis/6B6.png" #wandelen
     emojitable[1744] = "Emojis/6D0.png" #kerkdienst
     emojitable[1602] = "Emojis/642.png" #glimlach
