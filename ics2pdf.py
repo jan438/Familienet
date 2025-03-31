@@ -344,7 +344,7 @@ def lookupemoji(imgcode):
         key = input("Emoji:" + emojiimg)
     except Exception:
         key = input("Emoji Exception:" + imgcode)
-        emojiimg = "Emojis/454.png"
+        emojiimg = "Emojis/888.png"
     return emojiimg
 
 def combinecolumns(prm1, prm2, alarm):
