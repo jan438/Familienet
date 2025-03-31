@@ -343,6 +343,7 @@ def lookupemoji(imgcode):
         emojiimg = emojitable[emojiint]
     except Exception as err:
         print(f"Unexpected {err=}, {type(err)=}")
+        key = input("Emoji exception")
     return emojiimg
 
 def combinecolumns(prm1, prm2, alarm):
