@@ -341,6 +341,7 @@ def lookupemoji(imgcode):
         emojitable[2711] = "Emojis/A97.png" #accordeon
         emojiint = int(imgcode, 16)
         emojiimg = emojitable[emojiint]
+        key = input("Emoji:" + emojiimg)
     except Exception as err:
         print(f"Unexpected {err=}, {type(err)=}")
         key = input("Emoji exception")
