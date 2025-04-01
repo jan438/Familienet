@@ -62,7 +62,7 @@ columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calf
 columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11)
 columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, textColor = red, alignment=TA_CENTER, leading = 9)
 #================================================================================================================================
-version = "Maart 2025"
+version = "April 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -312,6 +312,7 @@ def lookupemoji(imgcode):
     try:
         emojitable[884] = "Emojis/374.png" #uiteten
         emojitable[900] = "Emojis/384.png" #kerstboom
+        emojitable[938] = "Emojis/3AA.png" #circustent
         emojitable[905] = "Emojis/389.png" #bingo
         emojitable[932] = "Emojis/3A4.png" #microfoon
         emojitable[933] = "Emojis/3A5.png" #filmcamera
@@ -336,6 +337,7 @@ def lookupemoji(imgcode):
         emojitable[1602] = "Emojis/642.png" #glimlach
         emojitable[2360] = "Emojis/938.png" #bewegenopmuziek
         emojitable[2366] = "Emojis/93E.png" #sportenspel
+        emojitable[2398] = "Emojis/95E.png" #pannekoeken
         emojitable[2503] = "Emojis/9C7.png" #wafel
         emojitable[2530] = "Emojis/9E2.png" #kapiteinspet
         emojitable[2711] = "Emojis/A97.png" #accordeon
