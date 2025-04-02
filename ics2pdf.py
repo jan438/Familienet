@@ -310,6 +310,7 @@ def lookupalarm(alarm):
 def lookupemoji(imgcode):
     emojitable = [[] for _ in range(3000)]
     try:
+        emojitable[880] = "Emojis/370.png" #spekkoek
         emojitable[884] = "Emojis/374.png" #uiteten
         emojitable[900] = "Emojis/384.png" #kerstboom
         emojitable[938] = "Emojis/3AA.png" #circustent
