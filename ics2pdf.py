@@ -62,7 +62,7 @@ columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calf
 columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11)
 columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, textColor = red, alignment=TA_CENTER, leading = 9)
 #================================================================================================================================
-version = "April 2025"
+version = "November 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 weekStyle = [
@@ -991,12 +991,12 @@ pdfmetrics.registerFont(TTFont('CormorantGaramond', 'CormorantGaramond-Regular.t
 pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
-#fillMatrixReports(countdays)
-#processreport('m')
+fillMatrixReports(countdays)
+processreport('m')
 fillColumnReports(countdays)
 processreport('c')
-#fillSquareReports(countdays)
-#processreport('s')
-#fillWeekReports(first_week, countdays)
-#processreport('w')
+fillSquareReports(countdays)
+processreport('s')
+fillWeekReports(first_week, countdays)
+processreport('w')
 key = input("Wait")
