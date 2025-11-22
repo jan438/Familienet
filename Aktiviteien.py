@@ -190,6 +190,7 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond
 
 c = Canvas("PDF/Aktiviteiten.pdf")
 c.rect(0.2*inch,0.2*inch,1*inch,1.5*inch, fill=1)
+drawing = scaleSVG("SVG/flower.svg", 0.42)
 c.showPage()
 c.save()
 
