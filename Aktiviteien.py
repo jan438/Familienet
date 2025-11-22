@@ -5,7 +5,7 @@ import unicodedata
 from pathlib import Path
 from datetime import datetime, date, timedelta
 from ics import Calendar, Event
-from pypdf import PdfReader, PdfWriter
+from reportlab.graphics import renderPDF
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import LETTER, A4, landscape, portrait
 from reportlab.lib.units import inch
@@ -191,6 +191,7 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond
 c = Canvas("PDF/Aktiviteiten.pdf")
 c.rect(0.2*inch,0.2*inch,1*inch,1.5*inch, fill=1)
 drawing = scaleSVG("SVG/flower.svg", 0.42)
+renderPDF.draw(drawing, c, 20, 20)
 c.showPage()
 c.save()
 
