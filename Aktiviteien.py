@@ -244,4 +244,8 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
 
+c = Canvas("PDF/Aktiviteiten.pdf")
+c.showPage()
+c.save()
+
 key = input("Wait")
