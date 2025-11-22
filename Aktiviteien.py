@@ -13,55 +13,10 @@ from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, pur
 from reportlab.pdfbase import pdfmetrics  
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, Image, Spacer, Frame
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER
 
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
 calfont = "LiberationSerif"
-weekreps = []
-columsmatrixreport = 3
-rowsmatrixreport = 4
-columssquarereport = 4
-rowssquarereport = 4
-rowscolumnreport = 15
-styles = getSampleStyleSheet()
-#styles.list()
-sumfontsize = [[] for _ in range(300)]
-sumfontsize[ord('c')] = [12, 14]
-sumfontsize[ord('m')] = [11, 13]
-sumfontsize[ord('w')] = [11, 13]
-sumfontsize[ord('s')] = [11, 13]
-#=================================================================================================================================
-titleStyle = ParagraphStyle('tit', parent=styles['Normal'], fontName = calfont, fontSize = 13, textColor = black, alignment=TA_CENTER, leading = 14, spaceAfter = 3)
-#=================================================================================================================================
-cheaderStyle = ParagraphStyle('chea', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, backColor = "#DAEEC9", leftIndent = 75, rightIndent = 75, leading = 14)
-cheaderwkeStyle = ParagraphStyle('cheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, spaceAfter = 2, textColor = orange, alignment=TA_CENTER, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, backColor = "#FEDDB9", leftIndent = 75, rightIndent = 75, leading = 14)
-wheaderStyle = ParagraphStyle('whea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#DAEEC9", leading = 14)
-wheaderwkeStyle = ParagraphStyle('wheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = orange, alignment=TA_LEFT, backColor = "#FEDDB9", leading = 14)
-mheaderStyle = ParagraphStyle('mhea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 14, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
-mheaderwkeStyle = ParagraphStyle('mheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#FEDDB9", leftIndent = 24, rightIndent = 24)
-sheaderStyle = ParagraphStyle('shea', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#DAEEC9", leftIndent = 24, rightIndent = 24)
-sheaderwkeStyle = ParagraphStyle('sheawke', parent=styles['Normal'], fontName = calfont, fontSize = 12, textColor = brown, alignment=TA_CENTER, leading = 15, underlineOffset = -3, underlineWidth = 0.5, underlineColor = gray, borderWidth = 0, borderColor = "#000000", backColor = "#FEDDB9", leftIndent = 24, rightIndent = 24)
-#=================================================================================================================================
-weeksumStyle = ParagraphStyle('wsum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('w')][0], textColor = green, leading = 14)
-weeklocStyle = ParagraphStyle('wloc', parent=styles['Normal'], fontName = calfont + "Italic", fontSize = 9, textColor = blue, leading = 10)
-weekdesStyle = ParagraphStyle('wdes', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = purple, leading = 10, hyphenationLang="nl_NL")
-weektimStyle = ParagraphStyle('wtim', parent=styles['Normal'], fontName = calfont + "BoldItalic", fontSize = 9, textColor = red, leading = 10)
-#=================================================================================================================================
-matrixsumStyle = ParagraphStyle('msum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('m')][0], textColor = green, alignment=TA_CENTER, leading = 15)
-matrixdesStyle = ParagraphStyle('mdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11, hyphenationLang="nl_NL")
-matrixtimlocStyle = ParagraphStyle('mloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = red, alignment=TA_CENTER, leading = 10)
-#=================================================================================================================================
-squaresumStyle = ParagraphStyle('ssum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('s')][0], textColor = green, alignment=TA_CENTER, leading = 14)
-squaredesStyle = ParagraphStyle('sdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11, hyphenationLang="nl_NL")
-squaretimlocStyle = ParagraphStyle('sloctim', parent=styles['Normal'], fontName = calfont, fontSize = 9, textColor = red, alignment=TA_CENTER, leading = 10)
-#=================================================================================================================================
-columnsumStyle = ParagraphStyle('csum', parent=styles['Normal'], fontName = calfont + "Bold", fontSize = sumfontsize[ord('c')][0], textColor = green, alignment=TA_CENTER, leading = 15)
-columndesStyle = ParagraphStyle('cdes', parent=styles['Normal'], fontName = calfont, fontSize = 10, textColor = purple, alignment=TA_CENTER, leading = 11)
-columntimlocStyle = ParagraphStyle('ctimloc', parent=styles['Normal'], fontName = calfont, fontSize = 8, textColor = red, alignment=TA_CENTER, leading = 9)
-#================================================================================================================================
 version = "November 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
