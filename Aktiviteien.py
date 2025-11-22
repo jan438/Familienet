@@ -13,6 +13,7 @@ from reportlab.lib.colors import blue, green, black, red, pink, gray, brown, pur
 from reportlab.pdfbase import pdfmetrics  
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
+from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
@@ -34,6 +35,17 @@ class FamilienetEvent:
         self.dayyear = dayyear
         self.month = month
         self.alarm = alarm
+        
+def scaleSVG(svgfile, scaling_factor):
+    svg_root = load_svg_file(svgfile)
+    svgRenderer = SvgRenderer(svgfile)
+    drawing = svgRenderer.render(svg_root)
+    scaling_x = scaling_factor
+    scaling_y = scaling_factor
+    drawing.width = drawing.minWidth() * scaling_x
+    drawing.height = drawing.height * scaling_y
+    drawing.scale(scaling_x, scaling_y)
+    return drawing
         
 def leapMonth(year, month):
     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
