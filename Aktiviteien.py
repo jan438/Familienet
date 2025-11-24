@@ -191,11 +191,14 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond
 
 activity_kind_x = 200
 activity_kind_y = 200
+activity_kind_w = 100
+activity_kind_h = 100
+activity_kind_r = 50
 
 c = Canvas("PDF/Aktiviteiten.pdf")
 c.setFillColor(HexColor("#caffa9"))
-c.circle(activity_kind_x + 50, activity_kind_y + 50, 50, stroke = 0, fill = 1)
-c.rect(activity_kind_x, activity_kind_y, 100, 100, stroke = 1, fill = 0)
+c.circle(activity_kind_x + 50, activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
+c.rect(activity_kind_x, activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
 print("drawing w h", drawing.width, drawing.height)
 renderPDF.draw(drawing, c, activity_kind_x + 18, activity_kind_y + 18)
@@ -204,8 +207,8 @@ c.setFillColor(HexColor("#756bff"))
 c.drawString(activity_kind_x, activity_kind_y - 20, "Reuzenrad")
 c.showPage()
 c.setFillColor(HexColor("#caffa9"))
-c.circle(activity_kind_x + 50, activity_kind_y + 50, 50, stroke = 0, fill = 1)
-c.rect(activity_kind_x, activity_kind_y, 100, 100, stroke = 1, fill = 0)
+c.circle(activity_kind_x + 50, activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
+c.rect(activity_kind_x, activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Wandelen.svg", 0.5)
 print("drawing w h", drawing.width, drawing.height)
 renderPDF.draw(drawing, c, activity_kind_x + 18, activity_kind_y + 18)
