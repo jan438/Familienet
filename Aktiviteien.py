@@ -201,7 +201,7 @@ c.circle(activity_kind_x + 50, activity_kind_y + 50, activity_kind_r, stroke = 0
 c.rect(activity_kind_x, activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
 print("drawing w h", drawing.width, drawing.height)
-renderPDF.draw(drawing, c, activity_kind_x + 18, activity_kind_y + 18)
+renderPDF.draw(drawing, c, activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_kind_y + activity_kind_r - 0.5 * drawing.height)
 c.setFont(activityfont, 18)
 c.setFillColor(HexColor("#756bff"))
 c.drawString(activity_kind_x, activity_kind_y - 20, "Reuzenrad")
