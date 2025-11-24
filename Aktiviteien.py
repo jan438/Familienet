@@ -189,10 +189,10 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
 
-activity_x = 10
-activity_y = 20
+activity_x = 100
+activity_y = 200
 activity_kind_x = 200
-activity_kind_y = 200
+activity_kind_y = 300
 activity_kind_w = 100
 activity_kind_h = 100
 activity_kind_r = 0.5 * activity_kind_w
