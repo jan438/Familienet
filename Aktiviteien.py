@@ -189,6 +189,8 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
 
+activity_x = 10
+activity_y = 20
 activity_kind_x = 200
 activity_kind_y = 200
 activity_kind_w = 100
@@ -197,22 +199,22 @@ activity_kind_r = 0.5 * activity_kind_w
 
 c = Canvas("PDF/Aktiviteiten.pdf")
 c.setFillColor(HexColor("#caffa9"))
-c.circle(activity_kind_x + 50, activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
-c.rect(activity_kind_x, activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
+c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
+c.rect(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
-renderPDF.draw(drawing, c, activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_kind_y + activity_kind_r - 0.5 * drawing.height)
+renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
 c.setFont(activityfont, 18)
 c.setFillColor(HexColor("#756bff"))
-c.drawString(activity_kind_x, activity_kind_y - 20, "Reuzenrad")
+c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Reuzenrad")
 c.showPage()
 c.setFillColor(HexColor("#caffa9"))
-c.circle(activity_kind_x + 50, activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
-c.rect(activity_kind_x, activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
+c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
+c.rect(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Wandelen.svg", 0.5)
-renderPDF.draw(drawing, c, activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_kind_y + activity_kind_r - 0.5 * drawing.height)
+renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
 c.setFont(activityfont, 18)
 c.setFillColor(HexColor("#756bff"))
-c.drawString(activity_kind_x, activity_kind_y - 20, "Wandelen")
+c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Wandelen")
 c.save()
 
 key = input("Wait")
