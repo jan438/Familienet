@@ -207,9 +207,9 @@ activity_kind_w = 100
 activity_kind_h = 100
 activity_kind_r = 0.5 * activity_kind_w
 
-c = Canvas("PDF/Aktiviteiten.pdf")
+c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
-c.rect(0, 0, A4_width, A4_height, fill = 1)
+c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(pinkredcircle))
 c.rect(activity_x, activity_y, activity_w, activity_h, stroke = 1, fill = 1)
 c.setFillColor(HexColor("#8b93ff"))
