@@ -193,6 +193,7 @@ A4_width = A4[0]
 A4_height = A4[1]
 
 yellowbackground = "#ffde22"
+lighteryellow = "#fff152"
 pinkredcircle = "#ff414e"
 orangecircle = "#ff8928"
 whitelayover = "#ffffff"
