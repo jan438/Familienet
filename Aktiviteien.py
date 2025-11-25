@@ -189,6 +189,11 @@ pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.
 pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
 pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
 
+yellowbackground = "#ffde22"
+pinkredcircle = "#ff414e"
+orangecircle = "#ff8928"
+whitelayover = "#ffffff"
+
 activity_x = 100
 activity_y = 200
 activity_w = 200
@@ -200,7 +205,7 @@ activity_kind_h = 100
 activity_kind_r = 0.5 * activity_kind_w
 
 c = Canvas("PDF/Aktiviteiten.pdf")
-c.setFillColor(HexColor("#caffa9"))
+c.setFillColor(HexColor("#ffde22"))
 c.rect(activity_x, activity_y, activity_w, activity_h, stroke = 1, fill = 1)
 c.setFillColor(HexColor("#8b93ff"))
 c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
