@@ -196,6 +196,7 @@ yellowbackground = "#ffde22"
 pinkredcircle = "#ff414e"
 orangecircle = "#ff8928"
 whitelayover = "#ffffff"
+blacktext = "#000000"
 
 activity_x = 100
 activity_y = 200
@@ -212,24 +213,26 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(pinkredcircle))
 c.rect(activity_x, activity_y, activity_w, activity_h, stroke = 1, fill = 1)
-c.setFillColor(HexColor("#8b93ff"))
+c.setFillColor(HexColor(whitelayover))
 c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
 #c.rect(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
 renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
 c.setFont(activityfont, 18)
-c.setFillColor(HexColor("#756bff"))
+c.setFillColor(HexColor(blacktext))
 c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Reuzenrad")
 c.showPage()
-c.setFillColor(HexColor("#94ffa6"))
+c.setFillColor(HexColor(yellowbackground))
+c.rect(0, 0, A4_height, A4_width, fill = 1)
+c.setFillColor(HexColor(pinkredcircle))
 c.rect(activity_x, activity_y, activity_w, activity_h, stroke = 1, fill = 1)
-c.setFillColor(HexColor("#ffd0f1"))
+c.setFillColor(HexColor(whitelayover))
 c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
 #c.rect(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 0)
 drawing = scaleSVG("SVG/Wandelen.svg", 0.5)
 renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
 c.setFont(activityfont, 18)
-c.setFillColor(HexColor("#756bff"))
+c.setFillColor(HexColor(blacktext))
 c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Wandelen")
 c.save()
 
