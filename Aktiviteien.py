@@ -212,9 +212,7 @@ activity_kind_r = 0.5 * activity_kind_w
 c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
-# Radial gradient with multiple stops.
 c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow, green), (0, 0.8, 1))
-c.drawString(5*mm, 290*mm, "c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow, green), (0, 0.8, 1))")
 c.circle(105*mm, 200*mm, 48*mm)
 c.circle(105*mm, 200*mm, 60*mm)
 c.setFillColor(HexColor(lighteryellow))
