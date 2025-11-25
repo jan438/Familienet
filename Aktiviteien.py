@@ -221,7 +221,7 @@ renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 
 c.setFont(activityfont, 18)
 c.setFillColor(HexColor(blacktext))
 c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Reuzenrad")
-c.radialGradient(205*mm, 100*mm, 60*mm, (red, yellow), extend=False)
+c.radialGradient(205*mm, 100*mm, 60*mm, (pinkredcircle, orangecircle), extend=False)
 c.showPage()
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
