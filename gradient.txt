@@ -1,0 +1,51 @@
+# Source - https://stackoverflow.com/a
+# Posted by Blair
+# Retrieved 2025-11-25, License - CC BY-SA 3.0
+
+from reportlab.pdfgen.canvas import Canvas
+from reportlab.lib.colors import red, yellow, green
+from reportlab.lib.units import mm
+
+c = Canvas("gradient.pdf")
+
+# Linear gradient with the endpoints extending over the page.
+c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow))
+c.drawString(5*mm, 290*mm, "c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow))")
+c.line(105*mm, 200*mm, 180*mm, 100*mm)
+c.showPage()
+
+# Linear gradient constrained within the endpoints.
+c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow), extend=False)
+c.drawString(5*mm, 290*mm, "c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow), extend=False)")
+c.line(105*mm, 200*mm, 180*mm, 100*mm)
+c.showPage()
+
+# Linear gradient with multiple stops.
+c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow, green), (0, 0.8, 1), extend=False)
+c.drawString(5*mm, 290*mm, "c.linearGradient(105*mm, 200*mm, 180*mm, 100*mm, (red, yellow, green), (0, 0.8, 1), extend=False)")
+c.line(105*mm, 200*mm, 180*mm, 100*mm)
+c.line(141*mm, 102*mm, 189*mm, 138*mm)
+c.showPage()
+
+# Radial gradient with the endpoint extending over the page.
+c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow))
+c.drawString(5*mm, 290*mm, "c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow))")
+c.circle(105*mm, 200*mm, 60*mm)
+c.showPage()
+
+# Radial gradient constrained within the circle.
+c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow), extend=False)
+c.drawString(5*mm, 290*mm, "c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow), extend=False)")
+c.circle(105*mm, 200*mm, 60*mm)
+c.showPage()
+
+# Radial gradient with multiple stops.
+c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow, green), (0, 0.8, 1))
+c.drawString(5*mm, 290*mm, "c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow, green), (0, 0.8, 1))")
+c.circle(105*mm, 200*mm, 48*mm)
+c.circle(105*mm, 200*mm, 60*mm)
+c.showPage()
+
+c.save()
+
+
