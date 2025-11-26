@@ -217,7 +217,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
 u = inch/10.0
 p = c.beginPath()
-p.moveTo(10*u,0)
+p.moveTo(1*inch, 0)
 p.lineTo(0,5*u)
 p.lineTo(10*u,10*u)
 p.curveTo(11.5*u,10*u, 11.5*u,7.5*u, 10*u,7.5*u)
