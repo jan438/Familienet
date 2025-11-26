@@ -229,6 +229,7 @@ p = c.beginPath()
 p.moveTo(activity_x + 100, activity_y + 0)
 p.lineTo(activity_x + 200, activity_y + 0)
 p.curveTo(activity_x + 200, activity_y + 100, activity_x + 150, activity_y + 25, activity_x + 150, activity_y + 20)
+p.arcTo( activity_x + 150, activity_y + 20,   activity_x + 100, activity_y + 0, startAng=0, extent=90)
 p.lineTo(activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
 activity_x = 250
