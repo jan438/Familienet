@@ -215,7 +215,6 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
-c.rect(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_w, activity_kind_h, stroke = 1, fill = 1)
 u = inch/10.0
 p = c.beginPath()
 p.moveTo(10*u,0)
