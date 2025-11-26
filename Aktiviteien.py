@@ -228,10 +228,7 @@ activity_y = activity_y + 0
 p = c.beginPath()
 p.moveTo(activity_x + 100, activity_y + 0)
 p.lineTo(activity_x + 0, activity_y + 50)
-p.lineTo(activity_x + 100, activity_y + 100)
-p.curveTo(activity_x + 115, activity_y + 100, activity_x + 115, activity_y + 75, activity_x + 100, activity_y + 75)
-p.curveTo(activity_x + 120, activity_y + 75, activity_x + 110, activity_y + 25, activity_x + 97, activity_y + 25)
-p.curveTo(activity_x + 105, activity_y + 25, activity_x + 110, activity_y + 0, activity_x + 100, activity_y + 0)
+p.curveTo(activity_x + 0, activity_y + 50, activity_x + 0, activity_y + 25, activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
 activity_x = 250
 activity_y = 300
