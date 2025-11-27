@@ -227,13 +227,13 @@ activity_x = 200
 activity_y = 100
 p = c.beginPath()
 p.moveTo(activity_x, activity_y)
-p.arc( activity_x, activity_y,   activity_x + 20, activity_y + 20, startAng = 0, extent = 90)
+p.arc( activity_x, activity_y, activity_x + 20, activity_y + 20, startAng = 0, extent = 90)
 p.lineTo(activity_x - 10, activity_y + 20)
-p.arc( activity_x - 20, activity_y + 20,   activity_x, activity_y, startAng = 90, extent = 90)
+p.arc( activity_x - 20, activity_y + 20, activity_x, activity_y, startAng = 90, extent = 90)
 p.lineTo(activity_x - 20, activity_y)
-p.arc( activity_x - 20, activity_y + 10,   activity_x, activity_y - 10, startAng = 180, extent = 90)
+p.arc( activity_x - 20, activity_y + 10, activity_x, activity_y - 10, startAng = 180, extent = 90)
 p.lineTo(activity_x + 10, activity_y - 10)
-p.arc( activity_x, activity_y + 10,   activity_x + 20, activity_y - 10, startAng = 270, extent = 90)
+p.arc( activity_x, activity_y + 10, activity_x + 20, activity_y - 10, startAng = 270, extent = 90)
 p.lineTo(activity_x + 20, activity_y + 10)
 c.drawPath(p, stroke=1, fill=1)
 activity_x = 250
