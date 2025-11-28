@@ -238,6 +238,7 @@ p.curveTo(activity_x + 120, activity_y + 75, activity_x + 110, activity_y + 25, 
 p.curveTo(activity_x + 105, activity_y + 25, activity_x + 110, activity_y + 0, activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
 drawactivity(c, 100, 50)
+drawactivity(c, 100, 300)
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
