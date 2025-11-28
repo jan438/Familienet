@@ -62,6 +62,7 @@ def leapMonth(year, month):
             return 28
     if month == 4 or month == 6 or month == 9 or month == 11:
         return 30
+        
 def weekDay(year, month, day):
     offset = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
     afterFeb = 1
@@ -238,7 +239,7 @@ p.curveTo(activity_x + 120, activity_y + 75, activity_x + 110, activity_y + 25, 
 p.curveTo(activity_x + 105, activity_y + 25, activity_x + 110, activity_y + 0, activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
 drawactivity(c, 100, 50, 20)
-drawactivity(c, 100, 300, 10)
+drawactivity(c, 100, 300, 30)
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
