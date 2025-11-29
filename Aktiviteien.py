@@ -238,7 +238,7 @@ p.curveTo(activity_x + 115, activity_y + 100, activity_x + 115, activity_y + 75,
 p.curveTo(activity_x + 120, activity_y + 75, activity_x + 110, activity_y + 25, activity_x + 97, activity_y + 25)
 p.curveTo(activity_x + 105, activity_y + 25, activity_x + 110, activity_y + 0, activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
-drawactivity(c, 100, 50, 20, 10)
+drawactivity(c, 100, 50, 20, 30)
 drawactivity(c, 100, 300, 30, 20)
 activity_x = 250
 activity_y = 300
