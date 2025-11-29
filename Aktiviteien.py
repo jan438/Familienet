@@ -94,6 +94,7 @@ def drawactivityA(c, activity_x, activity_y, w, h, a):
     p.moveTo(activity_x, activity_y + 0.5 * a)
     p.arcTo(activity_x, activity_y, activity_x + a, activity_y + a, startAng = 180, extent = 90)  # arc left below
     p.lineTo(activity_x + w, activity_y)                                                           # horizontal line
+    p.arcTo(activity_x + w, activity_y, activity_x + w + a, activity_y + a, startAng = 270, extent = 90)  # arc right below
     c.drawPath(p, stroke=1, fill=1)
     return
     
