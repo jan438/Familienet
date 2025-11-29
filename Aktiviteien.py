@@ -75,13 +75,13 @@ def weekDay(year, month, day):
     dayOfWeek %= 7
     return round(dayOfWeek)
     
-def drawactivity(c, activity_x, activity_y, w):
+def drawactivity(c, activity_x, activity_y, w, h):
     p = c.beginPath()
     p.moveTo(activity_x, activity_y)
     p.arc(activity_x, activity_y, activity_x + 20, activity_y + 20, startAng = 0, extent = 90)           # arc right above
     p.lineTo(activity_x - w, activity_y + 20)                                                           # horizontal line
     p.arcTo(activity_x - w - 10, activity_y + 20, activity_x - w + 10, activity_y, startAng = 90, extent = 90)        # arc left above
-    p.lineTo(activity_x - w - 10, activity_y)                                                                # vertcal line
+    p.lineTo(activity_x - w - h, activity_y)                                                                # vertcal line
     p.arcTo(activity_x - w - 10, activity_y + 10, activity_x - w + 10, activity_y - 10, startAng = 180, extent = 90)  # arc left below
     p.lineTo(activity_x + 10, activity_y - 10)                                                           # horizontal line
     p.arcTo(activity_x, activity_y + 10, activity_x + 20, activity_y - 10, startAng = 270, extent = 90)  # arc right below
@@ -238,8 +238,8 @@ p.curveTo(activity_x + 115, activity_y + 100, activity_x + 115, activity_y + 75,
 p.curveTo(activity_x + 120, activity_y + 75, activity_x + 110, activity_y + 25, activity_x + 97, activity_y + 25)
 p.curveTo(activity_x + 105, activity_y + 25, activity_x + 110, activity_y + 0, activity_x + 100, activity_y + 0)
 c.drawPath(p, stroke=1, fill=1)
-drawactivity(c, 100, 50, 20)
-drawactivity(c, 100, 300, 30)
+drawactivity(c, 100, 50, 20, 10)
+drawactivity(c, 100, 300, 30, 10)
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
