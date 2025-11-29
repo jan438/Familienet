@@ -89,6 +89,13 @@ def drawactivity(c, activity_x, activity_y, w, h):
     c.drawPath(p, stroke=1, fill=1)
     return
     
+def drawactivityA(c, activity_x, activity_y, w, h, a):
+    p = c.beginPath()
+    p.moveTo(activity_x, activity_y + 0.5 * a)
+    p.arcTo(activity_x, activity_y, activity_x + a, activity_y + a, startAng = 180, extent = 90)  # arc left below
+    c.drawPath(p, stroke=1, fill=1)
+    return
+    
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Familienet'
 if sys.platform[0] == 'w':
@@ -232,6 +239,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
 drawactivity(c, 100, 50, 20, 30)
 drawactivity(c, 100, 300, 30, 20)
+drawactivityA(c, 200, 200, 30, 20, 30)
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
