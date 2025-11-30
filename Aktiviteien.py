@@ -236,7 +236,6 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-c.setFillColor(HexColor(whitelayover))
 activity_x = 50
 activity_y = 500
 col = 0
