@@ -75,20 +75,6 @@ def weekDay(year, month, day):
     dayOfWeek %= 7
     return round(dayOfWeek)
     
-def drawactivity(c, activity_x, activity_y, w, h):
-    p = c.beginPath()
-    p.moveTo(activity_x, activity_y)
-    p.arc(activity_x, activity_y, activity_x + 20, activity_y + 20, startAng = 0, extent = 90)           # arc right above
-    p.lineTo(activity_x - w, activity_y + 20)                                                           # horizontal line
-    p.arcTo(activity_x - w - 10, activity_y + 20, activity_x - w + 10, activity_y, startAng = 90, extent = 90)        # arc left above
-    p.lineTo(activity_x - w - 10, activity_y - h + 10)                                                                # vertcal line
-    p.arcTo(activity_x - w - 10, activity_y - h + 20, activity_x - w + 10, activity_y - h, startAng = 180, extent = 90)  # arc left below
-    p.lineTo(activity_x + 10, activity_y - h)                                                           # horizontal line
-    p.arcTo(activity_x, activity_y - h + 20, activity_x + 20, activity_y - h, startAng = 270, extent = 90)  # arc right below
-    p.lineTo(activity_x + 20, activity_y + 10)                                                           # vertcal line
-    c.drawPath(p, stroke = 0, fill = 1)
-    return
-    
 def drawactivityA(c, activity_x, activity_y, w, h, a):
     p = c.beginPath()
     p.moveTo(activity_x, activity_y + 0.5 * a)
