@@ -96,10 +96,10 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     p.lineTo(activity_x, activity_y + 0.5 * a)                                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
     drawing = scaleSVG("SVG/location.svg", 0.02)
-    renderPDF.draw(drawing, c, activity_x + 20, activity_y + 5)
+    renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
-    c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y, daytimestr)
+    c.drawString(activity_x + 5, activity_y + 30, daytimestr)
     processsummary(monthevents[i].summary)
     return
     
