@@ -240,8 +240,6 @@ for i in range(len(monthevents)):
     if col == 6:
         col = 0
         row -= 1
-drawActivity(c, 100, 300, 30, 20, 20)
-drawActivity(c, 200, 200, 30, 20, 30)
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
