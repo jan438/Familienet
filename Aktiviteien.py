@@ -74,6 +74,13 @@ def weekDay(year, month, day):
     dayOfWeek += offset[month - 1] + (day - 1)               
     dayOfWeek %= 7
     return round(dayOfWeek)
+
+def processsummary(text):
+    processed = text
+    ems = processed.find("[e")
+    if ems >= 0:
+        print(processed)
+    return processed
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(whitelayover))
@@ -92,7 +99,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     renderPDF.draw(drawing, c, activity_x + 20, activity_y + 20)
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
-    c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, daytimestr)
+    c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y, daytimestr)
+    processsummary(monthevents[i].summary)
     return
     
 if sys.platform[0] == 'l':
