@@ -235,6 +235,8 @@ activity_y = 500
 col = 0
 for i in range(len(monthevents)):
     drawActivity(c, activity_x,  activity_y, 80, 30, 20)
+    drawing = scaleSVG("SVG/location.svg", 0.05)
+    renderPDF.draw(drawing, c, activity_x + 20, activity_y + 20)
     col += 1
     activity_x = activity_x + 150
     if col == 5:
