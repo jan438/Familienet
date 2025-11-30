@@ -244,8 +244,8 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
-drawactivity(c, 100, 50, 20, 30)
-drawactivity(c, 100, 300, 30, 20)
+drawactivityA(c, 100, 50, 20, 30, 20)
+drawactivityA(c, 100, 300, 30, 20, 20)
 drawactivityA(c, 200, 200, 30, 20, 30)
 activity_x = 250
 activity_y = 300
