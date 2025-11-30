@@ -234,8 +234,7 @@ row = 8
 col = 0
 leftmargin =30
 for i in range(len(monthevents)):
-    print(i, monthevents[i].summary)
-    drawActivity(c, leftmargin + col * 150,  row * 60, 80, 30, 20)
+    drawActivity(c, leftmargin + col * 165,  row * 60, 80, 30, 20)
     col += 1
     if col == 5:
         col = 0
