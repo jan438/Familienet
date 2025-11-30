@@ -235,9 +235,9 @@ col = 0
 leftmargin =30
 for i in range(len(monthevents)):
     print(i, monthevents[i].summary)
-    drawActivity(c, leftmargin + col * 100,  row * 60, 20, 30, 20)
+    drawActivity(c, leftmargin + col * 150,  row * 60, 80, 30, 20)
     col += 1
-    if col == 6:
+    if col == 5:
         col = 0
         row -= 1
 activity_x = 250
