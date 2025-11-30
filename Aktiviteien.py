@@ -75,7 +75,7 @@ def weekDay(year, month, day):
     dayOfWeek %= 7
     return round(dayOfWeek)
     
-def drawActivity(c, activity_x, activity_y, w, h, a):
+def drawActivity(c, activity_x, activity_y, w, h, a, i):
     p = c.beginPath()
     p.moveTo(activity_x, activity_y + 0.5 * a)
     p.arcTo(activity_x, activity_y, activity_x + a, activity_y + a, startAng = 180, extent = 90)  # arc left below
@@ -87,6 +87,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a):
     p.arcTo(activity_x, activity_y + h, activity_x + a, activity_y + h + a, startAng = 90, extent = 90)    # arc left above
     p.lineTo(activity_x, activity_y + 0.5 * a)                                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
+    drawing = scaleSVG("SVG/location.svg", 0.02)
+    renderPDF.draw(drawing, c, activity_x + 20, activity_y + 20)
+    print(monthevents[i].summary)
     return
     
 if sys.platform[0] == 'l':
@@ -234,9 +237,7 @@ activity_x = 50
 activity_y = 500
 col = 0
 for i in range(len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 80, 30, 20)
-    drawing = scaleSVG("SVG/location.svg", 0.02)
-    renderPDF.draw(drawing, c, activity_x + 20, activity_y + 20)
+    drawActivity(c, activity_x,  activity_y, 80, 30, 20, i)
     col += 1
     activity_x = activity_x + 150
     if col == 5:
