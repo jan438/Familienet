@@ -76,6 +76,7 @@ def weekDay(year, month, day):
     return round(dayOfWeek)
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
+    c.setFillColor(HexColor(whitelayover))
     p = c.beginPath()
     p.moveTo(activity_x, activity_y + 0.5 * a)
     p.arcTo(activity_x, activity_y, activity_x + a, activity_y + a, startAng = 180, extent = 90)  # arc left below
@@ -90,6 +91,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     drawing = scaleSVG("SVG/location.svg", 0.02)
     renderPDF.draw(drawing, c, activity_x + 20, activity_y + 20)
     daytimestr = "Maandag 1 december 14:99-15:00"
+    c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, daytimestr)
     print(monthevents[i].summary)
     return
