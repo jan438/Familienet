@@ -236,7 +236,7 @@ col = 0
 for i in range(len(monthevents)):
     drawActivity(c, activity_x,  activity_y, 80, 30, 20)
     col += 1
-    activity_x = activity_x + 100
+    activity_x = activity_x + 150
     if col == 5:
         col = 0
         activity_x = 50
