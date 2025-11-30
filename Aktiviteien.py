@@ -230,15 +230,15 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
-row = 8
+activity_y = 500
 col = 0
 leftmargin =30
 for i in range(len(monthevents)):
-    drawActivity(c, leftmargin + col * 165,  row * 60, 80, 30, 20)
+    drawActivity(c, leftmargin + col * 165,  activity_y, 80, 30, 20)
     col += 1
     if col == 5:
         col = 0
-        row -= 1
+        activity_y = activity_y - 100
 activity_x = 250
 activity_y = 300
 drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
