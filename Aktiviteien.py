@@ -230,14 +230,16 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
+activity_x = 50
 activity_y = 500
 col = 0
-leftmargin =30
 for i in range(len(monthevents)):
-    drawActivity(c, leftmargin + col * 165,  activity_y, 80, 30, 20)
+    drawActivity(c, activity_x,  activity_y, 80, 30, 20)
     col += 1
+    activity_x = activity_x + 100
     if col == 5:
         col = 0
+        activity_x = 50
         activity_y = activity_y - 100
 activity_x = 250
 activity_y = 300
