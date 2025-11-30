@@ -230,9 +230,16 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 c.setFillColor(HexColor(whitelayover))
+row = 10
+col = 0
+leftmargin =30
 for i in range(len(monthevents)):
     print(i, monthevents[i].summary)
-drawActivity(c, 100,  50, 20, 30, 20)
+    drawActivity(c, leftmargin + col * 100,  row * 50, 20, 30, 20)
+    col += 1
+    if col == 6:
+        col = 0
+        row -= 1
 drawActivity(c, 100, 300, 30, 20, 20)
 drawActivity(c, 200, 200, 30, 20, 30)
 activity_x = 250
