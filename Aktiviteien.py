@@ -76,11 +76,13 @@ def weekDay(year, month, day):
     return round(dayOfWeek)
 
 def processsdescription(text):
-    processed = text
-    ims = processed.find("[i")
-    if ims >= 0:
-        print(processed)
-    return processed
+    imgcode = ""
+    imgpos = ''
+    dtimgeventpos = text.find("[i")
+    if dtimgeventpos >= 0:
+        imgcode = text[dtimgeventpos+2:dtimgeventpos+5]
+        print(imgcode)
+    return imgcode
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(whitelayover))
