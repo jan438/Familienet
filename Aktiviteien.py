@@ -78,7 +78,7 @@ def weekDay(year, month, day):
 def lookupimage(imgcode):
     img = ""
     newcalendar = [[] for _ in range(300)]
-    newcalendar[30] = "SVG/Wandelen.svg"
+    newcalendar[30] = "Wandelen"
     img = newcalendar[int(imgcode)]
     return img
 
@@ -114,7 +114,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     if len(imgcode) > 0:
         img = lookupimage(imgcode)
         if len(img) > 0:
-            print(imgcode, "to lookup", img)
+            drawing = scaleSVG("SVG/" + img + ".svg", 0.5)
+            renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     return
     
 if sys.platform[0] == 'l':
