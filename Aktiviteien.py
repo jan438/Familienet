@@ -78,7 +78,7 @@ def weekDay(year, month, day):
 def lookupimage(imgcode):
     img = ""
     newcalendar = [[] for _ in range(300)]
-    newcalendar[31] = "Hallo"
+    newcalendar[30] = "SVG/Wandelen.svg"
     img = newcalendar[int(imgcode)]
     return img
 
@@ -113,7 +113,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     imgcode = processsdescription(monthevents[i].description)
     if len(imgcode) > 0:
         img = lookupimage(imgcode)
-        print(imgcode, "to lookup", img)
+        if len(img) > 0:
+            print(imgcode, "to lookup", img)
     return
     
 if sys.platform[0] == 'l':
