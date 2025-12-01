@@ -114,6 +114,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     if len(imgcode) > 0:
         img = lookupimage(imgcode)
         if len(img) > 0:
+            c.radialGradient(activity_x, activity_y, 100, (pinkredcircle, orangecircle), extend = False)
+            c.circle(activity_x, activity_y, 100, stroke = 0)
             drawing = scaleSVG("SVG/" + img + ".svg", 0.5)
             renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     return
@@ -271,15 +273,6 @@ for i in range(len(monthevents)):
         col = 0
         activity_x = 60
         activity_y = activity_y - 100
-activity_x = 250
-activity_y = 300
-drawing = scaleSVG("SVG/Reuzenrad.svg", 0.5)
-renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
-c.setFont(activityfont, 18)
-c.setFillColor(HexColor(blacktext))
-c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Reuzenrad")
-c.radialGradient(205*mm, 100*mm, 30*mm, (pinkredcircle, orangecircle), extend = False)
-c.circle(205*mm, 100*mm, 30*mm, stroke = 0)
 c.showPage()
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
