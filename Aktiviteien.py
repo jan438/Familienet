@@ -75,10 +75,10 @@ def weekDay(year, month, day):
     dayOfWeek %= 7
     return round(dayOfWeek)
 
-def processsummary(text):
+def processsdescription(text):
     processed = text
-    ems = processed.find("[e")
-    if ems >= 0:
+    ims = processed.find("[i")
+    if ims >= 0:
         print(processed)
     return processed
     
@@ -100,7 +100,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 30, daytimestr)
-    processsummary(monthevents[i].summary)
+    processsdescription(monthevents[i].description)
     return
     
 if sys.platform[0] == 'l':
