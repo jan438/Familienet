@@ -247,10 +247,12 @@ activity_x = 50
 activity_y = 500
 col = 0
 for i in range(len(monthevents)):
+    if i == 16:
+        break
     drawActivity(c, activity_x,  activity_y, 80, 30, 20, i)
     col += 1
     activity_x = activity_x + 150
-    if col == 5:
+    if col == 4:
         col = 0
         activity_x = 50
         activity_y = activity_y - 100
