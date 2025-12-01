@@ -82,7 +82,7 @@ def processsdescription(text):
     if dtimgeventpos >= 0:
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[2] == ']':
-            imgcode = imgcode[0:2]
+            imgcode = "0" + imgcode[0:2]
             print(imgcode)
     return imgcode
     
