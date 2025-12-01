@@ -83,7 +83,6 @@ def processsdescription(text):
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[2] == ']':
             imgcode = "0" + imgcode[0:2]
-            print(imgcode)
     return imgcode
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
@@ -104,7 +103,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 30, daytimestr)
-    processsdescription(monthevents[i].description)
+    imgcode = processsdescription(monthevents[i].description)
+    if len(imgcode) > 0:
+        print(imgcode, "to lookup")
     return
     
 if sys.platform[0] == 'l':
