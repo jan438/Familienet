@@ -75,6 +75,13 @@ def weekDay(year, month, day):
     dayOfWeek %= 7
     return round(dayOfWeek)
 
+def lookupimage(imgcode):
+    img = ""
+    newcalendar = [[] for _ in range(300)]
+    newcalendar[31] = "Hallo"
+    img = newcalendar[int(imgcode)]
+    return img
+
 def processsdescription(text):
     imgcode = ""
     imgpos = ''
@@ -105,7 +112,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.drawString(activity_x + 5, activity_y + 30, daytimestr)
     imgcode = processsdescription(monthevents[i].description)
     if len(imgcode) > 0:
-        print(imgcode, "to lookup")
+        img = lookupimage(imgcode)
+        print(imgcode, "to lookup", img)
     return
     
 if sys.platform[0] == 'l':
