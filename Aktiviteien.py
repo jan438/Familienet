@@ -80,8 +80,10 @@ def processsdescription(text):
     imgpos = ''
     dtimgeventpos = text.find("[i")
     if dtimgeventpos >= 0:
-        imgcode = text[dtimgeventpos+2:dtimgeventpos+5]
-        print(imgcode)
+        imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
+        if imgcode[2] == ']':
+            imgcode = imgcode[0:2]
+            print(imgcode)
     return imgcode
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
