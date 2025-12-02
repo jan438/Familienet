@@ -19,7 +19,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
 activityfont = "LiberationSerif"
-version = "November 2025"
+version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
 
@@ -125,7 +125,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
-    print(monthevents[i].summary, len(occurrences))
+    summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
+    print(monthevents[i].summary, len(occurrences), "summarywidth", summarywidth)
     c.drawString(activity_x + 5, activity_y + 50, monthevents[i].summary)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
