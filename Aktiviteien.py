@@ -111,6 +111,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
+    c.drawString(activity_x + 5, activity_y + 50, monthevents[i].summary)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
