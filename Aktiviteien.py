@@ -121,7 +121,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.drawPath(p, stroke = 0, fill = 1)
     drawing = scaleSVG("SVG/location.svg", 0.02)
     renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
-    daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
+    daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
