@@ -121,7 +121,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
             c.radialGradient(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_r, (pinkredcircle, orangecircle), extend = False)
             c.circle(activity_x + activity_kind_x, activity_y + activity_kind_y, activity_kind_r, stroke = 0)
             drawing = scaleSVG("SVG/" + img + ".svg", 0.2)
-            renderPDF.draw(drawing, c, activity_x + activity_kind_x, activity_y + activity_kind_y)
+            renderPDF.draw(drawing, c, activity_x + activity_kind_x - 12, activity_y + activity_kind_y - 12)
     return
     
 if sys.platform[0] == 'l':
