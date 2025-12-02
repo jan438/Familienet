@@ -37,6 +37,17 @@ class FamilienetEvent:
         self.month = month
         self.alarm = alarm
         
+def find_all_occurrences(line, sub, f, t):
+    index_of_occurrences = []
+    current_index = f
+    while True:
+        current_index = line.find(sub, current_index)
+        if current_index == -1 or current_index >= t:
+            return index_of_occurrences
+        else:
+            index_of_occurrences.append(current_index)
+            current_index += len(sub)
+        
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
     svgRenderer = SvgRenderer(svgfile)
@@ -113,6 +124,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
+    occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
+    print(monthevents[i].summary, len(occurrences))
     c.drawString(activity_x + 5, activity_y + 50, monthevents[i].summary)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
