@@ -110,7 +110,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     daytimestr = str(monthevents[i].day) + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
-    c.drawString(activity_x + 5, activity_y + 30, daytimestr)
+    c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
