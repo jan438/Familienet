@@ -90,6 +90,7 @@ def lookupimage(imgcode):
     img = ""
     newcalendar = [[] for _ in range(300)]
     newcalendar[12] = "optredenklassiek"
+    newcalendar[14] = "bibliotheek"
     newcalendar[30] = "wandelen"
     newcalendar[31] = "sportenspelmiddag"
     newcalendar[34] = "klassiekemuziek"
