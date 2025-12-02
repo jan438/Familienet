@@ -126,7 +126,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
     summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
-    print(monthevents[i].summary, len(occurrences), "summarywidth", summarywidth)
+    print(monthevents[i].summary, len(occurrences), "summarywidth", round(summarywidth))
     c.drawString(activity_x + 5, activity_y + 50, monthevents[i].summary)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
