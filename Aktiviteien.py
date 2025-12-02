@@ -270,13 +270,13 @@ col = 0
 for i in range(len(monthevents)):
     if i == 16:
         break
-    drawActivity(c, activity_x,  activity_y, 130, 30, 20, i)
+    drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
     activity_x = activity_x + 180
     if col == 4:
         col = 0
         activity_x = 60
-        activity_y = activity_y - 100
+        activity_y = activity_y - 130
 c.showPage()
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
