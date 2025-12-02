@@ -112,7 +112,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(blacktext))
     c.drawString(activity_x + 5, activity_y + 30, daytimestr)
     imgcode = processsdescription(monthevents[i].description)
-    activity_kind_x = 20
+    activity_kind_x = 75
     activity_kind_y = 100
     activity_kind_r = 20
     if len(imgcode) > 0:
