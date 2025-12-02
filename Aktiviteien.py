@@ -79,7 +79,8 @@ def lookupimage(imgcode):
     img = ""
     newcalendar = [[] for _ in range(300)]
     newcalendar[30] = "Wandelen"
-    newcalendar[31] = "sportenspelmiddag"
+    newcalendar[31] = "Sportenspelmiddag"
+    newcalendar[34] = "klassiekemuziek"
     img = newcalendar[int(imgcode)]
     return img
 
