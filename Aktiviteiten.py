@@ -148,6 +148,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     inparts = monthevents[i].summary.split()
     (first, rest) = breakoff(inparts, activityfont, 10, 100)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
+    if len(rest) > 0:
+        (first, rest) = breakoff(rest, activityfont, 10, 100)
+        c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
