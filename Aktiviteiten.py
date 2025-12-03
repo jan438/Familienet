@@ -115,16 +115,14 @@ def processsdescription(text):
     
 def breakoff(textarray, font, fontsize, limitlength):
     breaked = textarray
-    #summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
-    if len(textarray) == 1:
-        first = breaked[0]
-        rest = []
-    elif len(textarray) == 2:
-        first = breaked[0] + " " + breaked[1]
-        rest = []
-    else:
-        first = breaked[0] + " " + breaked[1] + " " +breaked[2]
-        rest = []
+    first = breaked[0]
+    rest = []
+    for j in range(1, len(textarray)):
+        summarywidth = pdfmetrics.stringWidth(first + " " + breaked[j], activityfont, 10)
+        if summarywidth < 100:
+            first = first + " " + breaked[j]
+        else:
+            break
     return (first, rest)
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
