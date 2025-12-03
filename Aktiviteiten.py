@@ -125,7 +125,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + monthevents[i].starttime + "-" + monthevents[i].endtime
     c.setFillColor(HexColor(blacktext))
+    c.setFont(activityfont, 12)
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
+    c.setFont(activityfont, 10)
     occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
     summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
     if summarywidth < 100:
