@@ -115,8 +115,17 @@ def processsdescription(text):
     
 def breakoff(textarray, font, fontsize, limitlength):
     breaked = textarray
-    print("breaked", len(breaked))
-    return (breaked[0], breaked)
+    #summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
+    if len(textarray) == 1:
+        first = breaked[0]
+        rest = []
+    elif len(textarray) == 2:
+        first = breaked[0] + " " + breaked[1]
+        rest = []
+    else:
+        first = breaked[0] + " " + breaked[1] + " " +breaked[2]
+        rest = []
+    return (first, rest)
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(whitelayover))
@@ -140,19 +149,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFont(activityfont, 10)
     inparts = monthevents[i].summary.split()
     (first, rest) = breakoff(inparts, activityfont, 10, 100)
-    summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
-    if summarywidth < 100:
-        c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, monthevents[i].summary)
-    else:
-        countwords = len(inparts)
-        if countwords == 4:
-            processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
-            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, processed)
-            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, inparts[3])
-        elif countwords == 5:
-            processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
-            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, processed)
-            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, inparts[3] + " " + inparts[4])
+    c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
