@@ -135,11 +135,14 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     else:
         inparts = monthevents[i].summary.split()
         countwords = len(inparts)
-        print(monthevents[i].summary, countwords)
         if countwords == 4:
             processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
             c.drawString(activity_x + 5, activity_y + 50, processed)
             c.drawString(activity_x + 5, activity_y + 43, inparts[3])
+        elif countwords == 5:
+            processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
+            c.drawString(activity_x + 5, activity_y + 50, processed)
+            c.drawString(activity_x + 5, activity_y + 43, inparts[3] + " " + inparts[4])
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
