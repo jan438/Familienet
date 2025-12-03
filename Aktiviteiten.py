@@ -304,9 +304,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 activity_x = 60
 activity_y = 440
 col = 0
-for i in range(len(monthevents)):
-    if i == 16:
-        break
+for i in range(0,16):
     drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
     activity_x = activity_x + 180
@@ -322,9 +320,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 activity_x = 60
 activity_y = 440
 col = 0
-for i in range(len(monthevents)):
-    if i == 16:
-        break
+for i in range(16,30):
     drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
     activity_x = activity_x + 180
