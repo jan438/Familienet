@@ -113,6 +113,11 @@ def processsdescription(text):
             imgcode = "0" + imgcode[0:2]
     return imgcode
     
+def breakoff(textarray, font, fontsize, limitlength):
+    breaked = textarray
+    print("breaked", len(breaked))
+    return (breaked[0], breaked)
+    
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(whitelayover))
     p = c.beginPath()
@@ -133,12 +138,12 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFont(activityfont, 12)
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     c.setFont(activityfont, 10)
-    occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
+    inparts = monthevents[i].summary.split()
+    (first, rest) = breakoff(inparts, activityfont, 10, 100)
     summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
     if summarywidth < 100:
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, monthevents[i].summary)
     else:
-        inparts = monthevents[i].summary.split()
         countwords = len(inparts)
         if countwords == 4:
             processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
