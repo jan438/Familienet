@@ -317,15 +317,22 @@ for i in range(len(monthevents)):
 c.showPage()
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
-c.setFillColor(HexColor(pinkredcircle))
-c.rect(activity_x, activity_y, activity_w, activity_h, stroke = 1, fill = 1)
-c.setFillColor(HexColor(whitelayover))
-c.circle(activity_x + activity_kind_x + 50, activity_y + activity_kind_y + 50, activity_kind_r, stroke = 0, fill = 1)
-drawing = scaleSVG("SVG/wandelen.svg", 0.5)
-renderPDF.draw(drawing, c, activity_x + activity_kind_x + activity_kind_r - 0.5 * drawing.width, activity_y + activity_kind_y + activity_kind_r - 0.5 * drawing.height)
-c.setFont(activityfont, 18)
-c.setFillColor(HexColor(blacktext))
-c.drawString(activity_x + activity_kind_x, activity_y + activity_kind_y - 20, "Wandelen")
+c.setFillColor(HexColor(lighteryellow))
+c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
+activity_x = 60
+activity_y = 440
+col = 0
+for i in range(len(monthevents)):
+    if i == 16:
+        break
+    drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
+    col += 1
+    activity_x = activity_x + 180
+    if col == 4:
+        col = 0
+        activity_x = 60
+        activity_y = activity_y - 130
+c.showPage()
 c.save()
 
 key = input("Wait")
