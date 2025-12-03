@@ -114,14 +114,14 @@ def processsdescription(text):
     return imgcode
     
 def breakoff(textarray, font, fontsize, limitlength):
-    breaked = textarray
-    first = breaked[0]
+    first = textarray[0]
     rest = []
     for j in range(1, len(textarray)):
-        summarywidth = pdfmetrics.stringWidth(first + " " + breaked[j], activityfont, 10)
+        summarywidth = pdfmetrics.stringWidth(first + " " + textarray[j], activityfont, 10)
         if summarywidth < 100:
-            first = first + " " + breaked[j]
+            first = first + " " + textarray[j]
         else:
+            rest = textarray[j:len(textarray)]
             break
     return (first, rest)
     
