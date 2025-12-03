@@ -22,6 +22,9 @@ activityfont = "LiberationSerif"
 version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
+activity_summary_x = 5
+activity_summary_y = 50
+activity_summary_dy = 10
 
 class FamilienetEvent:
     def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month, alarm):
@@ -131,18 +134,18 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     occurrences = find_all_occurrences(monthevents[i].summary, " ", 0, len(monthevents[i].summary))
     summarywidth = pdfmetrics.stringWidth(monthevents[i].summary, activityfont, 10)
     if summarywidth < 100:
-        c.drawString(activity_x + 5, activity_y + 50, monthevents[i].summary)
+        c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, monthevents[i].summary)
     else:
         inparts = monthevents[i].summary.split()
         countwords = len(inparts)
         if countwords == 4:
             processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
-            c.drawString(activity_x + 5, activity_y + 50, processed)
-            c.drawString(activity_x + 5, activity_y + 43, inparts[3])
+            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, processed)
+            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, inparts[3])
         elif countwords == 5:
             processed = inparts[0] + " " + inparts[1] + " " + inparts[2]
-            c.drawString(activity_x + 5, activity_y + 50, processed)
-            c.drawString(activity_x + 5, activity_y + 43, inparts[3] + " " + inparts[4])
+            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, processed)
+            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, inparts[3] + " " + inparts[4])
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
