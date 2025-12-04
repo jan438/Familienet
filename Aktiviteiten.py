@@ -109,6 +109,8 @@ def processsdescription(text):
     dtimgeventpos = text.find("[i")
     if dtimgeventpos >= 0:
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
+        if imgcode[1] == ']':
+            imgcode = "00" + imgcode[0:1]
         if imgcode[2] == ']':
             imgcode = "0" + imgcode[0:2]
     return imgcode
@@ -323,7 +325,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 activity_x = 60
 activity_y = 440
 col = 0
-for i in range(16,30):
+for i in range(16,32):
     drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
     activity_x = activity_x + 180
