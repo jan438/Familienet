@@ -299,7 +299,6 @@ activity_w = 200
 activity_h = 200
 activity_kind_w = 100
 activity_kind_h = 100
-activity_kind_r = 0.5 * activity_kind_w
 
 c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
