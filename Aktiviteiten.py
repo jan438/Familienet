@@ -112,7 +112,7 @@ def processsdescription(text):
             imgcode = "00" + imgcode[0:1]
         if imgcode[2] == ']':
             imgcode = "0" + imgcode[0:2]
-    return imgcode
+    return (imgcode, text)
     
 def breakoff(textarray, font, fontsize, limitlength):
     first = textarray[0]
@@ -158,8 +158,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         (first, rest) = breakoff(rest, activityfont, 10, activity_summary_l)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 9)
-    imgcode = processsdescription(monthevents[i].description)
-    inparts = monthevents[i].description.split()
+    (imgcode, text) = processsdescription(monthevents[i].description)
+    inparts = text.split()
     activity_description_x = 5
     activity_description_y = 43
     activity_description_dy = 0
