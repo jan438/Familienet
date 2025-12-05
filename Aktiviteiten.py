@@ -22,9 +22,6 @@ activityfont = "LiberationSerif"
 version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
-activity_summary_x = 5
-activity_summary_y = 50
-activity_summary_dy = 10
 
 class FamilienetEvent:
     def __init__(self, description, summary, weekday, weeknr, day, location, starttime, endtime, dayyear, month, alarm):
@@ -150,6 +147,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     c.setFont(activityfont, 10)
     inparts = monthevents[i].summary.split()
+    activity_summary_x = 5
+    activity_summary_y = 50
+    activity_summary_dy = 10
     (first, rest) = breakoff(inparts, activityfont, 10, 150)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     if len(rest) > 0:
