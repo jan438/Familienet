@@ -95,6 +95,7 @@ def lookupimage(imgcode):
     newcalendar[3] = "kerkdienst"
     newcalendar[12] = "optredenklassiek"
     newcalendar[14] = "bibliotheek"
+    newcalendar[16] = "uiteten"
     newcalendar[30] = "wandelen"
     newcalendar[31] = "sportenspelmiddag"
     newcalendar[32] = "wenskaarten"
