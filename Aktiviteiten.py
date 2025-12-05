@@ -295,8 +295,6 @@ blacktext = "#000000"
 
 activity_x = 100
 activity_y = 200
-activity_w = 200
-activity_h = 200
 
 c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
