@@ -150,7 +150,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_x = 5
     activity_summary_y = 60
     activity_summary_dy = 0
-    activity_summary_l = 150
+    activity_summary_l = 140
     (first, rest) = breakoff(inparts, activityfont, 10, activity_summary_l)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     while len(rest) > 0:
