@@ -149,13 +149,13 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     inparts = monthevents[i].summary.split()
     activity_summary_x = 5
     activity_summary_y = 50
-    activity_summary_dy = 10
+    activity_summary_dy = 0
     (first, rest) = breakoff(inparts, activityfont, 10, 150)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     while len(rest) > 0:
+        activity_summary_dy = activity_summary_dy + 10
         (first, rest) = breakoff(rest, activityfont, 10, 150)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
-        activity_summary_dy = activity_summary_dy + 10
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
