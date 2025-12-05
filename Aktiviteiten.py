@@ -119,7 +119,7 @@ def breakoff(textarray, font, fontsize, limitlength):
     rest = []
     for j in range(1, len(textarray)):
         summarywidth = pdfmetrics.stringWidth(first + " " + textarray[j], activityfont, 10)
-        if summarywidth < 100:
+        if summarywidth < limitlength:
             first = first + " " + textarray[j]
         else:
             rest = textarray[j:len(textarray)]
@@ -150,11 +150,12 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_x = 5
     activity_summary_y = 60
     activity_summary_dy = 0
-    (first, rest) = breakoff(inparts, activityfont, 10, 150)
+    activity_summary_l = 150
+    (first, rest) = breakoff(inparts, activityfont, 10, activity_summary_l)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
-        (first, rest) = breakoff(rest, activityfont, 10, 150)
+        (first, rest) = breakoff(rest, activityfont, 10, activity_summary_l)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
