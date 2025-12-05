@@ -155,6 +155,10 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     if len(rest) > 0:
         (first, rest) = breakoff(rest, activityfont, 10, 150)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
+        if len(rest) > 0:
+            (first, rest) = breakoff(rest, activityfont, 10, 150)
+            activity_summary_dy = 20
+            c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
