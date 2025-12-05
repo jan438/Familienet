@@ -110,10 +110,10 @@ def processsdescription(text):
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[1] == ']':
             imgcode = "00" + imgcode[0:1]
-            text = text[:dtimgeventpos - 1] + text[dtimgeventpos + 3:]
+            text = text[:dtimgeventpos - 1]
         if imgcode[2] == ']':
             imgcode = "0" + imgcode[0:2]
-            text = text[:dtimgeventpos - 1] + text[dtimgeventpos + 3:]
+            text = text[:dtimgeventpos - 1]
     return (imgcode, text)
     
 def breakoff(textarray, font, fontsize, limitlength):
