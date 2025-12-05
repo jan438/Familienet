@@ -158,6 +158,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         (first, rest) = breakoff(rest, activityfont, 10, activity_summary_l)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 9)
+    imgcode = processsdescription(monthevents[i].description)
     inparts = monthevents[i].description.split()
     activity_description_x = 5
     activity_description_y = 43
@@ -169,7 +170,6 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_description_dy = activity_description_dy + 9
         (first, rest) = breakoff(rest, activityfont, 9, activity_description_l)
         c.drawString(activity_x + activity_description_x, activity_y + activity_description_y - activity_description_dy, first)
-    imgcode = processsdescription(monthevents[i].description)
     activity_kind_x = 75
     activity_kind_y = 100
     activity_kind_r = 20
