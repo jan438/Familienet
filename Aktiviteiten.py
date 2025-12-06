@@ -107,13 +107,15 @@ def processsdescription(text):
     imgcode = ""
     imgpos = ''
     dtimgeventpos = text.find("[i")
-    if dtimgeventpos >= 0:
+    if dtimgeventpos > 0:
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[1] == ']':
             imgcode = "00" + imgcode[0:1]
         if imgcode[2] == ']':
             imgcode = "0" + imgcode[0:2]
         text = text[:dtimgeventpos - 1]
+    if dtimgeventpos == 0:
+        text = text[0:0]
     return (imgcode, text)
     
 def breakoff(textarray, font, fontsize, limitlength):
@@ -161,17 +163,18 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 9)
     (imgcode, text) = processsdescription(monthevents[i].description)
-    inparts = text.split()
-    activity_description_x = 5
-    activity_description_y = 43
-    activity_description_dy = 0
-    activity_description_l = 140
-    (first, rest) = breakoff(inparts, activityfont, 9, activity_description_l)
-    c.drawString(activity_x + activity_description_x, activity_y + activity_description_y, first)
-    while len(rest) > 0:
-        activity_description_dy = activity_description_dy + 9
-        (first, rest) = breakoff(rest, activityfont, 9, activity_description_l)
-        c.drawString(activity_x + activity_description_x, activity_y + activity_description_y - activity_description_dy, first)
+    if len(text) > 0:
+        inparts = text.split()
+        activity_description_x = 5
+        activity_description_y = 43
+        activity_description_dy = 0
+        activity_description_l = 140
+        (first, rest) = breakoff(inparts, activityfont, 9, activity_description_l)
+        c.drawString(activity_x + activity_description_x, activity_y + activity_description_y, first)
+        while len(rest) > 0:
+            activity_description_dy = activity_description_dy + 9
+            (first, rest) = breakoff(rest, activityfont, 9, activity_description_l)
+            c.drawString(activity_x + activity_description_x, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 75
     activity_kind_y = 100
     activity_kind_r = 20
