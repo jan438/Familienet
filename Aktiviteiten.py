@@ -117,6 +117,11 @@ def processsdescription(text):
             imgcode = "0" + imgcode[0:2]
         text = text[:dtimgeventpos - 1]
     if dtimgeventpos == 0:
+        imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
+        if imgcode[1] == ']':
+            imgcode = "00" + imgcode[0:1]
+        if imgcode[2] == ']':
+            imgcode = "0" + imgcode[0:2]
         text = text[0:0]
     return (imgcode, text)
     
