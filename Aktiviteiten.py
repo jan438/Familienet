@@ -342,7 +342,7 @@ for i in range(0, len(monthevents)):
         col = 0
         activity_x = leftmargin
         activity_y = activity_y - 150
-    if i % 9 == 0:
+    if (i + 1) % 9 == 0:
         c.showPage()
         c.setFillColor(HexColor(yellowbackground))
         c.rect(0, 0, A4_height, A4_width, fill = 1)
