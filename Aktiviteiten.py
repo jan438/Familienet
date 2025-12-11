@@ -160,7 +160,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFont(activityfont, 10)
     inparts = monthevents[i].summary.split()
     activity_summary_x = 5
-    activity_summary_y = 60
+    activity_summary_y = 58
     activity_summary_dy = 0
     activity_summary_l = 200
     (first, rest) = breakoff(inparts, activityfont, 10, activity_summary_l)
