@@ -335,7 +335,7 @@ activity_x = 60
 activity_y = 440
 col = 0
 for i in range(0, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
+    drawActivity(c, activity_x,  activity_y, 200, 80, 20, i)
     col += 1
     activity_x = activity_x + 260
     if col == 3:
