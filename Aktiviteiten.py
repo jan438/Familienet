@@ -323,9 +323,6 @@ orangecircle = "#ff8928"
 whitelayover = "#ffffff"
 blacktext = "#000000"
 
-activity_x = 100
-activity_y = 200
-
 c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 # 2sidemargin 2*40 = 80      3col 3*220 = 660    2middlemargin 2*51 = 102   total 
 # A4 landscape width 842 leftmargin col middlemargin col middlemargin col rightmargin
@@ -333,16 +330,16 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-activity_x = 60
+activity_x = 40
 activity_y = 440
 col = 0
 for i in range(0, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 200, 80, 20, i)
+    drawActivity(c, activity_x,  activity_y, 180, 80, 20, i)
     col += 1
-    activity_x = activity_x + 260
+    activity_x = activity_x + 271
     if col == 3:
         col = 0
-        activity_x = 60
+        activity_x = 40
         activity_y = activity_y - 150
     if i % 9 == 0:
         c.showPage()
@@ -350,7 +347,7 @@ for i in range(0, len(monthevents)):
         c.rect(0, 0, A4_height, A4_width, fill = 1)
         c.setFillColor(HexColor(lighteryellow))
         c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-        activity_x = 60
+        activity_x = 40
         activity_y = 440
         col = 0
 c.save()
