@@ -337,11 +337,11 @@ col = 0
 for i in range(0, len(monthevents)):
     drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
-    activity_x = activity_x + 180
+    activity_x = activity_x + 260
     if col == 3:
         col = 0
         activity_x = 60
-        activity_y = activity_y - 130
+        activity_y = activity_y - 150
     if i % 9 == 0:
         c.showPage()
         c.setFillColor(HexColor(yellowbackground))
