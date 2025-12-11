@@ -220,6 +220,7 @@ first_week = 100
 last_week = -1
 splitfirstw = False
 splitlastw = False
+countbegin = 0
 countdays = 0
 last_day = -1
 alarm = ""
@@ -237,6 +238,7 @@ for i in range(countlines):
     alarmM2pos = alleventslines[i].find("M[10]")
     datevaluepos = -1
     if neweventpos == 0:
+        countbegin += 1
         found = 0
         alldayevent = False
     if dtstarteventpos == 0:
@@ -294,7 +296,7 @@ for i in range(countlines):
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
         alarm = ""
-print("Count events", len(monthevents))
+print("Count events", len(monthevents), "begin", countbegin)
 
 pdfmetrics.registerFont(TTFont('Ubuntu', 'Ubuntu-Regular.ttf'))
 pdfmetrics.registerFont(TTFont('UbuntuBold', 'Ubuntu-Bold.ttf'))
