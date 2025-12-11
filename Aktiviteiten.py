@@ -330,7 +330,8 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-activity_x = 40
+leftmargin = 45
+activity_x = leftmargin
 activity_y = 440
 col = 0
 for i in range(0, len(monthevents)):
@@ -339,7 +340,7 @@ for i in range(0, len(monthevents)):
     activity_x = activity_x + 271
     if col == 3:
         col = 0
-        activity_x = 40
+        activity_x = leftmargin
         activity_y = activity_y - 150
     if i % 9 == 0:
         c.showPage()
@@ -347,7 +348,7 @@ for i in range(0, len(monthevents)):
         c.rect(0, 0, A4_height, A4_width, fill = 1)
         c.setFillColor(HexColor(lighteryellow))
         c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-        activity_x = 40
+        activity_x = leftmargin
         activity_y = 440
         col = 0
 c.save()
