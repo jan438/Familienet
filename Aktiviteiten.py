@@ -109,6 +109,7 @@ def processsdescription(text):
     imgcode = ""
     imgpos = ''
     dtimgeventpos = text.find("[i")
+    print("img ?", dtimgeventpos, text)
     if dtimgeventpos > 0:
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[1] == ']':
