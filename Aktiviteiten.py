@@ -109,7 +109,7 @@ def processsdescription(text):
     imgcode = ""
     imgpos = ''
     dtimgeventpos = text.find("[i")
-    print("img ?", dtimgeventpos, text)
+    # print("img ?", dtimgeventpos, text)
     if dtimgeventpos > 0:
         imgcode = text[dtimgeventpos + 2:dtimgeventpos + 5]
         if imgcode[1] == ']':
@@ -171,6 +171,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 9)
     (imgcode, text) = processsdescription(monthevents[i].description)
+    print(daytimestr, "imgcode", imgcode, "text", text)
     if len(text) > 0:
         inparts = text.split()
         activity_description_x = 5
