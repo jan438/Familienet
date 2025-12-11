@@ -327,6 +327,8 @@ activity_x = 100
 activity_y = 200
 
 c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
+# 2sidemargin 2*40 = 80      3col 3*220 = 660    2middlemargin 2*51 = 102   total 
+# A4 landscape width 842 leftmargin col middlemargin col middlemargin col rightmargin
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor(lighteryellow))
