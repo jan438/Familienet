@@ -334,7 +334,7 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 activity_x = 60
 activity_y = 440
 col = 0
-for i in range(0, 16):
+for i in range(0, len(monthevents)):
     drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
     col += 1
     activity_x = activity_x + 180
@@ -342,39 +342,15 @@ for i in range(0, 16):
         col = 0
         activity_x = 60
         activity_y = activity_y - 130
-c.showPage()
-c.setFillColor(HexColor(yellowbackground))
-c.rect(0, 0, A4_height, A4_width, fill = 1)
-c.setFillColor(HexColor(lighteryellow))
-c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-activity_x = 60
-activity_y = 440
-col = 0
-for i in range(16, 32):
-    drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
-    col += 1
-    activity_x = activity_x + 180
-    if col == 4:
-        col = 0
+    if i % 9 == 0:
+        c.showPage()
+        c.setFillColor(HexColor(yellowbackground))
+        c.rect(0, 0, A4_height, A4_width, fill = 1)
+        c.setFillColor(HexColor(lighteryellow))
+        c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
         activity_x = 60
-        activity_y = activity_y - 130
-c.showPage()
-c.setFillColor(HexColor(yellowbackground))
-c.rect(0, 0, A4_height, A4_width, fill = 1)
-c.setFillColor(HexColor(lighteryellow))
-c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-activity_x = 60
-activity_y = 440
-col = 0
-for i in range(32, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 130, 70, 20, i)
-    col += 1
-    activity_x = activity_x + 180
-    if col == 4:
+        activity_y = 440
         col = 0
-        activity_x = 60
-        activity_y = activity_y - 130
-c.showPage()
 c.save()
 
 key = input("Wait")
