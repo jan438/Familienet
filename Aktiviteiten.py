@@ -156,6 +156,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     drawing = scaleSVG("SVG/location.svg", 0.02)
     renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     timestr = monthevents[i].starttime + "-" + monthevents[i].endtime
+    if timestr == "0000-0000":
+        timestr = ""
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
     c.setFont(activityfont, 11)
