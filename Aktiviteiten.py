@@ -156,7 +156,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     drawing = scaleSVG("SVG/location.svg", 0.02)
     renderPDF.draw(drawing, c, activity_x + 5, activity_y + 5)
     timestr = monthevents[i].starttime + "-" + monthevents[i].endtime
-    if timestr == "0000-0000":
+    if timestr == "00:00-00:00":
         timestr = ""
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
@@ -256,7 +256,7 @@ for i in range(countlines):
         month = int(eventdtstartstr[4:6])
         day = int(eventdtstartstr[6:8])
         if alldayevent:
-            starttime = "0000"
+            starttime = "00:00"
         else:
             starttime = eventdtstartstr[9:11] + ':' + eventdtstartstr[11:13]
         weekday = weekDay(year, month, day)
@@ -274,7 +274,7 @@ for i in range(countlines):
         found += 1
     if dtendeventpos == 0:
         if alldayevent:
-            endtime = "0000"
+            endtime = "00:00"
             eventdtendstr = eventdtstartstr
         else:
             eventdtendstr = alleventslines[i][6:]
