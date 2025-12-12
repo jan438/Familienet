@@ -271,6 +271,7 @@ for i in range(countlines):
     if dtendeventpos == 0:
         if alldayevent:
             endtime = ""
+            eventdtendstr = eventdtstartstr
         else:
             eventdtendstr = alleventslines[i][6:]
             endtime = eventdtendstr[9:11] + ':' + eventdtendstr[11:13]
@@ -296,6 +297,8 @@ for i in range(countlines):
     if endeventpos == 0:
         if found == 5:
             monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
+        if found == 4:
+            print("allday")
         alarm = ""
 print("Count events", len(monthevents), "begin", countbegin)
 
