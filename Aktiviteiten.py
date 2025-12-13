@@ -19,6 +19,8 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
 activityfont = "LiberationSerif"
+version_x = 100
+version_y = 560
 version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
@@ -341,7 +343,8 @@ c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor("#0000000"))
-c.drawString(20, 500, "December 2025")
+c.setFont(activityfont, 20)
+c.drawString(version_x, version_y, "December 2025")
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 leftmargin = 35
@@ -361,7 +364,8 @@ for i in range(0, len(monthevents)):
         c.setFillColor(HexColor(yellowbackground))
         c.rect(0, 0, A4_height, A4_width, fill = 1)
         c.setFillColor(HexColor("#000000"))
-        c.drawString(20, 500, "December 2025")
+        c.setFont(activityfont, 20)
+        c.drawString(version_x, version_y, "December 2025")
         c.setFillColor(HexColor(lighteryellow))
         c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
         activity_x = leftmargin
