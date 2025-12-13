@@ -119,12 +119,6 @@ def process_linebreak(line, pos):
     processed = line[:pos] + line[pos+3:]
     return processed
 
-def process_linebreaks(line, pos):
-    processed = line
-    for i in range(len(pos), 0, -1):
-        processed = process_linebreak(processed, pos[i-1])
-    return processed
-
 def process_backslash(line, pos):
     processed = line[:pos] + line[pos+1:]
     return processed
