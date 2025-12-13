@@ -165,9 +165,9 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         timestr = ""
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
-    c.setFont(activityfont, 11)
+    c.setFont(activityfont, 12)
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
-    c.setFont(activityfont, 10)
+    c.setFont(activityfont, 11)
     inparts = monthevents[i].summary.split()
     activity_summary_x = 5
     activity_summary_y = 58
@@ -179,7 +179,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_summary_dy = activity_summary_dy + 10
         (first, rest) = breakoff(rest, activityfont, 10, activity_summary_l)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
-    c.setFont(activityfont, 9)
+    c.setFont(activityfont, 10)
     (imgcode, text) = processsdescription(monthevents[i].description)
     print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
     if len(text) > 0:
