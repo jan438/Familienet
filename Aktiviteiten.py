@@ -19,7 +19,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
 activityfont = "LiberationSerif"
-version_x = 100
+version_x = 170
 version_y = 560
 version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
