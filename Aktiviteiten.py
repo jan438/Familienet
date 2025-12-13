@@ -347,12 +347,12 @@ c.setFont(activityfont, 20)
 c.drawString(version_x, version_y, "December 2025")
 c.setFillColor(HexColor(lighteryellow))
 c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
-leftmargin = 35
+leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
 col = 0
 for i in range(0, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 210, 90, 20, i)
+    drawActivity(c, activity_x,  activity_y, 220, 90, 20, i)
     col += 1
     activity_x = activity_x + 270
     if col == 3:
