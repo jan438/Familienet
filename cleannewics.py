@@ -254,6 +254,8 @@ for i in range(len(descriptions)):
 for i in range(len(descriptions)):
     linebreaks = find_all_occurrences(line, linebreak, descriptions[i], locations[i])
     if len(linebreaks) > 0:
+        if i == 41:
+            print("41 len linebreaks", len(linebreaks), line[descriptions[41]:locations[41]])
         line = process_linebreaks(line, linebreaks)
     backslashpos = line.find(backslash)
     while backslashpos > 0:
