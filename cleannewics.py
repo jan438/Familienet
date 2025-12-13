@@ -246,6 +246,7 @@ for i in range(len(summaries)):
     if len(linebreaks) > 0:
         line = process_linebreaks(line, linebreaks)
 descriptions = find_all_occurrences(line, DESCRIPTION, 0, len(line))
+print("Len descriptions", len(descriptions))
 locations = []
 for i in range(len(descriptions)):
     locationpos = line.find(LOCATION, descriptions[i])
