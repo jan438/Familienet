@@ -172,7 +172,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_x = 5
     activity_summary_y = 58
     activity_summary_dy = 0
-    activity_summary_l = 200
+    activity_summary_l = activity_width
     (first, rest) = breakoff(inparts, activityfont, 10, activity_summary_l)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     while len(rest) > 0:
@@ -187,7 +187,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_description_x = 5
         activity_description_y = 43
         activity_description_dy = 0
-        activity_description_l = 230
+        activity_description_l = activity_width
         (first, rest) = breakoff(inparts, activityfont, 9, activity_description_l)
         c.drawString(activity_x + activity_description_x, activity_y + activity_description_y, first)
         while len(rest) > 0:
@@ -350,9 +350,10 @@ c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
+activity_width = 220
 col = 0
 for i in range(0, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, 220, 90, 20, i)
+    drawActivity(c, activity_x,  activity_y, activity_width, 90, 20, i)
     col += 1
     activity_x = activity_x + 270
     if col == 3:
