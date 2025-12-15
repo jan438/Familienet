@@ -141,6 +141,7 @@ def breakoff(textarray, fontsize, limitlength):
     for j in range(1, len(textarray)):
         firstwidth = pdfmetrics.stringWidth(first + " " + textarray[j], activityfont, fontsize)
         if firstwidth < limitlength:
+            margin = limitlength - firstwidth 
             first = first + " " + textarray[j]
         else:
             rest = textarray[j:len(textarray)]
@@ -176,11 +177,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_dy = 0
     activity_summary_l = activity_width
     (first, rest, margin) = breakoff(inparts, 10, activity_summary_l)
-    c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
+    c.drawString(activity_x + activity_summary_x + 0.5 * margin, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
         (first, rest, margin) = breakoff(rest, 10, activity_summary_l)
-        c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
+        c.drawString(activity_x + activity_summary_x + 0.5 * margin, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 10)
     (imgcode, text) = processsdescription(monthevents[i].description)
     #print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
@@ -191,11 +192,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_description_dy = 0
         activity_description_l = activity_width
         (first, rest, margin) = breakoff(inparts, 9, activity_description_l)
-        c.drawString(activity_x + activity_description_x, activity_y + activity_description_y, first)
+        c.drawString(activity_x + activity_description_x + 0.5 * margin, activity_y + activity_description_y, first)
         while len(rest) > 0:
             activity_description_dy = activity_description_dy + 9
             (first, rest, margin) = breakoff(rest, 9, activity_description_l)
-            c.drawString(activity_x + activity_description_x, activity_y + activity_description_y - activity_description_dy, first)
+            c.drawString(activity_x + activity_description_x + 0.5 * margin, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 75
     activity_kind_y = 100
     activity_kind_r = 20
