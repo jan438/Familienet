@@ -199,8 +199,8 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
             activity_description_dy = activity_description_dy + 9
             (first, rest, margin) = breakoff(rest, 9, activity_description_l)
             c.drawString(activity_x + activity_description_x + 0.5 * margin, activity_y + activity_description_y - activity_description_dy, first)
-    activity_kind_x = 75
-    activity_kind_y = 100
+    activity_kind_x = 100
+    activity_kind_y = 120
     activity_kind_r = 20
     if len(imgcode) > 0:
         img = lookupimage(imgcode)
