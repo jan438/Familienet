@@ -169,7 +169,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
     c.setFont(activityfont, 12)
-    activity_daytime_x = 20
+    activity_daytime_x = 50
     activity_daytime_y = 70
     c.drawString(activity_x + activity_daytime_x, activity_y + activity_daytime_y, daytimestr)
     c.setFont(activityfont, 11)
