@@ -135,10 +135,12 @@ def processsdescription(text):
     
 def breakoff(textarray, font, fontsize, limitlength):
     first = textarray[0]
+    firstwidth = pdfmetrics.stringWidth(first,  activityfont, fontsize)
+    margin = limitlength - firstwidth 
     rest = []
     for j in range(1, len(textarray)):
-        summarywidth = pdfmetrics.stringWidth(first + " " + textarray[j], activityfont, 10)
-        if summarywidth < limitlength:
+        firstwidth = pdfmetrics.stringWidth(first + " " + textarray[j], activityfont, fontsize)
+        if firstwidth < limitlength:
             first = first + " " + textarray[j]
         else:
             rest = textarray[j:len(textarray)]
