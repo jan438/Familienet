@@ -133,7 +133,7 @@ def processsdescription(text):
         text = text[0:0]
     return (imgcode, text)
     
-def breakoff(textarray, font, fontsize, limitlength):
+def breakoff(textarray, fontsize, limitlength):
     first = textarray[0]
     firstwidth = pdfmetrics.stringWidth(first,  activityfont, fontsize)
     margin = limitlength - firstwidth 
@@ -175,11 +175,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_y = 58
     activity_summary_dy = 0
     activity_summary_l = activity_width
-    (first, rest) = breakoff(inparts, activityfont, 10, activity_summary_l)
+    (first, rest) = breakoff(inparts, 10, activity_summary_l)
     c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
-        (first, rest) = breakoff(rest, activityfont, 10, activity_summary_l)
+        (first, rest) = breakoff(rest, 10, activity_summary_l)
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 10)
     (imgcode, text) = processsdescription(monthevents[i].description)
@@ -190,11 +190,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_description_y = 43
         activity_description_dy = 0
         activity_description_l = activity_width
-        (first, rest) = breakoff(inparts, activityfont, 9, activity_description_l)
+        (first, rest) = breakoff(inparts, 9, activity_description_l)
         c.drawString(activity_x + activity_description_x, activity_y + activity_description_y, first)
         while len(rest) > 0:
             activity_description_dy = activity_description_dy + 9
-            (first, rest) = breakoff(rest, activityfont, 9, activity_description_l)
+            (first, rest) = breakoff(rest, 9, activity_description_l)
             c.drawString(activity_x + activity_description_x, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 75
     activity_kind_y = 100
