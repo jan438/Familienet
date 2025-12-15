@@ -170,12 +170,12 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFillColor(HexColor(blacktext))
     c.setFont(activityfont, 12)
     activity_daytime_x = 50
-    activity_daytime_y = 70
+    activity_daytime_y = 85
     c.drawString(activity_x + activity_daytime_x, activity_y + activity_daytime_y, daytimestr)
     c.setFont(activityfont, 11)
     inparts = monthevents[i].summary.split()
     activity_summary_x = 0
-    activity_summary_y = 58
+    activity_summary_y = 68
     activity_summary_dy = 0
     activity_summary_l = activity_width
     (first, rest, margin) = breakoff(inparts, 10, activity_summary_l)
@@ -190,7 +190,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     if len(text) > 0:
         inparts = text.split()
         activity_description_x = 0
-        activity_description_y = 43
+        activity_description_y = 53
         activity_description_dy = 0
         activity_description_l = activity_width - 10
         (first, rest, margin) = breakoff(inparts, 9, activity_description_l)
