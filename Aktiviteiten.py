@@ -172,7 +172,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.drawString(activity_x + 5, activity_y + 70, daytimestr)
     c.setFont(activityfont, 11)
     inparts = monthevents[i].summary.split()
-    activity_summary_x = 5
+    activity_summary_x = 0
     activity_summary_y = 58
     activity_summary_dy = 0
     activity_summary_l = activity_width
@@ -187,7 +187,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     #print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
     if len(text) > 0:
         inparts = text.split()
-        activity_description_x = 5
+        activity_description_x = 0
         activity_description_y = 43
         activity_description_dy = 0
         activity_description_l = activity_width
