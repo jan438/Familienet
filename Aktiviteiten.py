@@ -183,7 +183,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         c.drawString(activity_x + activity_summary_x, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 10)
     (imgcode, text) = processsdescription(monthevents[i].description)
-    print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
+    #print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
     if len(text) > 0:
         inparts = text.split()
         activity_description_x = 5
