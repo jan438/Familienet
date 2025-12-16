@@ -177,12 +177,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     activity_summary_x = 0
     activity_summary_y = 68
     activity_summary_dy = 0
-    activity_summary_l = activity_width
-    (first, rest, margin) = breakoff(inparts, 10, activity_summary_l)
+    (first, rest, margin) = breakoff(inparts, 10, activity_width - activity_angle)
     c.drawString(activity_x + activity_summary_x + 0.5 * margin, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
-        (first, rest, margin) = breakoff(rest, 10, activity_summary_l)
+        (first, rest, margin) = breakoff(rest, 10, activity_width - activity_angle)
         c.drawString(activity_x + activity_summary_x + 0.5 * margin, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, 10)
     (imgcode, text) = processsdescription(monthevents[i].description)
@@ -192,12 +191,11 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         activity_description_x = 0
         activity_description_y = 53
         activity_description_dy = 0
-        activity_description_l = activity_width - 10
-        (first, rest, margin) = breakoff(inparts, 9, activity_description_l)
+        (first, rest, margin) = breakoff(inparts, 9, activity_width - activity_angle)
         c.drawString(activity_x + activity_description_x + 0.5 * margin, activity_y + activity_description_y, first)
         while len(rest) > 0:
             activity_description_dy = activity_description_dy + 9
-            (first, rest, margin) = breakoff(rest, 9, activity_description_l)
+            (first, rest, margin) = breakoff(rest, 9, activity_width - activity_angle)
             c.drawString(activity_x + activity_description_x + 0.5 * margin, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 100
     activity_kind_y = 120
