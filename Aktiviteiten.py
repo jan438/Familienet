@@ -356,9 +356,11 @@ leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
 activity_width = 220
+activity_height = 90
+activity_angle = 20
 col = 0
 for i in range(0, len(monthevents)):
-    drawActivity(c, activity_x,  activity_y, activity_width, 90, 20, i)
+    drawActivity(c, activity_x,  activity_y, activity_width, activity_height, activity_angle, i)
     col += 1
     activity_x = activity_x + 270
     if col == 3:
