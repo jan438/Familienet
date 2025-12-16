@@ -171,7 +171,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     c.setFont(activityfont, 12)
     activity_daytime_y = 85
     dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 12)    
-    margin = activity_width - activity_angle - dtwidth   
+    margin = activity_width - dtwidth   
     c.drawString(activity_x + 0.5 * margin, activity_y + activity_daytime_y, daytimestr)
     c.setFont(activityfont, 11)
     inparts = monthevents[i].summary.split()
