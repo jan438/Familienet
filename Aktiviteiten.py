@@ -359,8 +359,9 @@ activity_height = 90
 activity_angle = 20
 col = 0
 for i in range(0, len(monthevents)):
-    c.setFillColor(HexColor(lighteryellow))
-    c.rect(activity_x - 10, activity_y - 10, activity_width + 40, activity_height + 50, stroke = 0, fill = 1)
+    #c.setFillColor(HexColor(lighteryellow))
+    #c.rect(activity_x - 10, activity_y - 10, activity_width + 40, activity_height + 50, stroke = 0, fill = 1)
+    drawRect(c, activity_x - 10,  activity_y - 10, activity_width + 40, activity_height + 50, activity_angle, lighteryellow)
     drawActivity(c, activity_x,  activity_y, activity_width, activity_height, activity_angle, i)
     col += 1
     activity_x = activity_x + 270
