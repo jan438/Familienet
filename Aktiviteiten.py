@@ -346,7 +346,7 @@ c = Canvas("PDF/Aktiviteiten.pdf", pagesize=landscape(A4))
 c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor("#0000000"))
-c.setFont(activityfont, 20)
+c.setFont(activityfontbold, 20)
 c.drawString(version_x, version_y, "December 2025")
 leftmargin = 30
 activity_x = leftmargin
