@@ -19,6 +19,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 startdate = datetime(1990,1,1)
 datecal = datetime.now()
 activityfont = "LiberationSerif"
+activityfontbold = "LiberationSerifBold"
 version_x = 170
 version_y = 560
 version = "December 2025"
@@ -168,7 +169,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         timestr = ""
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
-    c.setFont(activityfont, 12)
+    c.setFont(activityfontbold, 12)
     activity_daytime_y = 85
     dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 12)    
     margin = activity_width - dtwidth   
