@@ -347,8 +347,6 @@ c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor("#0000000"))
 c.setFont(activityfont, 20)
 c.drawString(version_x, version_y, "December 2025")
-c.setFillColor(HexColor(lighteryellow))
-c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
 leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
@@ -357,6 +355,8 @@ activity_height = 90
 activity_angle = 20
 col = 0
 for i in range(0, len(monthevents)):
+    c.setFillColor(HexColor(lighteryellow))
+    c.rect(activity_x - 10, activity_y - 10, activity_width + 50, activity_height + 50, stroke = 0, fill = 1)
     drawActivity(c, activity_x,  activity_y, activity_width, activity_height, activity_angle, i)
     col += 1
     activity_x = activity_x + 270
@@ -371,8 +371,6 @@ for i in range(0, len(monthevents)):
         c.setFillColor(HexColor("#000000"))
         c.setFont(activityfont, 20)
         c.drawString(version_x, version_y, "December 2025")
-        c.setFillColor(HexColor(lighteryellow))
-        c.rect(75, 95, 300, 200, stroke = 0, fill = 1)
         activity_x = leftmargin
         activity_y = 410
         col = 0
