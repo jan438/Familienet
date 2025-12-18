@@ -350,7 +350,7 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor("#0000000"))
 c.setFont(activityfontbold, 20)
-c.drawString(version_x, version_y, "December 2025")
+c.drawString(version_x, version_y, version)
 leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
@@ -372,8 +372,8 @@ for i in range(0, len(monthevents)):
         c.setFillColor(HexColor(yellowbackground))
         c.rect(0, 0, A4_height, A4_width, fill = 1)
         c.setFillColor(HexColor("#000000"))
-        c.setFont(activityfont, 20)
-        c.drawString(version_x, version_y, "December 2025")
+        c.setFont(activityfontbold, 20)
+        c.drawString(version_x, version_y, version)
         activity_x = leftmargin
         activity_y = 410
         col = 0
