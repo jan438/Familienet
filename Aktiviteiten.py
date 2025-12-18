@@ -20,7 +20,7 @@ startdate = datetime(1990,1,1)
 datecal = datetime.now()
 activityfont = "LiberationSerif"
 activityfontbold = "LiberationSerifBold"
-version_x = 170
+version_x = 421
 version_y = 560
 version = "December 2025"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
@@ -350,7 +350,8 @@ c.setFillColor(HexColor(yellowbackground))
 c.rect(0, 0, A4_height, A4_width, fill = 1)
 c.setFillColor(HexColor("#0000000"))
 c.setFont(activityfontbold, 20)
-c.drawString(version_x, version_y, version)
+versionwidth = pdfmetrics.stringWidth(version,  activityfontbold, 20)
+c.drawString(version_x - 0.5 * versionwidth, version_y, version)
 leftmargin = 30
 activity_x = leftmargin
 activity_y = 410
@@ -373,7 +374,8 @@ for i in range(0, len(monthevents)):
         c.rect(0, 0, A4_height, A4_width, fill = 1)
         c.setFillColor(HexColor("#000000"))
         c.setFont(activityfontbold, 20)
-        c.drawString(version_x, version_y, version)
+        versionwidth = pdfmetrics.stringWidth(version,  activityfontbold, 20)    
+        c.drawString(version_x - 0.5 * versionwidth, version_y, version)
         activity_x = leftmargin
         activity_y = 410
         col = 0
