@@ -104,6 +104,7 @@ def lookupimage(imgcode):
     newcalendar[33] = "bloemschikken"
     newcalendar[34] = "klassiekemuziek"
     newcalendar[35] = "optredenfanfare"
+    newcalendar[36] = "bewegenopmuziek"    
     newcalendar[37] = "vuurwerk"
     newcalendar[40] = "kerstdagen"
     newcalendar[41] = "lichtjeswandeling"
