@@ -109,6 +109,7 @@ def lookupimage(imgcode):
     newcalendar[40] = "kerstdagen"
     newcalendar[41] = "lichtjeswandeling"
     newcalendar[42] = "kerstkaravaan"
+    newcalendar[47] = "bingo"    
     newcalendar[48] = "accordeon"  
     newcalendar[49] = "dagtour"  
     newcalendar[88] = "sjoelen"
