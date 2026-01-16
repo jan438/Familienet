@@ -15,5 +15,7 @@ for i in range(6):
 
     # Turn left the turtle by 300 degrees
     geekyTurtle.left(300)
+    
+ws.getcanvas().postscript(file="PDF/duck.eps")
 
 key = input("Wait")
