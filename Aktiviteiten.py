@@ -360,7 +360,7 @@ versionwidth = pdfmetrics.stringWidth(version,  activityfontbold, 20)
 c.drawString(version_x - 0.5 * versionwidth, version_y, version)
 leftmargin = 30
 activity_x = leftmargin
-activity_y = 400
+activity_y = 390
 activity_width = 220
 activity_height = 90
 activity_angle = 20
@@ -384,7 +384,7 @@ for i in range(0, len(monthevents)):
         versionwidth = pdfmetrics.stringWidth(version,  activityfontbold, 20)    
         c.drawString(version_x - 0.5 * versionwidth, version_y, version)
         activity_x = leftmargin
-        activity_y = 400
+        activity_y = 390
         col = 0
 c.save()
 
