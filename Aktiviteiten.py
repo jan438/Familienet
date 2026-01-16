@@ -365,6 +365,7 @@ activity_width = 220
 activity_height = 90
 activity_angle = 20
 col = 0
+rowheight = 160
 for i in range(0, len(monthevents)):
     drawRect(c, activity_x - 10,  activity_y - 10, activity_width + 20, activity_height + 30, activity_angle, lighteryellow)
     drawActivity(c, activity_x,  activity_y, activity_width, activity_height, activity_angle, i)
@@ -373,7 +374,7 @@ for i in range(0, len(monthevents)):
     if col == 3:
         col = 0
         activity_x = leftmargin
-        activity_y = activity_y - 160
+        activity_y = activity_y - rowheight
     if (i + 1) % 9 == 0:
         c.showPage()
         c.setFillColor(HexColor(yellowbackground))
