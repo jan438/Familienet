@@ -181,13 +181,13 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
     c.setFont(activityfontbold, 13)
-    activity_daytime_y = 85
+    activity_daytime_y = 90
     dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 13)    
     margin = activity_width - dtwidth   
     c.drawString(activity_x + 0.5 * margin, activity_y + activity_daytime_y, daytimestr)
     c.setFont(activityfont, summfontsize)
     inparts = monthevents[i].summary.split()
-    activity_summary_y = 68
+    activity_summary_y = 73
     activity_summary_dy = 0
     (first, rest, margin) = breakoff(inparts, summfontsize, activity_width - activity_angle)
     c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_summary_y, first)
