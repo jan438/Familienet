@@ -178,33 +178,33 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
         timestr = ""
     daytimestr = str(monthevents[i].day) + " " + weekdaynames[monthevents[i].weekday] + " " + timestr
     c.setFillColor(HexColor(blacktext))
-    c.setFont(activityfontbold, 12)
+    c.setFont(activityfontbold, 13)
     activity_daytime_y = 85
-    dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 12)    
+    dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 13)    
     margin = activity_width - dtwidth   
     c.drawString(activity_x + 0.5 * margin, activity_y + activity_daytime_y, daytimestr)
-    c.setFont(activityfont, 11)
+    c.setFont(activityfont, 12)
     inparts = monthevents[i].summary.split()
     activity_summary_y = 68
     activity_summary_dy = 0
-    (first, rest, margin) = breakoff(inparts, 10, activity_width - activity_angle)
+    (first, rest, margin) = breakoff(inparts, 12, activity_width - activity_angle)
     c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
-        (first, rest, margin) = breakoff(rest, 10, activity_width - activity_angle)
+        (first, rest, margin) = breakoff(rest, 12, activity_width - activity_angle)
         c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_summary_y - activity_summary_dy, first)
-    c.setFont(activityfont, 10)
+    c.setFont(activityfont, 11)
     (imgcode, text) = processsdescription(monthevents[i].description)
     #print(i, "day", str(monthevents[i].day), "img", imgcode, "txt", text)
     if len(text) > 0:
         inparts = text.split()
         activity_description_y = 53
         activity_description_dy = 0
-        (first, rest, margin) = breakoff(inparts, 9, activity_width - activity_angle)
+        (first, rest, margin) = breakoff(inparts, 11, activity_width - activity_angle)
         c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_description_y, first)
         while len(rest) > 0:
             activity_description_dy = activity_description_dy + 9
-            (first, rest, margin) = breakoff(rest, 9, activity_width - activity_angle)
+            (first, rest, margin) = breakoff(rest, 11, activity_width - activity_angle)
             c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 115
     activity_kind_y = rowheight - 40
