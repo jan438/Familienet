@@ -209,7 +209,7 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
             (first, rest, margin) = breakoff(rest, descfontsize, activity_width - activity_angle)
             c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_description_y - activity_description_dy, first)
     activity_kind_x = 115
-    activity_kind_y = rowheight - 40
+    activity_kind_y = rowheight - 30
     activity_kind_r = 20
     if len(imgcode) > 0:
         img = lookupimage(imgcode)
