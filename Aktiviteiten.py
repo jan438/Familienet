@@ -25,6 +25,7 @@ version_y = 560
 version = "Januari 2026"
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
+summfontsize = 12
 descfontsize = 11
 
 class FamilienetEvent:
@@ -184,15 +185,15 @@ def drawActivity(c, activity_x, activity_y, w, h, a, i):
     dtwidth = pdfmetrics.stringWidth(daytimestr,  activityfont, 13)    
     margin = activity_width - dtwidth   
     c.drawString(activity_x + 0.5 * margin, activity_y + activity_daytime_y, daytimestr)
-    c.setFont(activityfont, 12)
+    c.setFont(activityfont, summfontsize)
     inparts = monthevents[i].summary.split()
     activity_summary_y = 68
     activity_summary_dy = 0
-    (first, rest, margin) = breakoff(inparts, 12, activity_width - activity_angle)
+    (first, rest, margin) = breakoff(inparts, summfontsize, activity_width - activity_angle)
     c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_summary_y, first)
     while len(rest) > 0:
         activity_summary_dy = activity_summary_dy + 10
-        (first, rest, margin) = breakoff(rest, 12, activity_width - activity_angle)
+        (first, rest, margin) = breakoff(rest, summfontsize, activity_width - activity_angle)
         c.drawString(activity_x + 8.0 + 0.5 * margin, activity_y + activity_summary_y - activity_summary_dy, first)
     c.setFont(activityfont, descfontsize)
     (imgcode, text) = processsdescription(monthevents[i].description)
