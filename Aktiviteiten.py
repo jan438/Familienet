@@ -22,9 +22,10 @@ activityfont = "LiberationSerif"
 activityfontbold = "LiberationSerifBold"
 version_x = 0.5 * A4[1]
 version_y = 560
-version = "Januari 2026"
+month = 1
 weekdaynames = ["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"]
 monthnames = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus", "September","Oktober","November","December"]
+version = monthnames[month] + " 2026"
 summfontsize = 12
 descfontsize = 11
 
