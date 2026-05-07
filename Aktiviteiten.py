@@ -119,6 +119,8 @@ def lookupimage(imgcode):
     newcalendar[49] = "dagtour"
     newcalendar[50] = "gitaar"
     newcalendar[51] = "film"
+    newcalendar[52] = "kaars"
+    newcalendar[53] = "koor"
     newcalendar[88] = "sjoelen"
     newcalendar[89] = "feestdagen"
     img = newcalendar[int(imgcode)]
