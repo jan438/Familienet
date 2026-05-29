@@ -162,18 +162,18 @@ def breakoff(textarray, fontsize, limitlength):
             break
     return (first, rest, margin)
     
-def drawRect(c, activity_x, activity_y, w, h, a, color):    
+def drawRect(c, x, y, w, h, a, color):    
     c.setFillColor(HexColor(color))
     p = c.beginPath()
-    p.moveTo(activity_x, activity_y + 0.5 * a)
-    p.arcTo(activity_x, activity_y, activity_x + a, activity_y + a, startAng = 180, extent = 90)  # arc left below
-    p.lineTo(activity_x + w, activity_y)                                                           # horizontal line
-    p.arcTo(activity_x + w, activity_y, activity_x + w + a, activity_y + a, startAng = 270, extent = 90)  # arc right below
-    p.lineTo(activity_x + w + a, activity_y + h)                                                      # vertcal line
-    p.arcTo(activity_x + w, activity_y + h, activity_x + w + a, activity_y + h + a, startAng = 0, extent = 90)     # arc right above
-    p.lineTo(activity_x + 0.5 * a, activity_y + h + a)                                                   # horizontal line
-    p.arcTo(activity_x, activity_y + h, activity_x + a, activity_y + h + a, startAng = 90, extent = 90)    # arc left above
-    p.lineTo(activity_x, activity_y + 0.5 * a)                                                                # vertcal line
+    p.moveTo(x, y + 0.5 * a)
+    p.arcTo(x, y, x + a, y + a, startAng = 180, extent = 90)  # arc left below
+    p.lineTo(x + w, y)                                                           # horizontal line
+    p.arcTo(x + w, y, x + w + a, y + a, startAng = 270, extent = 90)  # arc right below
+    p.lineTo(x + w + a, y + h)                                                      # vertcal line
+    p.arcTo(x + w, y + h, x + w + a, y + h + a, startAng = 0, extent = 90)     # arc right above
+    p.lineTo(x + 0.5 * a, y + h + a)                                                   # horizontal line
+    p.arcTo(x, y + h, x + a, y + h + a, startAng = 90, extent = 90)    # arc left above
+    p.lineTo(x, y + 0.5 * a)                                                                # vertcal line
     c.drawPath(p, stroke = 0, fill = 1)
     
 def drawActivity(c, activity_x, activity_y, w, h, a, i):
