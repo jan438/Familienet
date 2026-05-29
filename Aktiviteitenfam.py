@@ -323,11 +323,12 @@ for i in range(countlines):
     if alarmM2pos == 0:
         alarm = alarm + "M[10]"
     if endeventpos == 0:
-        if found == 5:
-            monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
-        if found == 4:
-            print("allday")
-            monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
+        if month == 6:
+            if found == 5:
+                monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
+            if found == 4:
+                print("allday")
+                monthevents.append(FamilienetEvent(eventdescription, eventsummary, weekday - 1, weeknr - first_week, day, eventlocation, starttime, endtime, dayyear, month, alarm))
         alarm = ""
 print("Count events", len(monthevents), "begin", countbegin)
 
